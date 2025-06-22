@@ -1,77 +1,44 @@
 # 01 - Basic ZSH Configuration
 
+## Objective
+
+By the end of this section you should have some basic knowledge of the important parts of a `zshrc` configuration file. You should be able to apply the options discussed here to your own `zshrc` file to change the default behavior and unlock some hidden functionality.
+
+You will also have configured your command history file to persist for a long time, and to cleanly share history entries between multiple terminals, instead of each one having their own history.
+
+You will know how to make your `zshrc` file modular, by crating separate files and then `sourcing` them into your main file.
+
 ## Overview
 
 Your `zshrc` file contains configuration and customization that will be applied to every interactive `zsh` session. By default, this configuration file is `~/.zshrc` ("~" is an alias for your home directory).
 
-This is a walk-through of a basic `zshrc` configuration file. You can use this as the base configuration for your own `~/.zshrc`.
+In this section, we'll cover some core, global configuration settings, as well as managing your command history.
 
-The example file, `zshrc-example.zsh`, is fully commented with descriptions of every line.
+An example `zshrc-example.zsh` file has been provided with the configuration options discussed in this chapter. The example file is fully commented with descriptions of every line.
 
-This document will walk through the most important bits and give a bit more context.
+For the most part, you just need to read-along and try the suggested exercises along the way. The exercises mostly amount to running a command at the terminal and observing the change that the various configuration options make.
 
 ### Exploring the Example Configuration
 
 Open this document in a window, on one side of your screen, and open your terminal emulator on the other half.
 
-Start a fresh `zsh` session and `source` the example file:
+Start a fresh `zsh` session:
+
 ```zsh
-zsh -dl
+zsh -df
+```
+
+This will enter a clean `zsh` shell with NO configuration (only the default settings).
+
+When you want to apply the contents of the example file (or your own test files), you can `source` those files to import them into the current session:
+
+```zsh
 source ./zshrc-example.zsh
 ```
 
-This will enter a clean `zsh` shell with ONLY the configuration from the example file.
+When you make changes the example file you will need to `source` it again.
 
-## Auto-Complete Engine
-
-`zsh` has an advanced auto-complete engine that can be used to auto-complete the name of a command, the path to a file, or even command arguments.
-
-To enable the auto-complete engine, we have to call the `compinit` shell function.
-
-```zsh
-autoload -U compinit && compinit
-```
-
-Once the completion engine is loaded, you don't need to do anything else. `zsh` ships with completion support for many standard commands, and most tools you install through a package manager will install `zsh` completion support automatically.
-
-There are many other projects and packages you can find that will add more completion support for other programs. You can also write your own completion rules, but you will need a different guide for that.
-
-[Here is a detailed guide for using the completion system](https://thevaluable.dev/zsh-completion-guide-examples/).
-
-[Here is the Completion System Reference](https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Completion-System).
-
-### Try it Out
-
-Start a new `zsh` session, but don't `source` the example file just yet:
-
-```zsh
-zsh -dl
-```
-
-Now type the (incomplete) command `sed ` (note the space at the end), and press `tab` twice. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
-
-```
-hostname% sed <TAB><TAB>
- README.md
- zshrc-example.zsh
-```
-
-You can cycle through the options by pressing `tab` again, and then enter/return to select an option.
-
-But these options don't make any sense for the `sed` command, it doesn't expect a filename as a positional argument.
-
-Now `source` the example file and the completion engine will show a more appropriate menu for the context:
-
-```
-hostname% sed <TAB><TAB>
- #  -- comment
- :  -- place label
- =  -- print current line number
- D  -- delete up to the first newline in the pattern space
- ...(truncated)
-```
-
-Now you will see a list of all the options that are actually appropriate for `sed`.
+If you want to go back to a clean shell and start over, type `exit` or press `ctrl+d` to go back to your regular shell, and you can start again.
 
 ## Command History
 
@@ -91,9 +58,7 @@ setopt APPEND_HISTORY
 
 This sets a single history file location for all sessions to use, and will keep up to 50,000 entries in that file. When the history size is exceeded, the oldest commands in the file will be deleted.
 
-You can save space by de-duplicating the entries in your history file.
-
-However, it is often very useful to cycle through entries in your history, in sequence, to replay a series of repeated commands. In that case, you would want to keep the duplicate commands so you can play them back in the correct order.
+You can save space by de-duplicating the entries in your history file. However, it is often very useful to cycle through entries in your history, in sequence, to replay a series of repeated commands. In that case, you would want to keep the duplicate commands so you can play them back in the correct order.
 
 
 ```zsh
@@ -122,7 +87,7 @@ setopt EXTENDED_HISTORY
 Start a new `zsh` session and `source` the example file:
 
 ```zsh
-zsh -dl
+zsh -df
 source ./zshrc-example.zsh
 ```
 
@@ -142,6 +107,8 @@ less ~/.zsh_history
 ```
 
 Use the `up` and `down` arrow keys to cycle through the entries at the terminal. You can hit enter/return to re-run the command or use the `left` and `right` arrow keys to move around and edit the command first.
+
+Press `ctrl+r` and start typing 'hello' when prompted for a search.
 
 Try navigating back to the `find` command, and changing `.md` to `.zsh` to search for `zsh` files instead of markdown.
 
@@ -260,6 +227,8 @@ bindkey "^e" edit-command-line
 
 #### Try it Out
 
+First make sure the `zshrc-example.zsh` file has been sourced into the current session.
+
 Start typing a command, `ls /bin` then press `Ctrl+e` to launch the editor.
 
 In the text editor, change the text from `ls /bin`, to `find . -name '*sh'`. Save the file and exit the editor. Press enter to run the command.
@@ -289,13 +258,5 @@ You should manage your `zshrc` configuration as a `git` repository. This will al
 
 ```zsh
 cd ~
-ln -s ~/src/my-zshrc/zshrc-example.zsh .zshrc
+ln -s ~/src/my-zshrc/zshrc.zsh .zshrc
 ```
-
-At work, your data will be backed up automatically (I think).
-
-For personal files, you can use a free `github` repo, and use that to re-install or copy your configuration to a new system.
-
-## Work-Specific Stuff
-
-TODO: move this to a corp-managed repo.

@@ -11,15 +11,6 @@ typeset -U path cdpath fpath manpath
 
 
 #
-# Auto-complete engine:
-#
-# Initialize auto-completion engine.
-# Find the method `compinit` in `$fpath` at runtime, then invoke it.
-# Use <tab><tab> to see completion options for the command you are typing.
-autoload -U compinit && compinit
-
-
-#
 # Command history settings:
 #
 # Set a specific location for your history file.
@@ -70,14 +61,13 @@ export path=($path "~/bin")
 # `export PATH="$PATH:~/bin"`
 
 
-
 #
 # Custom aliases:
 #
 # Define some aliases. Short-cuts for commonly used commands.
-alias -- la='ls --color -al'
-alias -- ll='ls --color -l'
 alias -- ls='ls --color'
+alias -- la='ls -al'
+alias -- ll='ls -l'
 
 
 #
