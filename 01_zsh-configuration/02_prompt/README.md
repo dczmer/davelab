@@ -220,11 +220,11 @@ zsh -df
 source ./prompt-example.zsh
 ```
 
-Try creating a new branch with `git branch -b test-branch`, then re-`source` the example to force the `git` prompt to update.
+Try creating a new branch with `git branch -b test-branch` and observe the changes to the prompt.
 
-Now try making a change to one of the files in this repository, which should make an 'unstaged' change. Re-`source` the example file to force the `git` prompt to update.
+Now try making a change to one of the files in this repository, which should make an 'unstaged' change.
 
-Now run `git add FILENAME` to stage that change (replace `FILENAME` with the name of the file that you modified). Re-`source` the example file again.
+Now run `git add FILENAME` to stage that change (replace `FILENAME` with the name of the file that you modified).
 
 Now you can go back to the `master` branch with `git checkout master`.
 
@@ -249,6 +249,8 @@ Here are a couple that I know of:
     - Downside: it's pretty slow and will often crash when your system python version changes.
 
 If you want to go this way, I'd recommend `starship`.
+
+The `git` prompts from `starship` and `p10k` can show a lot more information about the state of the repository than the simple `vcs_info` can, like if you're branch is ahead of the origin, or if you have untracked files, etc. On the other hand, the operations required to get that extra info can make your prompt feel very sluggish when you are working on a large repository.
 
 I would stay away from `powerline` or anything else that runs "in your prompt string." When `powerline` crashes, it means you have no useful prompt, and sometimes you can't even interact with your shell!
 

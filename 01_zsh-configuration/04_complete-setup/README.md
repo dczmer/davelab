@@ -1,6 +1,18 @@
 # 04 Completed Configuration
 
-# Completed Configuration
+# Objective
+
+In this section, you will be presented with a completed `.zshrc` file and we'll discuss how you can merge it with your existing configuration (if you have one), as well as the things you probably want to modify or customize.
+
+We'll also talk about some useful plugins that you may be interested in using, and how to install and manage them.
+
+# Overview
+
+You probably already have a default `~/.zshrc` file, with some things you've had to add when installing programs. You might also have some existing aliases or environment variables that you want to preserve. When adopting all (or part) of this configuration into your own file, you will want to be sure not to break anything you already have.
+
+There are a few `zsh` plugins that I really like. Installing and managing plugins is pretty easy, and you likely won't need very many. But there are plugin managers and package managers you could use to install and configure plugins and color themes for you.
+
+# Completing Your Configuration
 
 The included file `zshrc.zsh` is the combined configurations from every section in this module. We didn't cover every single line that appears in this file, but every line is explained in the example `zsh` files included with all of the sections so far.
 

@@ -1,8 +1,12 @@
 # 03 - The Completion System
 
+## Objective
+
+By the end of this section, you will have configured the `zsh` completion engine and you will know about the important settings and variables you might want to adjust.
+
 ## Overview
 
-`zsh` has an advanced autocomplete engine that can be used to autocomplete the name of a command, the path to a file, or even command arguments.
+`zsh` has an advanced completion engine that can be used to autocomplete the name of a command, the path to a file, or even command arguments.
 
 ![image](./images/completion.png)
 
@@ -94,7 +98,7 @@ This makes the completion menu colorize entries in the same way as `ls --color`.
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 ```
 
-With this line, the completion engine will NOT jump to the first menu entry immediately. Instead, it will let you keep typing the command and you can press `<tab>` once more to jump to the first menu option.
+With this line, the completion engine will NOT jump to the first menu entry immediately. Instead, it will let you keep typing the command to further filter the menu, and you can press `<tab>` once more to jump to the first menu option.
 
 ```zsh
 unsetopt MENU_COMPLETE
@@ -105,7 +109,7 @@ unsetopt MENU_COMPLETE
 Start a new session with `zsh -df` and then enable `compinit`, like we did in the last exercise.
 
 ```zsh
-hostname% autoload compinit && compinit
+autoload compinit && compinit
 ```
 
 Try the following, and observe the autocomplete behavior and menu presentation, and we'll see how it changes when we enable all of these options after that.

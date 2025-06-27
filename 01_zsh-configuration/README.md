@@ -1,4 +1,4 @@
-# DaveLab 01 Configuring ZSH For Everyday Use
+# DaveLab 01 - Configuring ZSH For Everyday Use
 
 ## Objective
 
@@ -43,9 +43,9 @@ Each section will briefly cover the material, then explain how you can try it ou
 
 ### 3. Running the Examples
 
-We can test configuration files and shell scripts by starting a fresh `zsh` session in your terminal. This will ensure we're working from a clean slate, with zero custom configuration, so we can experiment with changing settings, and be sure scripts and commands will work consistently.
+We can test configuration files and shell scripts by starting a fresh `zsh` session in your terminal. This will ensure we're working from a clean slate, with zero custom configuration, so we can experiment with changing settings and be sure scripts and commands will work consistently.
 
-To start, open your terminal emulator and start a new `zsh` session (even if you are already using `zsh` as your default shell):
+To start, open your terminal emulator and start a new `zsh` session:
 
 ```zsh
 zsh -df
@@ -59,8 +59,4 @@ Then you can `source` the configuration file that you want to test:
 source example_config.zsh
 ```
 
-You can `source` your file again, to apply changes, or you can `exit` to go back to the shell environment from before you typed `zsh -df`.
-
-
-
-
+You can `source` your file again if you need to apply changes, or you can `exit` to go back to the shell environment from before you typed `zsh -df`.
