@@ -14,7 +14,7 @@ Your `zshrc` file contains configuration and customization that will be applied 
 
 In this section, we'll cover some core, global configuration settings, as well as managing your command history.
 
-An example `zshrc-example.zsh` file has been provided with the configuration options discussed in this chapter. The example file is fully commented with descriptions of every line.
+An example [`zshrc-example.zsh`](./zshrc-example.zsh) file has been provided with the configuration options discussed in this chapter. The example file is fully commented with descriptions of every line.
 
 For the most part, you just need to read-along and try the suggested exercises along the way. The exercises mostly amount to running a command at the terminal and observing the change that the various configuration options make.
 
@@ -229,7 +229,7 @@ bindkey "^e" edit-command-line
 
 First make sure the `zshrc-example.zsh` file has been sourced into the current session.
 
-Start typing a command, `ls /bin` then press `Ctrl+e` to launch the editor.
+Start typing a command, `ls /bin` but do not press enter/return. Now press `Ctrl+e` to launch the editor.
 
 In the text editor, change the text from `ls /bin`, to `find . -name '*sh'`. Save the file and exit the editor. Press enter to run the command.
 
@@ -251,7 +251,7 @@ source ./aliases.zsh
 You should manage your `zshrc` configuration as a `git` repository. This will allow you to back it up and easily copy it to other machines. It will also let you create checkpoints by making local commits whenever you make a change. If you really mess up, you can just go back to the previous commit.
 
 1. Create a new repository somewhere. Example: `git init ~/src/my-zshrc`
-2. Copy your custom `zshrc` file, or the provided `zshrc-example.zsh`, to that repository and call it `zshrc.zsh`.
+2. Copy your custom `zshrc` file, or the provided [`zshrc-example.zsh`](./zshrc-example.zsh), to that repository and call it `zshrc.zsh`.
 3. If you have additional source files/modules, put them in the same directory.
 4. Add all the files to the repository and make an initial commit.
 5. Now you can make a symbolic link to point `~/.zshrc` to your `zshrc.zsh` file.

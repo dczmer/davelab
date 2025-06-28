@@ -4,15 +4,6 @@
 
 By the end of this module, you will have created your own customized `zshrc` file that you can use to replace/augment your existing configuration, to make it much easier to perform tasks in the shell. Importantly, you will know what every option in that configuration file does and how to change it.
 
-## Contents
-
-In this module, we will walk through setting up a basic `zsh` shell environment.
-
-- [Basic ZSH configuration](./01_zsh-config/README.md) will cover configuring how your command history works, and adjusting some global settings.
-- [Customizing your prompt](./02_prompt/README.md) will cover how to create a custom prompt string, and we'll talk about prompt generators and other tools that might automate the process for you.
-- [The completion system](./03_completion/README.md) will cover how to enable and customise the completion engine, which will help you enter commands correctly by showing you the valid options and letting you pick from a menu.
-- [Finishing your set-up](./04_complete-setup/README.md) will talk about some random topics, like plugins, plugin managers, and other shells you might find interesting. Then we'll cover how to merge the final `zshrc` that we made in this module into your existing `zshrc` file (or just replace it if you haven't ever customized it).
-
 ## How to Explore this Course
 
 Before you do anything else, make sure you install a command line text editor and learn how to enter text, save, and exit.
@@ -35,7 +26,7 @@ Clone this repository so you have a local copy to work in. In your shell, naviga
 
 The chapters are sorted numerically. Start at chapter '01' and continue in order.
 
-Each chapter has a `README.md` file with the course material, as well as one or more other example files. This means you can read the source material in the browser via `github` UI, while you work in a terminal. Try putting your browser on one side of your desktop, and your terminal on the other side, so they both take up exactly half of the screen.
+Each chapter has a `README.md` file with the course material, as well as one or more other example files. This means you can read the source material in the browser, via `github` UI, while you work in a terminal. Try putting your browser on one side of your desktop, and your terminal on the other side, so they both take up exactly half of the screen.
 
 ![image](./images/side-by-side.png)
 
@@ -60,3 +51,12 @@ source example_config.zsh
 ```
 
 You can `source` your file again if you need to apply changes, or you can `exit` to go back to the shell environment from before you typed `zsh -df`.
+
+## Contents
+
+In this module, we will walk through setting up a basic `zsh` shell environment.
+
+- [Basic ZSH configuration](./01_zsh-config/README.md) will cover configuring how your command history works, and adjusting some global settings.
+- [Customizing your prompt](./02_prompt/README.md) will cover how to create a custom prompt string, and we'll talk about prompt generators and other tools that might automate the process for you.
+- [The completion system](./03_completion/README.md) will cover how to enable and customize the completion engine, which will help you enter commands correctly by showing you the valid options and letting you pick from a menu.
+- [Finishing your set-up](./04_complete-setup/README.md) will talk about some random topics, like plugins, plugin managers, and other shells you might find interesting. Then we'll cover how to merge the final `zshrc` that we made in this module into your existing `zshrc` file (or just replace it if you haven't ever customized it).

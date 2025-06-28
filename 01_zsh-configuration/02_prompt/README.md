@@ -42,7 +42,7 @@ Things you might want in your prompt:
 - The status code of the previous command (`$?`)
 - The number of background jobs (running programs sent to the background with `ctrl-z`)
 
-We will use `print -P` to test out some different prompt strings, configure a `git` info section, and then `source` the included `prompt-example.zsh` and test out the difference.
+We will use `print -P` to test out some different prompt strings, configure a `git` info section, and then `source` the included [`prompt-example.zsh`](./prompt-example.zsh) and test out the difference.
 
 You can copy the contents of the example file and add it to your own `.zshrc` file, but these options are more subjective to personal preference, so you might want to customize things a little further.
 
@@ -110,7 +110,7 @@ print -P "%m%# "
 
 Try adding `%d` to print the current working directory, and then try with `%1d` instead. Try other numbers instead of just `1`, maybe even try some negative numbers...
 
-Try running `man zshmisc` from the prompt and then searching (with `/`) for `"EXPANSION OF PROMPT SEQUENCES"` to see every code that is available. Add something to your prompt-string that we haven't covered.
+Try running `man zshmisc` from the prompt and then searching (with `/`) for `EXPANSION OF PROMPT SEQUENCES` to see every code that is available. Add something to your prompt-string that we haven't covered.
 
 ## Colors and Escape Sequences
 
@@ -154,19 +154,12 @@ Try running `man zshmisc` from the prompt and then searching (with `/`) for `"EX
 
 Try modifying this format string `%F{green}Hello%f` to have two sections of text, with opposite foreground and background colors. So maybe "HELLO" in green foreground and black background, and "WORLD" in black foreground and green background. Use `print -P` to test it out.
 
-Notice that we're just printing a shell string, which means we can interpolate any environment variable into the shell, and we can run any command and put the standard out in the prompt as well.
-
-Try including the current value of the `EDITOR` variable, which we set in the previous chapter. Use `$EDITOR` inside the prompt string, and make sure you are using double-quotes (`"`) around the prompt-string, because single-quotes won't allow interpolation.
-
-Then try adding the output of a shell command using `$(command)` inside of your double-quoted prompt-string. Try printing the number of files from the current working directory using `$(ls . | wc -l)` in your prompt-string.
-
 <details>
 
-<summary>Answers</summary>
+<summary>Answer</summary>
 
 ```zsh
 print -P "%F{green}%K{black}Hello%k%f %F{black}%K{green}World%k%f"
-print -P "[$EDITOR] --> Files=$(ls . | wc -l)"
 ```
 </details>
 
@@ -220,7 +213,7 @@ zsh -df
 source ./prompt-example.zsh
 ```
 
-Try creating a new branch with `git branch -b test-branch` and observe the changes to the prompt.
+Try creating a new branch with `git checkout -b test-branch` and observe the changes to the prompt.
 
 Now try making a change to one of the files in this repository, which should make an 'unstaged' change.
 

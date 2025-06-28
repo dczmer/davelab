@@ -51,7 +51,7 @@ unsetopt MENU_COMPLETE
 # Custom keybindings:
 
 # use vim keybindings for the line editor.
-bindkey -v
+#bindkey -v
 # automatically find the location of the edit-command-line function from $fpath.
 autoload edit-command-line
 zle -N edit-command-line
