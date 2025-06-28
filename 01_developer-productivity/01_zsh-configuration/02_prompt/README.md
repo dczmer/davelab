@@ -1,4 +1,4 @@
-# 02 - Configuring Your Prompt
+# Configuring ZSH For Everyday Use 02 - Configuring Your Prompt
 
 ## Objective
 

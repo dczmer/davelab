@@ -1,14 +1,14 @@
-# DaveLab 01 - Configuring ZSH For Everyday Use
+# Developer Productivity 01 - Configuring ZSH For Everyday Use
 
 ## Objective
 
-By the end of this module, you will have created your own customized `zshrc` file that you can use to replace/augment your existing configuration, to make it much easier to perform tasks in the shell. Importantly, you will know what every option in that configuration file does and how to change it.
+By the end of this module you will have created your own customized `zshrc` file that you can use to replace/augment your existing configuration, to make it much easier to perform tasks in the shell. Importantly, you will know what every option in that configuration file does and how to change it.
 
 ## How to Explore this Course
 
 Before you do anything else, make sure you install a command line text editor and learn how to enter text, save, and exit.
 
-### 1. Install ZSH
+### Install ZSH
 
 First, you will need to make sure you have `zsh` installed.
 
@@ -18,21 +18,7 @@ If you are on Linux or WSL, you will need to be sure you have it installed.
 
 The instructions vary, depending on your specific operating system or distribution, but it usually involves installing the `zsh` package from your package manager. Making it your default shell can be done either in the settings for your terminal emulator, or by using the `chsh` command.
 
-### 2. Navigating the Chapters
-
-This project is structured as a `git` repo, intended to be hosted on a platform where you can easily view `README.md` files in a web browser (like `github`).
-
-Clone this repository so you have a local copy to work in. In your shell, navigate to the directory for each chapter as you go.
-
-The chapters are sorted numerically. Start at chapter '01' and continue in order.
-
-Each chapter has a `README.md` file with the course material, as well as one or more other example files. This means you can read the source material in the browser, via `github` UI, while you work in a terminal. Try putting your browser on one side of your desktop, and your terminal on the other side, so they both take up exactly half of the screen.
-
-![image](./images/side-by-side.png)
-
-Each section will briefly cover the material, then explain how you can try it out and experiment.
-
-### 3. Running the Examples
+### Running the Examples
 
 We can test configuration files and shell scripts by starting a fresh `zsh` session in your terminal. This will ensure we're working from a clean slate, with zero custom configuration, so we can experiment with changing settings and be sure scripts and commands will work consistently.
 

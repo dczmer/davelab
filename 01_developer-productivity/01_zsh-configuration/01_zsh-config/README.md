@@ -1,4 +1,4 @@
-# 01 - Basic ZSH Configuration
+# Configuring ZSH For Everyday Use 01 - Basic ZSH Configuration
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# 03 - The Completion System
+# Configuring ZSH For Everyday Use 03 - The Completion System
 
 ## Objective
 

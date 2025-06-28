@@ -1,4 +1,4 @@
-# 04 Completed Configuration
+# Configuring ZSH For Everyday Use 04 Completed Configuration
 
 # Objective
 
