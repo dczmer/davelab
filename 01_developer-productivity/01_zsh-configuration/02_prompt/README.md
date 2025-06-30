@@ -223,6 +223,76 @@ Now you can go back to the `master` branch with `git checkout master`.
 
 If you want, delete that test branch with `git branch -D test-branch`.
 
+## The `RPROMPT` Variable
+
+You can also define a prompt-string to display on the right-side of the command-line by setting the `RPROMPT` variable:
+
+```zsh
+export RPROMPT='%F{blue}%t%f'
+```
+
+This would show the current time, in blue text, on the far right side of your command line.
+
+![image](./images/rprompt.png)
+
+## Conditional Formats
+
+There are a few conditional formatting options you can apply to your prompt.
+
+Run `man zshmisc` from the prompt and then searching (with `/`) for `CONDITIONAL SUBSTRINGS IN PROMPT`.
+
+There are only a fixed few variables/conditions, and the syntax is a little strange.
+
+The escape sequence starts with `%(`, followed by:
+
+- Optionally, an integer value, that can be compared to the variable.
+- The one-character 'conditional variable' that evaluates when the prompt is rendered.
+- Followed by a delimiter.
+- Then the 'true' format string value.
+- Then the delimiter again.
+- Then the 'false' format string value.
+- Then `)` to close the sequence.
+
+```zsh
+print -P '%0(?.0.%F{red}%?%f)'
+```
+
+This will print the status code of the previous command, in red, if the code was non-zero. If the code was zero, it prints a zero in the default color.
+
+- `%0(` - We're evaluating condition that means 'if status code == N, where N = 0.
+- `?` - The condition is based on the status code of the last command (equal to N).
+- `.` - The delimiter we chose to use is a '.'. You can use anything, as long as you don't use that same value in your format string.
+- `0` - The 'true' prompt-string. Just prints a '0' in the default colors.
+- `.` The same delimiter character again.
+- `%F{red}%?%f` - The 'false' (NOT equal to 0), which prints the response code in red.
+
+Here is the final prompt format, including conditional formatting for background jobs and the status code of the previous command.
+
+```zsh
+export PS1='${vcs_info_msg_0_} %F{blue} %f%1d%1(j. %F{yellow}%j%f.)%F{blue}>%f '
+export RPROMPT='<%0(?..%F{red}%?%f)%F{blue}%t%f'
+```
+
+If these are not sufficient, you can always call a function or another program to implement conditional formatting.
+
+### Try it Out
+
+Type an invalid command, like `ls` for a directory that doesn't exist:
+
+```zsh
+ls xyz123
+```
+
+Now try suspending a job to the background with `ctrl+z`:
+
+```zsh
+less ./README.md
+```
+
+Press `ctrl+z` to suspend the process to the background. You should see a yellow '1' next to your prompt now.
+
+Type `fg` to bring the job back to the foreground, then hit `q` to exit.
+
 ## Prompt Configuration Applications
 
 There are also programs and utilities that you can use to generate a more complicated, themed prompt. There are even programs that are designed to be run inside the prompt to dynamically change the prompt-string by using a language like Python.

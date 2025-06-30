@@ -6,24 +6,17 @@ By the end of this module you will be familiar with a hand-full of the most comm
 
 ## How to Explore this Course
 
-- 
+Follow along with this text, while typing the examples into your terminal.
 
 
 ## Contents
 
-- ctrl+r and using your history
-- streams and files
-- redirection and pipes
-- some useful commands:
-    - echo
-    - cat
-    - find
-    - grep
-    - sed
-    - xargs
-    - cut
-    - tr
-    - awk
+- finding help; ctrl+r and using your history; ctrl+z/fg
+    - pushd/popd
+    - `&& ||`
+- streams and files, redirection and pipes, tee
+- some useful commands for every day tasks (tldr, why you would reach for it, some examples, link to help references):
 - real-life examples (one-liners)
     - find --> grep, find --> xargs grep
     - echo --> mysql 2>/dev/null --> grep --> xargs --> sed --> mysql
+    - tail -f --> awk colorize and filter

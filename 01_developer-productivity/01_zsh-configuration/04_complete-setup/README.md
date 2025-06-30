@@ -33,6 +33,7 @@ To merge the contents of the two files:
 
 Things you may want to customize:
 
+- The `EDITOR` variable should point to your preferred CLI text editor.
 - The prompt-string (`$PS1`).
 - The `git`/VCS format strings (`zstyle ':completion:'`), especially the icons.
 - Enable `vim` or `emacs` keybindings (`bindkey -v` / `bindkey -e`).
@@ -73,7 +74,7 @@ A word of warning, however: You probably don't need/want that many `zsh` plugins
 
 # `fish-shell`
 
-[`fish-shell`](https://fishshell.com/) is a very fancy and pretty shell, with lots of cool features, and it's own shell scripting language with improved/modernized syntax and conventions.
+[`fish-shell`](https://fishshell.com/) is a modern shell with lots of cool features and it's own shell scripting language with improved/modernized syntax and conventions.
 
 However, there is a reason why I waited until the end to tell you about plugin managers and `fish`:
 
@@ -85,4 +86,4 @@ The three plugins we covered here are ports of the three most useful features fr
 
 The other major feature of `fish` is the "sensible scripting" language. The down-side to this is that the scripts you write here are not portable to any other shell or execution environment.
 
-I'd suggest sticking to `zsh`, and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.
+I'd suggest sticking to `zsh` (or another `POSIX` compatible shell), and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.

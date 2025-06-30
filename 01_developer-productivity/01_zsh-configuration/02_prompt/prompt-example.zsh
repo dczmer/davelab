@@ -61,6 +61,9 @@ setopt prompt_subst
 # - a blue 'folder' icon
 # - `%1d` prints the current directory name (not the parents/path)
 # - `%?` shows the status code of the previously run command
-export PS1='${vcs_info_msg_0_} %F{blue} %f%1d %?%F{blue}>%f '
+export PS1='${vcs_info_msg_0_} %F{blue} %f%1d%1(j. %F{yellow}%j%f.)%F{blue}>%f '
 # NOTE that the use of single-quotes + the `prompt_subst` thing above are
 # required to make the vcs_info part update every time the prompt is shown.
+
+# Show the current time, in blue, on the right side.
+export RPROMPT='<%0(?..%F{red}%?%f)%F{blue}%t%f'
