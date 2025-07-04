@@ -41,9 +41,9 @@ Each section will briefly cover the material, then explain how you can try it ou
 - [01 - Developer Productivity](./01_developer-productivity/README.md)
 - 02 - Reading and Editing Code (vs. _writing_ code)
 - 03 - Systems Thinking, Feedback Control, Re-framing Complex Problems, and Modeling
-- 04 - Type Systems
-- 05 - Learning About Your OS (with Linux)
-
+- Type Systems
+- Learning About Your OS (with Linux)
+- Dependency management, isolation, containerization
 
 ## TODO
 
