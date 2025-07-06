@@ -1,11 +1,5 @@
 # Configuring ZSH For Everyday Use 02 - Configuring Your Prompt
 
-## Objective
-
-By the end of this section, you will have implemented a custom prompt and decide what information you want it to include. We will see how to add support for displaying info about the current `git` branch.
-
-At the end, we'll talk about programs you can use to configure your prompt for you, if you want to go that way. But you should still read along and follow the simple exercises to help build a bit of context about what you are actually doing.
-
 ## Overview
 
 > **NOTE:** The icon characters used in some of the example format-strings require a specific font and configure your terminal emulator to use it.
@@ -20,11 +14,9 @@ At the end, we'll talk about programs you can use to configure your prompt for y
 
 The default `zsh` prompt is very basic, usually just the system's `hostname` followed by a '%'.
 
-But you can configure the prompt to show whatever information you want, like the current working directory, the date and time, the name of the current git branch, and whether you have changes that have not been committed, etc.
-
-The default `zsh` prompt:
-
 ![image](./images/PS1-default.png "Default prompt")
+
+But you can configure the prompt to show whatever information you want, like the current working directory, the date and time, the name of the current git branch, and whether you have changes that have not been committed, etc.
 
 The simple, hand-made `zsh` prompt we create in this chapter:
 
@@ -42,11 +34,12 @@ Things you might want in your prompt:
 - The status code of the previous command (`$?`)
 - The number of background jobs (running programs sent to the background with `ctrl-z`)
 
-We will use `print -P` to test out some different prompt strings, configure a `git` info section, and then `source` the included [`prompt-example.zsh`](./prompt-example.zsh) and test out the difference.
-
 You can copy the contents of the example file and add it to your own `.zshrc` file, but these options are more subjective to personal preference, so you might want to customize things a little further.
 
 ### Exploring the Example Configuration
+
+We will use `print -P` to test out some different prompt strings, configure a `git` info section, and then `source` the included [`prompt-example.zsh`](./prompt-example.zsh) and test out the difference.
+
 
 Open this document in a window on one side of your screen and open your terminal emulator on the other half.
 
@@ -95,12 +88,6 @@ Here are the options used in the prompt from the example file:
 
 ### Try it Out
 
-Start a `zsh` session, but don't import the example file just yet:
-
-```zsh
-zsh -df
-```
-
 Run the following commands:
 
 ```zsh
@@ -122,7 +109,7 @@ So if you wanted to print "HELLO" in green, bold text, with underline, you'd wri
 echo "\033[32;1;4mHELLO\033[0m"
 ```
 
-This is pretty archaic, but not as bad as it looks:
+This is pretty crazy, but not as bad as it looks:
 
 - `\033[...m` means anything between the `[` and the `m` should be interpreted as an escape sequence of integer values separated by ';' characters.
 - `32` means foreground color green.
@@ -153,6 +140,8 @@ zsh -df
 Try running `man zshmisc` from the prompt and then searching (with `/`) for `"EXPANSION OF PROMPT SEQUENCES"` to see every code that is available - and this time scroll down and look for the sub-section on 'Visual Effects.'
 
 Try modifying this format string `%F{green}Hello%f` to have two sections of text, with opposite foreground and background colors. So maybe "HELLO" in green foreground and black background, and "WORLD" in black foreground and green background. Use `print -P` to test it out.
+
+<span style="background: black; color: green">HELLO</span> <span style="background: green; color: black">WORLD</span>
 
 <details>
 
@@ -243,28 +232,30 @@ Run `man zshmisc` from the prompt and then searching (with `/`) for `CONDITIONAL
 
 There are only a fixed few variables/conditions, and the syntax is a little strange.
 
+`%(CONDITION,TRUE,FALSE)`
+
 The escape sequence starts with `%(`, followed by:
 
-- Optionally, an integer value, that can be compared to the variable.
-- The one-character 'conditional variable' that evaluates when the prompt is rendered.
-- Followed by a delimiter.
+- Optionally, an integer value, that can be compared to the variable (`0` in the example below).
+- The one-character 'conditional variable' that evaluates when the prompt is rendered (like `?`).
+- Followed by a delimiter (for example: `,`).
 - Then the 'true' format string value.
-- Then the delimiter again.
+- Then the delimiter again (`,`).
 - Then the 'false' format string value.
 - Then `)` to close the sequence.
 
 ```zsh
-print -P '%0(?.0.%F{red}%?%f)'
+print -P '%0(?,0,%F{red}%?%f)'
 ```
 
 This will print the status code of the previous command, in red, if the code was non-zero. If the code was zero, it prints a zero in the default color.
 
-- `%0(` - We're evaluating condition that means 'if status code == N, where N = 0.
-- `?` - The condition is based on the status code of the last command (equal to N).
-- `.` - The delimiter we chose to use is a '.'. You can use anything, as long as you don't use that same value in your format string.
-- `0` - The 'true' prompt-string. Just prints a '0' in the default colors.
-- `.` The same delimiter character again.
-- `%F{red}%?%f` - The 'false' (NOT equal to 0), which prints the response code in red.
+- `%0(` - We're evaluating condition that means 'if status code == N'. This specifies N = 0 for our comparison.
+- `?` - The condition is based on the status code of the last command (equal to N). A value of zero means the previous command exited without error.
+- `,` - The delimiter we chose to use is a `,` (comma). You can use anything, as long as you don't use that same value in your format string.
+- `0` - The 'true' prompt-string. Just prints a `0` in the default colors.
+- `,` The same delimiter character again.
+- `%F{red}%?%f` - The 'false' condition (NOT equal to 0), which prints the response code in red.
 
 Here is the final prompt format, including conditional formatting for background jobs and the status code of the previous command.
 
@@ -283,13 +274,15 @@ Type an invalid command, like `ls` for a directory that doesn't exist:
 ls xyz123
 ```
 
+You should see a red status code in your prompt string.
+
 Now try suspending a job to the background with `ctrl+z`:
 
 ```zsh
 less ./README.md
 ```
 
-Press `ctrl+z` to suspend the process to the background. You should see a yellow '1' next to your prompt now.
+Press `ctrl+z` to suspend the process to the background. You should see a yellow `1` next to your prompt now.
 
 Type `fg` to bring the job back to the foreground, then hit `q` to exit.
 

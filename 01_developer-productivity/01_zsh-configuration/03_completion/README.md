@@ -1,9 +1,5 @@
 # Configuring ZSH For Everyday Use 03 - The Completion System
 
-## Objective
-
-By the end of this section, you will have configured the `zsh` completion engine and you will know about the important settings and variables you might want to adjust.
-
 ## Overview
 
 `zsh` has an advanced completion engine that can be used to autocomplete the name of a command, the path to a file, or even command arguments.
@@ -36,7 +32,7 @@ Start a new `zsh` session, but don't `source` the example file just yet:
 zsh -df
 ```
 
-Now type the (incomplete) command `sed ` (note the space at the end), and press `tab` twice. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
+Now type the (incomplete) command "`sed `" (note the space at the end), and press `tab` twice. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
 
 ```
 hostname% sed <TAB>
@@ -68,20 +64,20 @@ The completion engine uses many variables to configure it's behavior and control
 
 I won't try to explain `zstyle` or all of the possible options, but I'll cover some that I think are important and/or useful to include in your own configuration.
 
-This rule will ensure that the core completion engine is enabled, along with an extension that will try to auto-correct typos.
+This rule will ensure that the core completion engine is enabled, along with an extension that will try to auto-correct typos:
 
 ```zsh
 zstyle ':completion:*' completer _extensions _complete _approximate
 ```
 
-This will enable caching of completion data to make future completions much faster.
+This will enable caching of completion data to make future completions much faster:
 
 ```zsh
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 ```
 
-When you hit `<TAB>`, it will show a menu with all the valid options and allow fuzzy searching through the results.
+When you hit `<TAB>`, this will show a menu with all the valid options and allow fuzzy searching through the results:
 
 ```zsh
 zstyle ':completion:*' menu select search
@@ -92,7 +88,7 @@ This will allow grouping of various completion suggestions. For example, if you 
 ```zsh
 zstyle ':completion:*' group-name ''
 ```
-This makes the completion menu colorize entries in the same way as `ls --color`.
+This makes the completion menu colorize entries in the same way as `ls --color`:
 
 ```zsh
 zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
@@ -103,6 +99,8 @@ With this line, the completion engine will NOT jump to the first menu entry imme
 ```zsh
 unsetopt MENU_COMPLETE
 ```
+
+If you don't like having to hit `<tab>` a second time to use the menu, change this to `setopt MENU_COMPLETE` instead.
 
 ### Try it Out
 

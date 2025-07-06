@@ -1,13 +1,5 @@
 # Configuring ZSH For Everyday Use 01 - Basic ZSH Configuration
 
-## Objective
-
-By the end of this section you should have some basic knowledge of the important parts of a `zshrc` configuration file. You should be able to apply the options discussed here to your own `zshrc` file to change the default behavior and unlock some hidden functionality.
-
-You will also have configured your command history file to persist for a long time, and to cleanly share history entries between multiple terminals, instead of each one having their own history.
-
-You will know how to make your `zshrc` file modular, by crating separate files and then `sourcing` them into your main file.
-
 ## Overview
 
 Your `zshrc` file contains configuration and customization that will be applied to every interactive `zsh` session. By default, this configuration file is `~/.zshrc` ("~" is an alias for your home directory).
@@ -129,36 +121,6 @@ export PATH="$PATH:~/bin"
 
 The `export` is required for the variable to persist in your shell environment. Otherwise, it would only be local to the current script file.
 
-### Managing "Path" Variables as ZSH Arrays
-
-Normally, you manage `PATH` as a string-encoded list of directory paths, delimited by the ":" character:
-
-`/bin:/usr/bin:/usr/share/bin:/home/user/bin`
-
-You can add a directory to the list with string interpolation:
-
-```zsh
-export PATH="$PATH:/another/bin"
-```
-
-Since `zsh` has some support for arrays, you can manage this variable as an array instead.
-
-To do this, you need to use the `typeset` command to declare the variable as an array:
-
-```zsh
-typeset -U path
-```
-
-This creates a special array variable, called `path`. When you modify this array, the `PATH` variable gets updated automatically. You don't have to do error-prone string manipulation, and the arrays will de-duplicate entries to prevent redundancy.
-
-```zsh
-export path=($path "/another/bin")
-```
-
-You can still edit `PATH` directly or mix-and-match.
-
-The down-side to this, is that it is not 'portable' - it won't work the same on any other shell, only in `zsh`.
-
 ## Aliases
 
 Use aliases to simplify entering long or repetitive tasks.
@@ -213,7 +175,7 @@ bindkey -v
 
 ### The Line Editor
 
-The `zsh` line editor will let you open your `EDITOR` with the contents of the command you are currently entering at the prompt. There, you can edit the command like normal text. When you save and exit, the full command will be pasted at the command line, ready to enter.
+The `zsh` line editor will let you open your `EDITOR` with the contents of the command you are currently entering at the prompt. There, you can edit the command like a normal text file. When you save and exit, the full command will be pasted at the command line, ready to enter.
 
 First, you need to enable it, and bind a key to start it:
 
@@ -228,6 +190,11 @@ bindkey "^e" edit-command-line
 #### Try it Out
 
 First make sure the `zshrc-example.zsh` file has been sourced into the current session.
+
+```zsh
+zsh -df
+source ./zshrc-example.zsh
+```
 
 Start typing a command, `ls /bin` but do not press enter/return. Now press `Ctrl+e` to launch the editor.
 

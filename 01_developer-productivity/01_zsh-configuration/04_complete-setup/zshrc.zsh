@@ -53,17 +53,11 @@ unsetopt MENU_COMPLETE
 
 # use vim keybindings for the line editor.
 #bindkey -v
-# automatically find the location of the edit-command-line function from $fpath.
 autoload edit-command-line
 zle -N edit-command-line
-# bind ctrl+e to start the line editor.
 bindkey "^e" edit-command-line
-# Other keybindings:
-# Ctrl+shift+K will instantly erase your entire command so you can start over.
 bindkey "^K" kill-whole-line
-# Ctrl+shift+R will reverse the direction of Ctrl+R incremental history search.
 bindkey "^R" history-incremental-search-backward
-# Bind home + end to navigate to front and end of line.
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 

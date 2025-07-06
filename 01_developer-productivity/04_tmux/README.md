@@ -1,18 +1,12 @@
 # Developer Productivity 04 - `tmux`
 
-## Objective
-
-In this module, you will learn how to use `tmux` to manage multiple terminals, and how to reattach to a session if you accidentally close your window.
-
-There is a lot more to `tmux` than these two topics, but these are the most basic features that you will need to start leveraging terminal multiplexing.
-
 ## Overview
 
-Don't struggle with juggling multiple terminal windows, manage them with layouts so you can view them side-by-side, in a grid, or jump between the with a key press.
+Don't struggle managing multiple terminal windows manually, manage them with layouts so you can view them side-by-side, in a grid, or jump between the with a key press.
 
 All of the terminals that you open in your layout will be saved to the active `session`. If you close your terminal window (or if you disconnect from a remote host using `tmux`), then you can re-attach to that `tmux` session and pick up exactly where you left off.
 
-TODO: screen shot
+> TODO: Include a screen shot here
 
 From the `tmux` manual pages:
 
@@ -23,9 +17,8 @@ From the `tmux` manual pages:
 
 Terms:
 
-- `prefix`
-- `Pseudo terminal`
-- `Terminal multiplexer` - Manages multiple 'pseudo terminals' inside of one terminal window/tab.
+- `prefix` - The `prefix` is the special key combination that must occur before any tmux commands. For example, `Ctrl+a` quickly followed by `?` to open the help menu.
+- `Terminal multiplexer` - Manages multiple 'pseudo terminals' inside of one virtual terminal.
 - `Session` - A single collection of terminals under management of `tmux`.
 - `Window` - The visible 'screen' showing an arrangement of one or more terminals. A window can be split into multiple `panes`, and manages arrangement of those `panes`.
 - `Pane` - One terminal instance. A `pane` can be arranged in a `window` or moved to other `windows` on the same `session`.
@@ -56,7 +49,14 @@ If you have any issues, there is an [Installation Guide](https://github.com/tmux
 
 ## Sessions, Windows, Panes
 
+TODO:
 - prefix
+- splitting
+- joining
+- resizing
+- rotating layouts
+- windows
+- sessions
 
 ## Configuring
 
@@ -66,7 +66,7 @@ You can copy the provided configuration file to `~.tmux.conf` or `~/.config/tmux
 
 The first customization I always make is to re-bind the `prefix` key. By default, it's `C-b` (Ctrl+b). That's kind of awkward to type, and feels like it's probably bad for your wrist.
 
-You may like to re-bind the `prefix` to something like `C-a` or even "\`" (back-tick).
+You may like to re-bind the `prefix` to something like `C-a` or even "\`" (backtick).
 
 ```tmux
 unbind C-b
@@ -159,13 +159,17 @@ Start `tmux` from the terminal:
 tmux
 ```
 
+Type a command, like `ls`, just to put some output on your screen. Then hit `Ctrl+b` and `d` in quick succession to detach from the current session.
+
 Start `tmux` and attach to an existing session:
 
 ```zsh
 tmux attach
 ```
 
-Start `tmux`, attaching to an existing session, if one exists, or else creating a `new-session`, and name the session 'my-session':
+You should see the output of the `ls` command from before. We've just re-attached to that previous session.
+
+You can als start `tmux` so that it attaches to an existing session, if one exists, or else creates a `new-session`, and name the session "my-session":
 
 ```zsh
 tmux new-session -AD -s my-session
@@ -181,6 +185,7 @@ Every command has to start with the `prefix` key. Entering the `prefix` key will
 
 - `C-o` - Rotate the panes in the current window
 - `C-z` - Suspend the `tmux` client to the background
+- ...
 
 ## Commands
 

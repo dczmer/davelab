@@ -1,18 +1,14 @@
-# Configuring ZSH For Everyday Use 04 Completed Configuration
-
-# Objective
-
-In this section, you will be presented with a completed `.zshrc` file and we'll discuss how you can merge it with your existing configuration (if you have one), as well as the things you probably want to modify or customize.
-
-We'll also talk about some useful plugins that you may be interested in using, and how to install and manage them.
+# Configuring ZSH For Everyday Use 04 - Completed Configuration
 
 # Overview
 
-You probably already have a default `~/.zshrc` file, with some things you've had to add when installing programs. You might also have some existing aliases or environment variables that you want to preserve. When adopting all (or part) of this configuration into your own file, you will want to be sure not to break anything you already have.
+You probably already have a default `~/.zshrc` file, with some things you've had to add when installing other programs. You might also have some existing aliases or environment variables that you want to preserve. When adopting all (or part) of this configuration into your own file, you will want to be sure not to break anything you already have.
 
-There are a few `zsh` plugins that I really like. Installing and managing plugins is pretty easy, and you likely won't need very many. But there are plugin managers and package managers you could use to install and configure plugins and color themes for you.
+I also want to cover a few `zsh` plugins that I really like. Installing and managing plugins is pretty easy, and you likely won't need very many. But there are plugin managers and package managers you could use to install and configure plugins and color themes for you.
 
 # Completing Your Configuration
+
+> NOTE: This section is WIP. Need to look at some other people's `zshrc` files to see what kinds of things to expect. Should also be able to include examples of the default configuration for a typical mac install (path to plugins, homebrew/pyenv/yarn integration, etc.).
 
 The included file [`zshrc.zsh`](./zshrc.zsh) is the combined configurations from every section in this module. We didn't cover every single line that appears in this file, but every line is explained in the example `zsh` files included with all of the sections so far.
 
@@ -26,7 +22,7 @@ You may already have some of the following:
 
 To merge the contents of the two files:
 
-1. Make a backup copy of your existing `~/.zshrc` file.
+1. **Make a backup copy of your existing `~/.zshrc` file.**
 2. Copy this [`zshrc.zsh`](./zshrc.zsh) file to `~/.zshrc`, replacing any existing file.
 3. Go through your existing file, compare line-by-line to the example file.
 4. Copy the lines that are missing to the _bottom_ of your new `~/.zshrc` file.

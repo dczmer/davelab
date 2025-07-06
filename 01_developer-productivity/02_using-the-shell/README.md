@@ -1,13 +1,12 @@
 # Developer Productivity 02 - Using the Shell
 
-## Objectives
+## Overview
 
 By the end of this module you will be familiar with a hand-full of the most common and useful shell commands for daily tasks, how to combine them together into 'one-liners' to complete a task, and we'll see some real world examples.
 
 ## How to Explore this Course
 
 Follow along with this text, while typing the examples into your terminal.
-
 
 ## Contents
 
