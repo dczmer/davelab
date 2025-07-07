@@ -6,7 +6,7 @@ Don't struggle managing multiple terminal windows manually, manage them with lay
 
 All of the terminals that you open in your layout will be saved to the active `session`. If you close your terminal window (or if you disconnect from a remote host using `tmux`), then you can re-attach to that `tmux` session and pick up exactly where you left off.
 
-> TODO: Include a screen shot here
+![image](./images/tmux.png)
 
 From the `tmux` manual pages:
 
