@@ -1,14 +1,10 @@
-## Objective
-
-In this section, you will read a TLDR description of a bunch of useful commands, and some simple examples of how you can combine them together to do something useful. By the end, you should have a good idea of how you can work with lines of data and complex commands.
-
 ## Overview
 
-You don't have to master every command, you just need to know that you use streams, pipes, and redirection to process _lines_ of text.
+This `linux` philosophy is that each tool should do one thing, and do that one thing well. Think of these commands as primitive building blocks that we can combine to write little programs that work on "lines of text" as data.
 
-Each command does one specific thing  - print some text, print a file, filter lines of output with a regex, format output in a column or as CSV, etc.
+You don't have to master every command, you just need to what job they perform, so you know which command(s) to reach for when you have a problem.
 
-A simplified overview of the process is that it's mostly about printing, filtering, and formatting lines of text and feeding the result into the next program or just printing it out.
+A simplified overview of the process is that it's mostly about printing, filtering, and formatting lines of text and feeding the result into the next program, or just printing it out to the screen.
 
 1. Put something onto an output stream.
 2. Filter, translate, and format lines.

@@ -8,14 +8,11 @@ By the end of this module you will be familiar with a hand-full of the most comm
 
 Follow along with this text, while typing the examples into your terminal.
 
+Each chapter may have some additional text files or example scripts, they will be linked from the `README.md` file.
+
 ## Contents
 
 - finding help; ctrl+r and using your history; ctrl+z/fg
-    - pushd/popd
-    - `&& ||`
-- streams and files, redirection and pipes, tee
-- some useful commands for every day tasks (tldr, why you would reach for it, some examples, link to help references):
+- combining commands (streams and files, redirection and pipes, tee)
+- [Useful commands for every day tasks](./03_commands/README.md)
 - real-life examples (one-liners)
-    - find --> grep, find --> xargs grep
-    - echo --> mysql 2>/dev/null --> grep --> xargs --> sed --> mysql
-    - tail -f --> awk colorize and filter

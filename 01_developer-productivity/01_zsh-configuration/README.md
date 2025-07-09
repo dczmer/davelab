@@ -10,7 +10,15 @@ Some of the syntax and conventions may seem strange or complicated. You can just
 
 ## How to Explore this Course
 
+### CLI Text Editor
+
 Before you do anything else, make sure you install a command line text editor and learn how to enter text, save, and exit. Editing configuration files from the command line is a common chore, so make sure you are comfortable with it first.
+
+You might try using `neovim` or `emacs`, because I want to talk about modal text editing later. The learning curve is steep, but just taking the plunge and forcing yourself to use it as your daily driver will help you train and build muscle memory much faster.
+
+Otherwise, `nano` is probably the easiest way to get started. It's keyboard driven, but it has a menu that shows you the important keybindings while you are editing. Run `man nano` and read the `DESCRIPTION` and `EDITING` sections.
+
+I recommend learning `vim` and `nano` because those are usually available on every system. When you have to shell to a remote server and fix something, those will probably be your only options.
 
 ### Install ZSH
 
