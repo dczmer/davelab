@@ -53,15 +53,13 @@ First, start `tmux` from your terminal:
 tmux
 ```
 
-TODO: image
-
 You have just started a new `session`. If you disconnect from this `session`, or accidentally close your terminal, you will be able to re-attach and continue on.
 
 Now, instead of looking at a regular terminal, you are looking at a new `window` that has one `pane`, which takes up the whole screen. The `window` is like a "page" or a "tab", and on that `window` we can create and arrange multiple other `panes` to create a layout and navigate between terminal instances.
 
 At the bottom of the screen, you should see the `statusbar` and a "tab" with the name of your current `session`. As you open more windows, they will be added to the `statusbar` and the active `window` will have an asterisk `*` by it's name.
 
-TODO: image
+![image](./images/tmux-default.png)
 
 ### The `prefix`
 
@@ -76,7 +74,7 @@ For example, split the current `horizontally`:
 
 If you did it correctly, you should see the screen now split into two equal-sized terminals.
 
-TODO: image
+![image](./images/first-split.png)
 
 The notation that `tmux` uses for this command is written like `C-b "`. Since the `prefix` is used for every command, it is frequently just omitted from the documentation, so this example would just be `"` and you would know that you have to type the `prefix` first.
 
@@ -89,7 +87,7 @@ Now move to the bottom pane and open a new vertical split:
 1. `C-b ↓` to move down.
 2. `C-b %` to make a vertical split.
 
-TODO: image
+![image](./images/second-split.png)
 
 To close one of the panes, first move to it and then run `exit` at your command line, or use `Ctrl+d` to do the same thing.
 
@@ -193,7 +191,7 @@ set -g status-right '%Y-%m-%d %T %A'
 set-option -g status-position bottom
 ```
 
-TODO: screen-shot
+![image](./images/status-style.png)
 
 #### Format String
 
@@ -220,23 +218,22 @@ set -g status-right-length 40
 Show the name of the current session (`#S`), the number of clients connected to the session in parentheses, in blue text. And show a magnifying glass on the left when `zoom mode` is active:
 
 ```tmux
-set -g status-left'#[fg=#4EA1FF]#{?window_zoomed_flag,🔍,}[#S(#{session_attached})]'
+set -g status-left '#[fg=#4EA1FF]#{?window_zoomed_flag,🔍,}[#S(#{session_attached})]'
 # you might need to make the section max-width to make room
 set -g status-right-length 20
 ```
 
-TODO: image
+![image](./images/status-style2.png)
 
 The default styles and colors are set by the `status-style` option. When you use `#{default}` to reset styles, this is what it will use as the default.
 
 You can also set a different style for the active session "tab" on the status line with `window-status-current-style`.
 
 ```tmux
-set -g status-style bg='#111111',fg='#CCCCCC',us='#CCCCCC'
 set-option -g window-status-current-style fg=#BD5EFF
 ```
 
-TODO: screen shot
+![image](./images/status-style3.png)
 
 ## `tmux-send-keys`
 
@@ -252,7 +249,7 @@ This is a cool trick and can be very useful for scripting or making custom keybi
 tmux send-keys -t {down-of} "ls -al" Enter
 ```
 
-TODO: image
+![image](./images/tmux-send-keys.png)
 
 ## Plugins and Alternatives
 
@@ -263,9 +260,8 @@ There are a few alternatives to `tmux` that are worth mentioning:
 - `gnu-screen` (`screen`) is an older terminal multiplexer. It has fewer features, and doesn't support splitting screens into multiple `panes`, but you can have multiple `windows` and you can detach and re-attach to sessions. It's frequently found on development servers, where you connect remotely via `ssh`. If you work from within `screen`, then you can resume your session if the network connection is cut-off, or allow other users to join your session and pair.
 - [`zellij`](https://github.com/zellij-org/zellij) is a newer, rust-based "workspace manager" that has many of the same features as `tmux`. I've never used it, but it seems to be quite popular.
 - [`ghostty`](https://ghostty.org/) is a brand new terminal emulator that also allows you to make splits and `windows`, but no support for `sessions` yet.
-- [`iterm2`](https://iterm2.com/) is another terminal emulator for Mac, which has support for splits and tabs. I believe it actually uses tmux under-the-hood.
 
-I prefer to use a terminal emulator that doesn't have splits or windows, like [kitty](https://sw.kovidgoyal.net/kitty/), and use that with either `tmux` or `zellij` for layout management.
+I prefer to use a terminal emulator that doesn't have splits or windows, like [kitty](https://sw.kovidgoyal.net/kitty/), and use that with `tmux` for layout management.
 
 ## References:
 
