@@ -10,6 +10,8 @@ All of the terminals that you open in your layout will be saved to the active `s
 
 ![image](./images/tmux.png)
 
+There are a lot of keybindings and commands, but you really only need to know a few to use `tmux` effectively. You may want to use a [cheat-sheet](https://tmuxreference.com/) as a quick reference.
+
 From the `tmux` manual pages:
 
 > tmux is a terminal multiplexer: it enables a number of terminals
