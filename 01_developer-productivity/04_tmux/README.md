@@ -120,6 +120,8 @@ The "names" of the windows are printed on the status line. `tmux` will try to de
 
 Try renaming your first `window` to "SHELL" and the second `window` to "EDITOR".
 
+### Resizing
+
 Now create a couple of split `panes` on one of the `windows` and we'll resize them to create the layout that you want.
 
 1. Create a couple of splits with `C-b "` and `C-b %`.
