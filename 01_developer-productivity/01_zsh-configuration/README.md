@@ -57,3 +57,7 @@ In this module, we will walk through setting up a basic `zsh` shell environment.
 - [Customizing your prompt](./02_prompt/README.md) will cover how to create a custom prompt string, and we'll talk about prompt generators and other tools that might automate the process for you.
 - [The completion system](./03_completion/README.md) will cover how to enable and customize the completion engine, which will help you enter commands correctly by showing you the valid options and letting you pick from a menu.
 - [Finishing your set-up](./04_complete-setup/README.md) will talk about some random topics, like plugins, plugin managers, and other shells you might find interesting. Then we'll cover how to merge the final `zshrc` that we made in this module into your existing `zshrc` file.
+
+---
+
+[NEXT >>](./01_zsh-config/README.md)
