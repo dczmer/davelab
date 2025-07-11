@@ -107,3 +107,8 @@ If you want to accept the suggestion, use the right arrow key (`→`).
 you can put something in your prompt string `$(dirs -v | wc -l | xargs)`
 
 # Jobs
+
+# using the line editor effectively (with vim)
+
+
+# !? !!, etc.

@@ -268,6 +268,14 @@ find . -name '*.md' | xargs -I{} printf "'%s'\n" {}
 
 This would find all the markdown files and print their names in single quotes.
 
+### `xargs` - I Want to Quickly Trim White-Space Padding From a String
+
+Another use for `xargs` is to quickly trip leading/trailing white-space from a string. If you pipe something to `xargs` with no arguments, then it will simply strip the white-space and echo the value:
+
+```zsh
+echo '      hi     ' | xargs
+```
+
 ## `awk` - I Want to Filter, Format, or Translate Tables
 
 "Pattern scanning and processing language."

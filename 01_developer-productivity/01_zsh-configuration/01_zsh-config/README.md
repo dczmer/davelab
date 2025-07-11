@@ -10,7 +10,7 @@ An example [`zshrc-example.zsh`](./zshrc-example.zsh) file has been provided wit
 
 For the most part, you just need to read-along and try the suggested exercises along the way. The exercises mostly amount to running a command at the terminal and observing the change that the various configuration options make.
 
-### Exploring the Example Configuration
+## Exploring the Example Configuration
 
 Open this document in a window, on one side of your screen, and open your terminal emulator on the other half.
 
@@ -95,7 +95,7 @@ echo 'hello world'
 Print the last few entries from the history:
 
 ```zsh
-less ~/.zsh_history
+tail ~/.zsh_history
 ```
 
 Use the `up` and `down` arrow keys to cycle through the entries at the terminal. You can hit enter/return to re-run the command or use the `left` and `right` arrow keys to move around and edit the command first.
