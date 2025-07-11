@@ -1,7 +1,5 @@
 # Developer Productivity 04 - `tmux`
 
-TODO: split this into 2 or 3 chapters
-
 ## Overview
 
 Don't struggle managing multiple terminal windows manually. Manage them with layouts so you can view them side-by-side, in a grid, or jump between the with a key press.
@@ -274,3 +272,8 @@ I prefer to use a terminal emulator that doesn't have splits or windows, like [k
 - https://github.com/tmux/tmux/wiki/Installing
 - https://github.com/tmux/tmux/wiki/Getting-Started
 - https://tmuxreference.com/
+
+
+---
+
+[BACK TO DEVELOPER PRODUCTIVITY MODULE](../../README.md)

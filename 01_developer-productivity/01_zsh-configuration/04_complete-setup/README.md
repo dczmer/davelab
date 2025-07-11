@@ -46,6 +46,22 @@ The [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highligh
 
 The [`zsh-history-substring-search`](https://github.com/zsh-users/zsh-history-substring-search) plugin lets you type any substring of a previous command and then use the `up` and `down` arrow keys to cycle through history items. This is marginally more convenient than using `ctrl-r` to search through history items in some cases.
 
+The keybindings for navigating through history with this plugin are mapped with the following commands:
+
+```tmux
+bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down
+```
+
+These may not work on every system. If it doesn't seem to be working for you, try this version instead:
+
+```tmux
+bindkey '^[[A' history-substring-search-up # or '\eOA'
+bindkey '^[[B' history-substring-search-down # or '\eOB'
+```
+
+On my Macbook, I had to use these alternate keybindings, but on my personal `linux` machines, the original version works correctly.
+
 ## `zsh-autosuggestions`
 
 The [`zsh-autosuggestions`](https://www.nerdfonts.com/font-downloads) plugin will show inline suggestions as you type. The suggestions come from doing a substring search through your history, starting from most recent entries.
@@ -83,3 +99,8 @@ The three plugins we covered here are ports of the three most useful features fr
 The other major feature of `fish` is the "sensible scripting" language. The down-side to this is that the scripts you write here are not portable to any other shell or execution environment.
 
 I'd suggest sticking to `zsh` (or another `POSIX` compatible shell), and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.
+
+
+---
+
+[BACK TO DEVELOPER PRODUCTIVITY MODULE](../../README.md)

@@ -9,12 +9,12 @@ The first place you should look is the manual pages. Most commands have manual p
 To view the help for the `ls` command:
 
 ```zsh
-man tmux
+man ls
 ```
 
 ![image](./images/man1.png)
 
-You can move up and down in the document using the arrow keys or `vim` keys `j`/`k`.
+You can move up and down in the document using the arrow keys (`↓`/`↑`) or `vim` keys `j`/`k`.
 
 You can move down by one page with `space`.
 
@@ -31,7 +31,7 @@ If you know how to use the command but you need a quick reference, use the comma
 By convention, most commands and programs should have a help menu. You can usually see this by typing the command with either `-h` or `--help` as the parameter.
 
 ```zsh
-ls --help
+ssh --help
 ```
 
 Not every command has a help menu, but most do.
@@ -48,7 +48,7 @@ If you already know the command but just can't remember the arguments or command
 
 I put this last because I think you should try to use the built-in help systems first.
 
-In recent years, Google search results for have gone down in quality and it becomes harder and harder to find the information you are looking for under all of the ads and paid search-results. But, for most queries, it should still find what you need on StackOverflow or other answers sites.
+In recent years, Google search results for have gone down in quality and it becomes harder and harder to find the information you are looking for under all of the ads and paid search results. But, for most queries, it should still find what you need on StackOverflow or other answers sites.
 
 # Using your History
 
@@ -100,15 +100,142 @@ If you want to accept the suggestion, use the right arrow key (`→`).
 
 ## Replaying Sequences of Commands
 
-# `pushd`/`popd`
+I'm not sure if everyone would consider this good advice, but it's sometimes very convenient to just repeat a series of steps by cycling up through your command history by a fixed number of entries, and re-running each one in sequence.
+
+For example, if you had to repeat this operation, over and over, to test your code:
+
+1. Export your `mysql` database using `mysqldump` and save it to `/tmp`
+2. Run a script to bootstrap a new copy of your database.
+3. Run a script or command to populate the database according to some test criteria.
+4. Export the `mysql` database again, to a second location.
+5. `diff` the two database dumps.
+
+A sequence of 5 commands, which you can repeat over and over without changing them.
+
+After you finish running the sequence, and you want to repeat it, just hit the "up" arrow (`↑`) 5 times to retrieve the command for step one.
+
+Once you run that command, it will now be at the bottom of your history list, which means that now step two is 5 commands back in your history. Press `↑` five more times and run it. Repeat until you've completed the sequence, hitting `↑` 5 times each time to run the next command.
+
+This is convenient, and I do it all the time, but it may not be ideal:
+
+- If you enter something in between commands, you can throw off the '5x' offset and mess up your sequence very easily.
+- You might start moving too quickly and run the wrong commands out of sequence.
+- Your history file might get truncated and you lose this history.
+
+Once you've done this a few times, you should probably create a [simple script](../../03_basic-shell-scripting/README.md) instead.
+
+## `pushd`/`popd`
+
+Sometimes you may need to temporarily change to a different directory and run a few commands, but you don't want to lose your spot. If you use `pushd` and `popd`, you can save your place in a "stack" of directory bookmarks and then return to them when you are done.
+
+Use `pushd` to move to a new directory and save your place on the `dirs` stack. Try the following sequence of commands:
+
+```zsh
+cd ~
+pushd /tmp
+touch test.txt
+dirs -v
+popd
+```
 
 ![image](./images/pushd.png)
 
-you can put something in your prompt string `$(dirs -v | wc -l | xargs)`
+You can put something in your [prompt string](../../01_zsh-configuration/02_prompt/README.md) to show how many levels of directories are on the stack:
 
-# Jobs
+```zsh
+$(dirs -v | wc -l | xargs)
+```
 
-# using the line editor effectively (with vim)
+## Jobs
+
+By default, when you run a command from the command line, it will run in the _foreground_ - it takes control of your input and output for that terminal until it is completed.
+
+Sometimes you want a long-running command to run in the _background_, where it will run asynchronously, and you can continue doing other work in that same terminal. Other times, you might want to suspend the program you are currently interacting with, drop back to the shell, do something else, then either resume interacting with your application or send it to the background.
+
+- `ctrl-z` - Suspend the current task and drop back to the shell.
+- `jobs` - Command to print the number of suspended or background jobs you have active in your shell session.
+- `fg` - Resume the first suspended job.
+- `bg` - Send the first suspended job to the background.
+
+Try the following sequence of commands and keybindings:
+
+```zsh
+man ls
+<ctrl-z>
+nano ~/.zshrc
+<ctrl-z>
+```
+
+Now you have 2 suspended jobs:
+
+```
+jobs
+[1]  - suspended  man ls
+[2]  - suspended  nano ~/.zshrc
+```
+
+If you type `fg` it should resume the most recent job, which is `nano`.
+
+```zsh
+fg
+<ctrl-z>
+```
+
+If you want to resume the other job, look at it's ID in the `jobs` output. If we want to start job `[1]` instead, we would use `%1` as an argument to the `fg` command:
+
+```zsh
+fg %1
+```
+
+Similarly, if we wanted to kill job one, we could do:
+
+```zsh
+kill %1
+```
+
+If the program we have suspended to the background is a long running process, that we want to run asynchronously while we do other things in the shell, we can use the `bg` command to do that:
+
+```zsh
+# most recent job to background
+bg
+
+# job 1 to background
+bg %1
+```
+
+## Using the Line Editor Effectively
+
+TODO
+
+For very long commands, or when you need to edit a complicated command from your history, use the line editor.
+
+## !? !!, etc.
+
+Your shell has a lot of convenience variables and aliases that you can use to make your life easier.
+
+Two that I use frequently are `!$` and `!!`.
+
+- `!$` - This will be replaced with the _last_ parameter from the previous command you ran.
+- `!!` - This will be replaced with the _entire_ previous command.
 
 
-# !? !!, etc.
+```zsh
+mkdir test
+ls !$
+touch !$/file.txt
+file !$
+git add !$
+```
+
+
+```zsh
+touch /etc/test.test
+# touch: /ect/test.test: Permision denied
+
+sudo !!
+
+rm -f !$
+# rm: /ect/test.test: Permision denied
+
+sudo !!
+```
