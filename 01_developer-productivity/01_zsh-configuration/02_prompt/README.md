@@ -311,3 +311,7 @@ The `git` prompts from `starship` and `p10k` can show a lot more information abo
 I would stay away from `powerline` or anything else that runs "in your prompt string." When `powerline` crashes, it means you have no useful prompt, and sometimes you can't even interact with your shell!
 
 But you already have a lean, fast, and personally customized prompt so you don't really need to use these.
+
+---
+
+[NEXT >>](../03_completion/README.md)

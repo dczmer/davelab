@@ -125,3 +125,7 @@ source ./completion-example.zsh
 ```
 
 Now try those three examples again, and note the differences.
+
+---
+
+[NEXT >>](../04_complete-setup/README.md)

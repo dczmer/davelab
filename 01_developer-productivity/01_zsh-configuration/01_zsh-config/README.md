@@ -227,3 +227,7 @@ You should manage your `zshrc` configuration as a `git` repository. This will al
 cd ~
 ln -s ~/src/my-zshrc/zshrc.zsh .zshrc
 ```
+
+---
+
+[NEXT >>](../02_prompt/README.md)
