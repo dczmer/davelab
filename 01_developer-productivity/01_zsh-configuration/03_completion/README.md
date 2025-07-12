@@ -32,7 +32,7 @@ Start a new `zsh` session, but don't `source` the example file just yet:
 zsh -df
 ```
 
-Now type the (incomplete) command "`sed `" (note the space at the end), and press `tab` twice. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
+Now type the (incomplete) command "`sed `" (note the space at the end), and press `tab`. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
 
 ```
 hostname% sed <TAB>

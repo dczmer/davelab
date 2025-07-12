@@ -106,7 +106,7 @@ Try navigating back to the `find` command, and changing `.md` to `.zsh` to searc
 
 ## Custom Environment Varibles
 
-Environment variables can store values in your shell session or script. Some applications, including `zsh`, will look for specific environment variables in your session and use those variables as configuration.
+Environment variables can store values in your shell environment, like global options or settings. Some applications, including `zsh`, will look for specific environment variables in your session and use those variables as configuration.
 
 You should always set the `EDITOR` variable to point to the CLI text editor you prefer to use. When other programs want you to edit a file, like `git`, they will open that file with your chosen editor.
 
@@ -120,6 +120,12 @@ export PATH="$PATH:~/bin"
 ```
 
 The `export` is required for the variable to persist in your shell environment. Otherwise, it would only be local to the current script file.
+
+Try printing the contents of your current `PATH` variable:
+
+```zsh
+echo $PATH
+```
 
 ## Aliases
 
