@@ -1,8 +1,10 @@
-# Finding Help
+# Developer Productivity 02 - Using the Shell
+
+## Finding Help
 
 There are a lot of commands, and every command has options and required parameters. The commands you use every day will become muscle memory, but you will always need to look things up to find help or remember the options you need to use.
 
-## `man` - The Manual Pages
+### `man` - The Manual Pages
 
 The first place you should look is the manual pages. Most commands have manual pages that tell you all about the command, how it works, what are the parameters and options, known bugs, and often times they will have examples of how to use them.
 
@@ -36,7 +38,7 @@ ssh --help
 
 Not every command has a help menu, but most do.
 
-## Using `zsh` Autocomplete
+### Using `zsh` Autocomplete
 
 If you completed the [`zsh` configuration](../../01_zsh-configuration/README.md) module, then you should have enabled and configured autocompletion.
 
@@ -44,19 +46,19 @@ If you already know the command but just can't remember the arguments or command
 
 ![image](./images/completion.png)
 
-## Searching the Internet
+### Searching the Internet
 
 I put this last because I think you should try to use the built-in help systems first.
 
 In recent years, Google search results for have gone down in quality and it becomes harder and harder to find the information you are looking for under all of the ads and paid search results. But, for most queries, it should still find what you need on StackOverflow or other answers sites.
 
-# Using your History
+## Using your History
 
 When you use the shell every day, most commands you need are already in your history. There are a few tricks you can use that will allow you to quickly retrieve specific commands from your history.
 
 You can also rely on your history as a log of the sequence of commands you used to accomplish a task, that you need to repeat over and over.
 
-## Reverse-Incremental Search
+### Reverse-Incremental Search
 
 The first time I saw someone using this feature, I thought they must be a wizard. They were entering commands so fast, and using far fewer keystrokes than you'd need to type them all out.
 
@@ -124,118 +126,6 @@ This is convenient, and I do it all the time, but it may not be ideal:
 
 Once you've done this a few times, you should probably create a [simple script](../../03_basic-shell-scripting/README.md) instead.
 
-## `pushd`/`popd`
+---
 
-Sometimes you may need to temporarily change to a different directory and run a few commands, but you don't want to lose your spot. If you use `pushd` and `popd`, you can save your place in a "stack" of directory bookmarks and then return to them when you are done.
-
-Use `pushd` to move to a new directory and save your place on the `dirs` stack. Try the following sequence of commands:
-
-```zsh
-cd ~
-pushd /tmp
-touch test.txt
-dirs -v
-popd
-```
-
-![image](./images/pushd.png)
-
-You can put something in your [prompt string](../../01_zsh-configuration/02_prompt/README.md) to show how many levels of directories are on the stack:
-
-```zsh
-$(dirs -v | wc -l | xargs)
-```
-
-## Jobs
-
-By default, when you run a command from the command line, it will run in the _foreground_ - it takes control of your input and output for that terminal until it is completed.
-
-Sometimes you want a long-running command to run in the _background_, where it will run asynchronously, and you can continue doing other work in that same terminal. Other times, you might want to suspend the program you are currently interacting with, drop back to the shell, do something else, then either resume interacting with your application or send it to the background.
-
-- `ctrl-z` - Suspend the current task and drop back to the shell.
-- `jobs` - Command to print the number of suspended or background jobs you have active in your shell session.
-- `fg` - Resume the first suspended job.
-- `bg` - Send the first suspended job to the background.
-
-Try the following sequence of commands and keybindings:
-
-```zsh
-man ls
-<ctrl-z>
-nano ~/.zshrc
-<ctrl-z>
-```
-
-Now you have 2 suspended jobs:
-
-```
-jobs
-[1]  - suspended  man ls
-[2]  - suspended  nano ~/.zshrc
-```
-
-If you type `fg` it should resume the most recent job, which is `nano`.
-
-```zsh
-fg
-<ctrl-z>
-```
-
-If you want to resume the other job, look at it's ID in the `jobs` output. If we want to start job `[1]` instead, we would use `%1` as an argument to the `fg` command:
-
-```zsh
-fg %1
-```
-
-Similarly, if we wanted to kill job one, we could do:
-
-```zsh
-kill %1
-```
-
-If the program we have suspended to the background is a long running process, that we want to run asynchronously while we do other things in the shell, we can use the `bg` command to do that:
-
-```zsh
-# most recent job to background
-bg
-
-# job 1 to background
-bg %1
-```
-
-## Using the Line Editor Effectively
-
-TODO
-
-For very long commands, or when you need to edit a complicated command from your history, use the line editor.
-
-## !? !!, etc.
-
-Your shell has a lot of convenience variables and aliases that you can use to make your life easier.
-
-Two that I use frequently are `!$` and `!!`.
-
-- `!$` - This will be replaced with the _last_ parameter from the previous command you ran.
-- `!!` - This will be replaced with the _entire_ previous command.
-
-
-```zsh
-mkdir test
-ls !$
-touch !$/file.txt
-file !$
-git add !$
-```
-
-
-```zsh
-touch /etc/test.test
-# touch: /ect/test.test: Permision denied
-
-sudo !!
-
-rm -f !$
-# rm: /ect/test.test: Permision denied
-
-sudo !!
-```
+[NEXT >>](../02_expansion-utilities/README.md)

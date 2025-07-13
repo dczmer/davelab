@@ -12,7 +12,13 @@ Each chapter may have some additional text files or example scripts, they will b
 
 ## Contents
 
-- finding help; ctrl+r and using your history; ctrl+z/fg
-- combining commands (streams and files, redirection and pipes, tee)
-- [Useful commands for every day tasks](./03_commands/README.md)
+- [Finding help](./01_help-hisory-jobs/README.md)
+- [Expansion and other utilities](./02_expansion-utilities/README.md)
+- [Combining commands - streams and pipes](./03_streams-and-pipes/README.md)
+- [Useful commands for every day tasks](./04_commands/README.md)
+- [Basic scripting](./05_basic-scripting)
 - real-life examples (one-liners)
+
+---
+
+[NEXT >>](./01_help-hisory-jobs/README.md)
