@@ -148,6 +148,10 @@ You can put something in your [prompt string](../../01_zsh-configuration/02_prom
 $(dirs -v | wc -l | xargs)
 ```
 
+## Multi-Commands
+
+TODO: `||` and `&&`
+
 ---
 
 [NEXT >>](../02_expansion-signals/README.md)

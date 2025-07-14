@@ -217,6 +217,24 @@ bg
 bg %1
 ```
 
+### Starting a Command in the Background
+
+If you want to start a command and run it directly in the background, you can add a `&` (single ampersand) at the end:
+
+```zsh
+find / -name '*.txt'&
+```
+
+The example above would search the entire system for '.txt' files, which could take a very long time! By ending the command with `&`, it runs in the background.
+
+While that command is running you will still be able to use you shell normally, but you may see the `STDERR` output in your terminal. When the command completes, you will see the results printed to your `STDOUT`.
+
+When the background job is completely finished, it will print a message like:
+
+`[1]  + exit 1    find / -name '*.txt'`
+
+You can find the running jog with `jobs`, and continue running it in the foreground with `fg`, if you want.
+
 ## Signals
 
 A "signal" allows for manipulation from outside of the program or process. The most common things you might want to do are probably:
