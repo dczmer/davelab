@@ -148,9 +148,34 @@ You can put something in your [prompt string](../../01_zsh-configuration/02_prom
 $(dirs -v | wc -l | xargs)
 ```
 
-## Multi-Commands
+## Entering Multiple Commands at Once
 
-TODO: `||` and `&&`
+You can enter multiple commands at once using the `;` (semi-colon) character to separate commands:
+
+```zsh
+cd /tmp ; ls
+```
+
+This would change directory to `/tmp` and immediately print out it's contents.
+
+If you want to run a command ONLY if the previous command succeeded, you can use `&&`:
+
+```zsh
+find . -name '*.txt' && echo "FOUND TEXT FILES"
+```
+
+If any text file were found under the current directory, then print the text "FOUND TEXT FILES". If no matches were found, then the second command will not be executed.
+
+You can also use `||` to "or" two commands together: run the second command if the first command _fails_:
+
+```
+find . -name '*.txt' || echo "NO TEXT FILES!"
+```
+
+Similar to the previous example, this would print "NO TEXT FILES!" if the `find` command failed to find any text files.
+
+> NOTE: These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
+> This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical `&&` and `||` operators hide the details and you can just focus on the high-level logic.
 
 ---
 
