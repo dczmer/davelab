@@ -1,4 +1,4 @@
-# Developer Productivity 02 - Using the Shell
+# Developer Productivity 02 - Finding Help and Some Misc. Tips
 
 ## Finding Help
 
