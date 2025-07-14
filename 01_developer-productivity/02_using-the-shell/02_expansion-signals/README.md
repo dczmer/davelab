@@ -219,17 +219,69 @@ bg %1
 
 ## Signals
 
-TODO:
+A "signal" allows for manipulation from outside of the program or process. The most common things you might want to do are probably:
 
-- ctrl+c
-- ctrl+z
-- ctrl+s/q
-- ctrl+\
-- kill/pkill
+- Kill a process
+- Kill a process (with fire)
+- Stop or suspend a process
+
+There are a several more, but we're only covering the most basic ones.
+
+Try running `man signal` and reading the documentation.
+
+Your programs can also "trap" any these signals and add custom behavior to handle those events.
+
+There are keybindings for a couple of the most common signals:
+
+- `ctrl+c` - This will send the `SIGINT` signal, which tells the command to clean up and exit.
+- `ctrl+\` - Sometimes the program hangs and doesn't exit nicely when you send `SIGINT`. You can use `ctrl+\` to kill it harder, by sending the `SIGQUIT` signal.
+
+Another thing worth mentioning are `SIGHUP` and `SIGUSR1`/`SIGUSR2`. These commands are commonly used for custom signal handling in applications.
+
+`SIGHUP` will tell the application to "hang-up" (yes, it's that old). A common convention is to use this signal to instruct your application to re-init or re-read it's configuration, without stopping and restarting.
+
+The `SIGUSR` singals can be used by your application to allow custom signal events that don't map to any of the standard singals.
 
 ### `ps`, `kill`, `pkill`
 
-TODO
+How do you send a specific signal to an application? If there is no existing keybinding, or you don't know what that key is, you can use the `kill` command. Despite it's name, `kill` allows you to send any signal code, not just `SIGKILL`.
+
+For example, if you really, really want to kill a process and completely nuke it, you can send it `SIGKILL` instead of the normal `SIGINT` or `SIGQUIT` signals:
+
+```zsh
+ps aux | grep vim
+  dave    9898    ... (more stuff truncated) /usr/bin/vim ...
+  dave   12345    ... (more stuff truncated) grep vim
+
+kill -9 9898
+```
+
+We can use the `ps` command to find the process ID (`pid`) for a running command, then we can pass that `pid` to the `kill` command to target that running process. The `-9` means send the signal with ID=9, which is `SIGKILL`.
+
+To find a process ID, or to look to see if a process is running somewhere, use `ps aux` and then pipe that to grep to filter out the command that you want.
+
+```
+ps aux | grep vim
+  dave    9898    ... (more stuff truncated) /usr/bin/vim ...
+  dave   12345    ... (more stuff truncated) grep vim
+
+ps aux | grep [v]im
+  dave    9898    ... (more stuff truncated) /usr/bin/vim ...
+```
+
+> TIP: You may notice the first version of the command returned 2 processes: the `vim` command we searched for, but also the `grep` command that we just typed.
+> To omit the `grep` command, we use a glob `[]` around one character in the grep pattern string. This changes the text in the `ps` output to `[v]im`.
+> Grep can use `[v]im` to match `vim` in the output, but it will not match against `[v]im` from the output. It's a useful trick for when you are scripting things that use `ps` to find a process.
+
+Sometimes, you know the name of a command and you just want to nuke it. You can use the `pkill` command to match a process name, based on a regular expression, then send it a signal:
+
+```zsh
+pkill -9 -f vim
+```
+
+The parameter after the `-f` is the search pattern, and the `-9` sends the `SIGKILL` signal.
+
+> DANGER! Be careful with `pkill`. If your search pattern matches more processes, besides the one you intended, they will all get killed too!
 
 
 ---
