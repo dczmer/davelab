@@ -39,8 +39,6 @@ ls the-letter-[\!q].txt
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Glob_\(programming\)) is very short and has a good syntax table and some reference examples.
 
-If "globbing" is a simple way to pattern match file and directory names that is built into the kernel, then "expansion" is like an advanced, shell-specific set of features to match more complex or dynamic selections.
-
 When you enter a command, `zsh` will "expand" all the special directives in your command string and replace them with the actual values that match the patterns, BEFORE executing it as a shell command. This is like a "pre-processor" for your `C` compiler.
 
 One common pattern that you may be familiar with is `**` which would expand to all sub-directories:
@@ -53,14 +51,17 @@ ls **/*.md
 Another very useful globbing/expansion pattern is `{}`:
 
 ```zsh
-# open three files at once, from a directory location i don't want to type out every time:
+# open three files at once, from a directory location i don't
+# want to type out every time:
 vim /very/long/path/to/my/project/{fileA,fileB,fileC}.py -O3
 ```
 
 The argument `/very/log/path/to/my/project/{fileA,fileB,fileC}.py` _expands_ to:
 
 ```zsh
-/very/log/path/to/my/project/fileA.py /very/log/path/to/my/project/fileB.py /very/log/path/to/my/project/fileC.py
+/very/log/path/to/my/project/fileA.py \
+  /very/log/path/to/my/project/fileB.py \
+  /very/log/path/to/my/project/fileC.py
 ```
 
 
@@ -152,6 +153,8 @@ What happened here? Your shell expanded `*.txt` BEFORE passing it to the command
 find ~/wiki -name file1.txt file2.txt
 ```
 
+We wanted to send the actual glob pattern string as an argument, not to expand it and pass those results as the arguments.
+
 The way to fix this is by quoting the `glob` pattern with single quotes.
 
 ```zsh
@@ -184,8 +187,8 @@ Now you have 2 suspended jobs:
 
 ```
 jobs
-[1]  - suspended  man ls
-[2]  - suspended  nano ~/.zshrc
+  [1]  - suspended  man ls
+  [2]  - suspended  nano ~/.zshrc
 ```
 
 If you type `fg` it should resume the most recent job, which is `nano`.
@@ -245,7 +248,7 @@ A "signal" allows for manipulation from outside of the program or process. The m
 
 There are a several more, but we're only covering the most basic ones.
 
-Try running `man signal` and reading the documentation.
+Try running `man signal` and browsing the documentation.
 
 Your programs can also "trap" any these signals and add custom behavior to handle those events.
 
@@ -288,7 +291,9 @@ ps aux | grep [v]im
 ```
 
 > TIP: You may notice the first version of the command returned 2 processes: the `vim` command we searched for, but also the `grep` command that we just typed.
+>
 > To omit the `grep` command, we use a glob `[]` around one character in the grep pattern string. This changes the text in the `ps` output to `[v]im`.
+>
 > Grep can use `[v]im` to match `vim` in the output, but it will not match against `[v]im` from the output. It's a useful trick for when you are scripting things that use `ps` to find a process.
 
 Sometimes, you know the name of a command and you just want to nuke it. You can use the `pkill` command to match a process name, based on a regular expression, then send it a signal:

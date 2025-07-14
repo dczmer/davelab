@@ -127,6 +127,10 @@ Try printing the contents of your current `PATH` variable:
 echo $PATH
 ```
 
+> NOTE: `zsh` allows you to manage variables like `PATH` as actual array objects. The included [`zshrc-example`](./zshrc-example.zsh) file uses this to set the path:
+>
+> `export path=($path ~/bin)`
+
 ## Aliases
 
 Use aliases to simplify entering long or repetitive tasks.
