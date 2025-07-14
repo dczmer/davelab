@@ -12,8 +12,8 @@ Each chapter may have some additional text files or example scripts, they will b
 
 ## Contents
 
-- [Finding help](./01_help-hisory-jobs/README.md)
-- [Expansion and other utilities](./02_expansion-utilities/README.md)
+- [Finding help](./01_help-hisory/README.md)
+- [Expansion and signals](./02_expansion-signals/README.md)
 - [Combining commands - streams and pipes](./03_streams-and-pipes/README.md)
 - [Useful commands for every day tasks](./04_commands/README.md)
 - [Basic scripting](./05_basic-scripting)

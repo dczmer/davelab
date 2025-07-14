@@ -126,6 +126,28 @@ This is convenient, and I do it all the time, but it may not be ideal:
 
 Once you've done this a few times, you should probably create a [simple script](../../03_basic-shell-scripting/README.md) instead.
 
+## Using `pushd`/`popd`
+
+Sometimes you may need to temporarily change to a different directory and run a few commands, but you don't want to lose your spot. If you use `pushd` and `popd`, you can save your place in a "stack" of directory bookmarks and then return to them when you are done.
+
+Use `pushd` to move to a new directory and save your place on the `dirs` stack. Try the following sequence of commands:
+
+```zsh
+cd ~
+pushd /tmp
+touch test.txt
+dirs -v
+popd
+```
+
+![image](./images/pushd.png)
+
+You can put something in your [prompt string](../../01_zsh-configuration/02_prompt/README.md) to show how many levels of directories are on the stack:
+
+```zsh
+$(dirs -v | wc -l | xargs)
+```
+
 ---
 
 [NEXT >>](../02_expansion-utilities/README.md)

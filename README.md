@@ -29,3 +29,21 @@ Each section will briefly cover the material, then explain how you can try it ou
 ## Contents
 
 - [01 - Developer Productivity](./01_developer-productivity/README.md)
+
+
+<details>
+
+<summary>TODO: Future topics</summary>
+
+- Diagramming:
+    * buy a white-board
+    * plantuml and mermaid (and a mention of graphviz)
+    * Sequence diagrams, flow charts, simple class diagrams
+        + Shout-out "UML Distilled" - TLDR "The good parts" of UML for real world application
+    * C-4 diagrams, 
+    * https://www.educative.io/blog/software-architecture-diagramming-and-patterns
+- "Systems Thinking"
+- Functional programming concepts
+- Type systems and a bit of type theory
+
+</details>
