@@ -406,3 +406,7 @@ cat ./jq-table.json | jq -r '["col1", "col2", "col3"], .[] | @tsv'
 ```zsh
 cat ./jq-object.json | jq -r '.[] | [ .col1, .col2, .col3 ] | @tsv'
 ```
+
+---
+
+[NEXT >>](../05_one-liners/README.md)

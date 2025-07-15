@@ -5,9 +5,9 @@
 ### Configuring
 
 - also install `ripgrep` and set `FZF_DEFAULT_COMMAND`:
-    - `export FZF_DEFAULT_COMMAND="rg --files --hidden --glob *"`
+    - `export FZF_DEFAULT_COMMAND='rg --files --hidden --glob *'`
     - `rg` will filter/exclude `.gitignore` files automatically
-- add `eval "$(fzf --bash)"` to `~/.zshrc`
+- add `eval "$(fzf --zsh)"` to `~/.zshrc`
     - optionally unset these keybindings with vars: `FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= fzf ...`
     - instead, set them to the same thing as `FZF_DEFAULT_COMMAND`
         - `export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"`
@@ -17,7 +17,8 @@
     - `export FZF_DEFAULT_OPTS="--tmux "`
     - or `export FZF_DEFAULT_OPTS_FILE=~/.config/fzf/fzfrc` and use that file
 
-theme designer: config/lua/dave-vim/plugins/nvim-colorizer-lua.lua
+theme designer: https://vitormv.github.io/fzf-themes/
+
 ```zsh
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#CCCCCC,fg+:#FFBD5E,bg:#121212,bg+:#262626
