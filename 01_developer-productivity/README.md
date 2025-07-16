@@ -11,6 +11,8 @@ Developer productivity and developer experience are complex and broad topics. Th
 - (WIP) [Basic Shell Scripting](./03_basic-shell-scripting/README.md) - You can do anything from the command line. And anything you can do from the command line, you can automate with a shell script.
 - [`tmux`](./04_tmux/README.md) - Manage and wrangle multiple terminal sessions into layouts and re-attach to your session, without losing changes, if you close your terminal.
 
+---
+
 <details>
 <summary>TODO: topics I'd like to add to this module:</summary>
 
