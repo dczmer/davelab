@@ -10,7 +10,9 @@ By the end of this module you will be familiar with a hand-full of the most comm
 
 Follow along with this text, while typing the examples into your terminal.
 
-Each chapter may have some additional text files or example scripts, they will be linked from the `README.md` file.
+Put your terminal next to your browser so you can read and follow the examples at the same time:
+
+![image](../images/side-by-side.png)
 
 ## Contents
 

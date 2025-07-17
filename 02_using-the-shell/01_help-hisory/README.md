@@ -2,7 +2,7 @@
 
 ## Finding Help
 
-There are a lot of commands, and every command has options and required parameters. The commands you use every day will become muscle memory, but you will always need to look things up to find help or remember the options you need to use.
+There are a lot of commands, and every command has options and required parameters. The commands you use every day will become muscle-memory, but you will always need to look things up to find help or remember the options you need to use.
 
 ### `man` - The Manual Pages
 
@@ -26,6 +26,16 @@ When you want to quit, press `q`.
 
 Press `h` to view the help menu to see all the commands you can use.
 
+### Try it Out
+
+What does `ls -t` do?
+
+What does the `-S3` in this command mean?
+
+```zsh
+man -S3 printf
+```
+
 ## Command Help
 
 If you know how to use the command but you need a quick reference, use the command's help option.
@@ -45,12 +55,6 @@ If you completed the [`zsh` configuration](../../01_zsh-configuration/README.md)
 If you already know the command but just can't remember the arguments or commands, you can often use this to just `<tab>` complete your way to typing out the command.
 
 ![image](./images/completion.png)
-
-### Searching the Internet
-
-I put this last because I think you should try to use the built-in help systems first.
-
-In recent years, Google search results for have gone down in quality and it becomes harder and harder to find the information you are looking for under all of the ads and paid search results. But, for most queries, it should still find what you need on StackOverflow or other answers sites.
 
 ## Using your History
 
@@ -175,6 +179,7 @@ find . -name '*.txt' || echo "NO TEXT FILES!"
 Similar to the previous example, this would print "NO TEXT FILES!" if the `find` command failed to find any text files.
 
 > NOTE: These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
+> 
 > This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical `&&` and `||` operators hide the details and you can just focus on the high-level logic.
 
 ---
