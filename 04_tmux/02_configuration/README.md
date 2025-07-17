@@ -138,4 +138,4 @@ I prefer to use a terminal emulator that doesn't have splits or windows, like [k
 
 ---
 
-[BACK TO DEVELOPER PRODUCTIVITY](../../README.md)
+[HOME](../../README.md)

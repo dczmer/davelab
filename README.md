@@ -28,4 +28,23 @@ Each section will briefly cover the material, then explain how you can try it ou
 
 ## Contents
 
-- [01 - Developer Productivity](./01_developer-productivity/README.md)
+> NOTE: Only the ZSH Configuration and `tmux` sections are mostly done. The others are WIP - they have some of the raw content but aren't ready yet.
+
+- [ZSH Configuration](./01_zsh-configuration/README.md) - How to configure your `zsh` shell into something that makes it comfortable, visually appealing, and easier to use.
+- (WIP) [Using the Shell](./02_using-the-shell/README.md) - How to accomplish common daily tasks by combining commands, some of the most useful, general commands, and some real world examples.
+- (WIP) [Basic Shell Scripting](./03_basic-shell-scripting/README.md) - You can do anything from the command line. And anything you can do from the command line, you can automate with a shell script.
+- [`tmux`](./04_tmux/README.md) - Manage and wrangle multiple terminal sessions into layouts and re-attach to your session, without losing changes, if you close your terminal.
+
+
+### Things I'd Like to Cover Someday
+
+- Diagramming - Quickly and effectively map out your ideas and share them with others.
+- Every-Day "git-fu" - Don't be afraid of using `git` at the command line. Learn some useful tricks, like how to recover from a bad merge or rebase without abandoning your branch.
+- Regex 101 - Just the basics, and some words of caution on how and where you apply this.
+- Feedback Loops - Engineering involves experimentation and repeated trial-and error. Minimize the time between when you make a change and you observe it's effects.
+- Modal Text Editing - Why do some people use `vim` from the command line with `vscode` exists? Why does everything, including `vscode`, have "vim" keybindings?
+- Isolation and Dependencies for Developers - What is isolation? Why do you want it? What tools can you use to manage dependencies and isolation?
+- Type Systems and Type Theory
+- Functional Programming Concepts
+- "Systems Thinking"
+- Linux as Your Daily Driver

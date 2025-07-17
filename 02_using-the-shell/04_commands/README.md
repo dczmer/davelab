@@ -1,3 +1,5 @@
+# 02 Using the Shell - Useful Commands
+
 ## Overview
 
 This `linux` philosophy is that each tool should do one thing, and do that one thing well. Think of these commands as primitive building blocks that we can combine to write little programs that work on "lines of text" as data.
