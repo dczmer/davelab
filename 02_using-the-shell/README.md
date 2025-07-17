@@ -1,5 +1,7 @@
 # Developer Productivity 02 - Using the Shell
 
+> NOTE: This module is still WIP and not ready for review.
+
 ## Overview
 
 By the end of this module you will be familiar with a hand-full of the most common and useful shell commands for daily tasks, how to combine them together into 'one-liners' to complete a task, and we'll see some real world examples.
