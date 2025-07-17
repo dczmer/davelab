@@ -12,7 +12,7 @@ All of the terminals that you open in your layout will be saved to the active `s
 
 Keep your shell open on one half of the screen, and this document in your browser on the other half.
 
-![image](../../images/side-by-side.png)
+![image](../images/side-by-side.png)
 
 Follow along with the exercises by typing commands in your terminal and interacting with `tmux`, as instructed.
 
