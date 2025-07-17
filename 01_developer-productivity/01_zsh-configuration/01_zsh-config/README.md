@@ -136,15 +136,15 @@ echo $PATH
 Use aliases to simplify entering long or repetitive tasks.
 
 ```zsh
-alias -- lll='ls --color -all'
+alias -- ll='ls --color -al'
 ```
 
-This will make a new command, `lll`, which is just the same as typing `ls --color -all`. Anything you type after the command will be forwarded as arguments to the real command.
+This will make a new command, `ll`, which is just the same as typing `ls --color -al`. Anything you type after the command will be forwarded as arguments to the real command.
 
 ```zsh
-lll ~/bin
+ll ~/bin
 # is the same as
-ls --color -all ~/bin
+ls --color -al ~/bin
 ```
 
 Another common use for aliases is to make short abbreviations for common commands:
