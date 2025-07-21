@@ -1,0 +1,446 @@
+:root {
+  font-size: 14px;
+  text-underline-offset: 0.3em;
+  /* layout variables */
+  --layout-margin: 0.5rem;
+  --layout-padding: 1rem;
+  --margin-xxsmall: 0.2em;
+  --margin-xsmall: 0.4em;
+  --margin-medium: 0.8em;
+  --margin-large: 1em;
+  --margin-xlarge: 1.2em;
+  --margin-xxlarge: 2em;
+  --nav-width: clamp(14em, 20em, 24em);
+  --nav-collapse: -2em;
+  --header-font-size: 1.5em;
+  --footer-font-size: 0.9em;
+  --nav-font-size: 1.0em;
+  --nav-collapse-font-size: 0.9em;
+  --main-font-size: 1em;
+  --code-font-size: 1em;
+  --font-small: 0.8em;
+  --font-medium: 1em;
+  /* color pallet based on dracula theme */
+  --dark-gray: #282a36;
+  --white: #f8f8f2;
+  --gray: #44475a;
+  --blue-gray: #6272a4;
+  --red: #ff5555;
+  --orange: #ffb86c;
+  --yellow: #f1fa8c;
+  --yellow2: #d2d979;
+  --green: #50fa7b;
+  --green2: #39ba5a;
+  --purple: #bd93f9;
+  --cyan: #8be9fd;
+  --cyan2: #63ada5;
+  --pink: #ff79c6;
+}
+
+@font-face {
+  font-family: "HackNerd";
+  src: url(font/HackNerdFont-Regular.ttf) format(truetype);
+}
+
+/* layout */
+
+html {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--gray);
+  color: var(--white);
+  font-family: "HackNerd", Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: var(--margin-xxsmall) var(--margin-xsmall);
+  display: grid;
+  grid-template-columns: var(--nav-width) auto;
+  row-gap: var(--layout-margin);
+  column-gap: var(--layout-margin);
+}
+
+header,
+footer {
+  grid-column: 1 / 3;
+}
+
+header,
+footer,
+nav,
+main {
+  background: var(--dark-gray);
+  border-radius: 5px;
+  /* multiple font-sizes; stay relative to base font-size */
+  padding: var(--layout-padding);
+}
+
+nav {
+  grid-column: 1;
+  font-size: var(--nav-font-size);
+  color: var(--cyan);
+  padding: 0;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-margin);
+    justify-content: flex-start;
+  }
+
+  .subnav {
+    color: var(--white);
+    padding: var(--margin-medium);
+    border-bottom: 1px solid var(--gray);
+  }
+
+  .selected-module {
+    font-weight: bold;
+    color: var(--orange);
+
+    &::before {
+      content: " ";
+    }
+  }
+
+  .selected-section {
+    font-weight: bold;
+    color: var(--orange) !important;
+
+    &::before {
+      content: " ";
+    }
+  }
+
+  /**
+  .subnav-inactive {
+    display: none;
+  }
+  **/
+
+  .subnav a {
+    color: var(--cyan);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .subnav ul {
+    list-style-type: none;
+    padding-inline-start: var(--margin-large);
+    margin-top: 0;
+    margin-bottom: 0;
+
+    li {
+      margin-bottom: var(--margin-xsmall);
+    }
+  }
+}
+
+main {
+  font-size: var(--main-font-size);
+  grid-column: 2 / 3;
+  overflow-x: auto;
+
+  li::marker {
+    color: var(--purple);
+  }
+}
+
+header {
+  font-size: var(--header-font-size);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  a {
+    color: var(--green);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* narrow window mode */
+
+@media (max-width: 950px) {
+  nav {
+    grid-column: 1 / 3;
+    padding: 1em;
+    margin-top: var(--nav-collapse);
+    font-size: var(--nav-collapse-font-size);
+
+    section {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--margin-large);
+    }
+
+    .subnav {
+      padding: var(--margin-xsmall) var(--margin-medium);
+      border: 1px solid var(--gray);
+      border-radius: 5px;
+    }
+
+    .subnav ul {
+      display: none;
+      position: absolute;
+      background: var(--dark-gray);
+      padding: var(--margin-large);
+      border: 1px solid var(--white);
+      margin-left: 0;
+      border-radius: 5px;
+      line-height: 2;
+    }
+
+    .subnav:hover ul {
+      display: block;
+      z-index: 1;
+    }
+
+    .subnav-inactive {
+      display: block;
+    }
+  }
+
+  main {
+    grid-column: 1 / 3;
+  }
+}
+
+footer {
+  font-size: var(--footer-font-size);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  a {
+    color: var(--yellow);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  section {
+    display: inline-block;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--margin-xlarge);
+  }
+}
+
+main > * {
+  margin-left: var(--margin-medium);
+}
+
+p {
+  margin: var(--margin-medium);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--orange);
+  margin-top: var(--margin-large);
+  margin-left: 0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--cyan);
+  font-family:
+    "HackNerd", Monaco, "Courier New", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", monospace;
+}
+
+ul,
+ol {
+  margin: var(--margin-medium) 0;
+}
+
+blockquote {
+  color: var(--purple);
+  font-style: italic;
+  padding: var(--margin-medium);
+
+  cite {
+    display: block;
+    font-size: var(--font-small);
+    margin-left: var(--margin-large);
+  }
+}
+
+table:not(.rouge-table) {
+  border: 1px solid var(--white);
+  background: var(--gray);
+  margin-bottom: var(--margin-xsmall);
+  border-radius: 5px;
+
+  thead {
+    color: var(--white);
+  }
+
+  tbody {
+    tr:nth-child(even) {
+      color: var(--yellow);
+    }
+  }
+
+  th {
+    background: var(--dark-gray);
+  }
+
+  td {
+    padding: var(--margin-xsmall) var(--margin-medium);
+  }
+}
+
+hr {
+  border: 1px solid var(--gray);
+  margin: var(--margin-large) 0;
+}
+
+img {
+  margin: var(--margin-xsmall) 0 var(--margin-large) 0;
+  padding: var(--margin-xxsmall);
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+figure {
+  background: var(--gray);
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: var(--margin-large);
+
+  img {
+    margin: 0;
+  }
+}
+
+figcaption {
+  color: var(--yellow);
+  font-size: var(--font-small);
+  font-style: italic;
+  text-align: center;
+}
+
+.note,
+.warning,
+.success,
+.todo {
+  display: block;
+  background: var(--gray);
+  border-radius: 5px;
+  padding: var(--margin-medium);
+  margin: var(--margin-large) var(--margin-medium);
+
+  &::before {
+    display: block;
+    margin-right: var(--margin-xsmall);
+    margin-bottom: var(--margin-xsmall);
+  }
+}
+
+.note {
+  color: var(--white);
+  border: 1px solid var(--cyan);
+
+  &::before {
+    color: var(--cyan);
+    content: " NOTE:";
+  }
+}
+
+.warning {
+  color: var(--white);
+  border: 1px solid var(--pink);
+
+  &::before {
+    color: var(--pink);
+    content: "✗ WARNING:";
+    font-weight: bold;
+  }
+}
+
+.success {
+  color: var(--white);
+  border: 1px solid var(--green);
+
+  &::before {
+    color: var(--green);
+    content: "✓ SUCCESS!";
+    font-style: italic;
+  }
+}
+
+.todo {
+  color: var(--white);
+  border: 1px solid var(--green);
+
+  &::before {
+    color: var(--green);
+    content: "  TODO:";
+    font-weight: bold;
+  }
+}
+
+.caption {
+  color: var(--yellow);
+  font-size: var(--font-small);
+  font-style: italic;
+  margin: var(--margin-xsmall) 0 var(--margin-large) var(--margin-medium);
+}
+
+#markdown-toc {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: var(--margin-xlarge);
+  list-style-type: disc;
+  margin: var(--margin-medium) 0 var(--margin-xlarge) 0;
+}
+
+/* code higlighting tweaks */
+
+:not(.highlight) > code {
+  font-size: var(--font-medium);
+  font: monospace;
+  background: var(--gray);
+}
+
+code,
+pre,
+.highlighter-rouge {
+  font-size: var(--code-font-size);
+  background: var(--dark-gray);
+  font-family: "HackNerd", Verdana, Arial, Helvetica, sans-serif !important;
+}
+
+.highlighter-rouge {
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  margin:  var(--margin-medium) var(--margin-medium) var(--margin-medium);
+  padding: var(--margin-medium);
+}
+
+.language-text {
+  pre {
+    color: var(--yellow);
+  }
+}

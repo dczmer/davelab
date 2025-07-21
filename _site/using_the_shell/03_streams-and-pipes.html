@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>(WIP) Streams and Pipes</title>
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/reset.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="http://localhost:4000//jekyll-test/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="/jekyll-test/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="https://github.com/dczmer/davelab.git">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        
+        
+          
+          
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Zsh configuration
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/index"
+                    >
+                      ZSH Configuration Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/01_zsh-config"
+                    >
+                      Basic ZSH Configuration
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/02_prompt"
+                    >
+                      Configuring Your Prompt
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/03_completion"
+                    >
+                      The Completion System
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/04_complete-setup"
+                    >
+                      Completed Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="selected-module">
+                Using the shell
+              </span>
+              <ul class="">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/index"
+                    >
+                      Shell Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/01_help-hisory"
+                    >
+                      Finding Help
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/02_expansion-signals"
+                    >
+                      Expansion and Signals
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class="selected-section"
+                      href="http://localhost:4000/jekyll-test/using_the_shell/03_streams-and-pipes"
+                    >
+                      (WIP) Streams and Pipes
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/04_commands"
+                    >
+                      Useful Commands
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/05_one-liners"
+                    >
+                      (WIP) Useful One-Liners
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Tmux
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/index"
+                    >
+                      Tmux Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/01_basic-usage"
+                    >
+                      Tmux Basic Usage
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/02_configuration"
+                    >
+                      Tmux Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+      </section>
+    </nav>
+    <main>
+      <ul id="markdown-toc">
+  <li><a href="#streams-and-pipes" id="markdown-toc-streams-and-pipes">Streams and Pipes</a>    <ul>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#io-streams" id="markdown-toc-io-streams">I/O Streams</a>        <ul>
+          <li><a href="#stdin" id="markdown-toc-stdin">STDIN</a></li>
+          <li><a href="#stdout" id="markdown-toc-stdout">STDOUT</a></li>
+          <li><a href="#stderr" id="markdown-toc-stderr">STDERR</a></li>
+        </ul>
+      </li>
+      <li><a href="#redirection" id="markdown-toc-redirection">Redirection</a>        <ul>
+          <li><a href="#tee" id="markdown-toc-tee">tee</a></li>
+        </ul>
+      </li>
+      <li><a href="#pipes" id="markdown-toc-pipes">Pipes</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="streams-and-pipes">Streams and Pipes</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Programs can send their output to (and receive their input from) another program or another file.</p>
+
+<p>If you combine multiple commands this way, you can write little programs in your shell that work on <em>lines of text</em>.</p>
+
+<p>These lines of text are typically filtered, pattern-matched, transformed and then printed or sent as input into yet another program.</p>
+
+<p>If your lines of text are separated by a common delimiter character, then shell commands can understand this and treat the data as a <em>list of records</em> of tabular data.</p>
+
+<ul>
+  <li>Generate, translate, filter, and transform text:
+    <ul>
+      <li>This could include everything from building reports to writing a command that generates another, very complicated command.</li>
+    </ul>
+  </li>
+  <li><em>Process lists of records</em> of tabular data</li>
+</ul>
+
+<h2 id="io-streams">I/O Streams</h2>
+
+<p>I think the term “stream” is a pretty good way to describe the concept. Data flows from in one direction and it can be split, combined, or diverted in various ways with a little bit of plumbing.</p>
+
+<p class="todo">TODO: diagram</p>
+
+<p>On a Unix-based system (that includes Mac/Darwin and Linux), the kernel treats any data source or device the same way it treats a normal file. This just means that there is a consistent interface for reading, seeking, opening, closing, writing to all of these data sources.</p>
+
+<p>The reason I bring this up is because it will help you understand what streams are if you think of them as files. Files that don’t actually exist anywhere on disk and disappear when the command sequence is complete.</p>
+
+<p>Multiple programs can keep a file open and read/write to it at the same time. One program can read the contents of a file and, when it gets to the end, wait a while and then check to see if more data has been added to the end of the file by another program.</p>
+
+<h3 id="stdin">STDIN</h3>
+
+<p>When a program reads from <code>STDIN</code> (“standard input”) stream, it will read any information in that stream and then wait for more data to be written. When it detects new data, it will process that, then wait again (until it receives a special “end of file” sequence).</p>
+
+<p class="todo">TODO: diagram</p>
+
+<p>In your interactive shell, <code>STDIN</code> defaults to the characters you type from your keyboard, like editing a file in a text editor. But, usually, we write another command to produce specific output and “pipe” that to the next program, to become that program’s <code>STDIN</code> stream. This is like writing a program to produce a very specific input “file” for the next program to read.</p>
+
+<h3 id="stdout">STDOUT</h3>
+
+<p>You may have guessed by now, <code>STDOUT</code> is an <em>output</em> stream, and it goes to your monitor by default. The output of a program is written to this “file” and, if we “pipe” it to another command, this program’s <code>STDOUT</code> is also the next program’s <code>STDIN</code>. We can combine programs this way into chains or “pipelines” to do complex tasks.</p>
+
+<p>The first input starts with my keyboard, then the output of each command becomes the input of each subsequent command, and then the last output stream goes to my monitor for display.</p>
+
+<p class="todo">TODO: diagram</p>
+
+<h3 id="stderr">STDERR</h3>
+
+<p>The other important stream to know is <code>STDERR</code>, which is the “error” output stream. This is typically where error or warning text is printed by a program.</p>
+
+<p>This stream also goes to your monitor, so it will look like it’s part of the <code>STDOUT</code> data. But they are actually two different streams and you can point them off in different directions.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># "2" is the ID or "file descriptor" for STDERR</span>
+<span class="nb">rm</span> /tmp/this-file-does-not-exist 2&gt;/dev/null
+</code></pre></div></div>
+
+<p>The example above would try to remove the file and, if the file didn’t exist or there was some problem, would send the error output to the “null device” (basically send it to nowhere). The <code>STDOUT</code> would still go to the screen, but the <code>STDERR</code> would not be printed.</p>
+
+<h2 id="redirection">Redirection</h2>
+
+<p>You can “redirect” <code>STDOUT</code> to another destination, like a file or another output stream. You can also “redirect” input to <code>STDIN</code> from another source, besides your keyboard.</p>
+
+<p>You can redirect output to a file on disk.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># create or overwrite /tmp/hi.txt</span>
+<span class="nb">echo</span> <span class="s2">"HI"</span> <span class="o">&gt;</span> /tmp/hi.txt
+
+<span class="c"># append to existing /tmp/hi.txt</span>
+<span class="nb">echo</span> <span class="s2">"HELLO"</span> <span class="o">&gt;&gt;</span> /tmp/hi.txt
+</code></pre></div></div>
+
+<p>A single “<code>&gt;</code>” will send the output to the file <code>/tmp/hi.txt</code>, creating the file if it does not exist, or overwriting it if it does exist.</p>
+
+<p>Using “<code>&gt;&gt;</code>” will <em>append</em> the output to the existing file, instead of overwriting it.</p>
+
+<p>If you redirect an output stream to <code>/dev/null</code>, it will suppress that output. You might do this, for example, if you want to run a command that might fail and you don’t want the <code>STDERR</code> output if it does.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~/tmp /doesnotexist
+<span class="c">#  ls: cannot access '/doesnotexist': No such file or directory</span>
+<span class="c">#  ~/tmp:</span>
+<span class="c">#  file1</span>
+<span class="c">#  file2</span>
+<span class="c">#  ...</span>
+
+<span class="nb">ls</span> ~/tmp /doesnotexist 2&gt;/dev/null
+<span class="c">#  ~/tmp:</span>
+<span class="c">#  file1</span>
+<span class="c">#  file2</span>
+<span class="c">#  ...</span>
+</code></pre></div></div>
+
+<p>You can redirect the output from one stream to another output stream as well. You might want to do this if you want to treat <code>STDERR</code> like part of <code>STDIN</code>, so you can filter for errors or regular output with one command.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this time, the error message is on STDOUT so grep can match it</span>
+<span class="nb">ls</span> ~/tmp /doesnotexist 2&gt;&amp;1 | <span class="nb">grep</span> <span class="s1">'No such file'</span>
+<span class="c">#  ls: cannot access '/doesnotexist': No such file or directory</span>
+</code></pre></div></div>
+
+<p>You can also redirect output to the default <code>STDIN</code> and another program can read that:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/tmp/hi.txt
+<span class="c">#  HI</span>
+<span class="c">#  HELLO</span>
+
+<span class="c"># sed reads from STDIN</span>
+<span class="nb">sed</span> <span class="s1">'s/HI/HELLO/'</span> &lt;<span class="o">(</span><span class="nb">cat</span> ~/tmp/hi.txt<span class="o">)</span>
+<span class="c">#  HELLO</span>
+<span class="c">#  HELLO</span>
+
+<span class="c"># you can redirect input AND output</span>
+<span class="nb">sed</span> <span class="s1">'s/HI/HELLO/'</span> &lt;<span class="o">(</span><span class="nb">cat</span> ~/tmp/hi.txt<span class="o">)</span> <span class="o">&gt;</span> ~/tmp/hello.txt
+</code></pre></div></div>
+
+<h3 id="tee">tee</h3>
+
+<p>When you redirect your output to a file, you don’t see it on your screen. If you want to see the output on your screen AND redirect it to a file, use the <code>tee</code> command.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail</span> <span class="nt">-f</span> /var/log/nginx/access.log | <span class="nb">grep </span>mypage.html | <span class="nb">tee</span> /tmp/mypage.log
+</code></pre></div></div>
+<p>In this example, we’re “tailing” a log file - watching it for changes and printing them to the screen as soon as something new is written to the file.</p>
+
+<p>The <code>grep</code> command filters the live log output, so that it only prints lines that mention <code>mypage.html</code>.</p>
+
+<p>Then <code>tee</code> will redirect the output to the specified file, <code>/tmp/mypage.log</code>, while also printing it to your screen (<code>STDOUT</code>).</p>
+
+<h2 id="pipes">Pipes</h2>
+
+<p>With pipes, you directly connect two programs at opposite ends of a shared data stream. One program is the producer, which writes it’s output directly to the stream. The other program is the consumer, which reads it’s input directly from the stream.</p>
+
+<p class="todo">TODO: image</p>
+
+<p class="note">NOTE TO SELF: Do NOT make a human centipede reference here. It’s a perfect analogy, but NSFW.</p>
+
+<p>If you’ve read the other sections in this module, you’ve already seen plenty of examples of this concept in other examples.</p>
+
+<p class="todo">TODO: another example</p>
+
+<p>Normally, only the <code>STDOUT</code> of a program gets piped to the next one. If you want to send <code>STDERR</code> along with it, you can use <code>|&amp;</code> to combine both output streams into one.</p>
+
+<p class="todo">TODO: example</p>
+
+<hr />
+
+<p><a href="./04_commands">NEXT »</a></p>
+
+    </main>
+    <footer>
+      <a href="/jekyll-test/"> davelab</a>
+      <section>
+        <a href="/jekyll-test/test">(Secret test page)</a>
+        <a href="/jekyll-test/about">ABOUT</a>
+        <a href="https://github.com/dczmer/davelab.git" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

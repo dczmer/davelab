@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ZSH Configuration Intro</title>
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/reset.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="http://localhost:4000//jekyll-test/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="/jekyll-test/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="https://github.com/dczmer/davelab.git">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        
+        
+          
+          
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="selected-module">
+                Zsh configuration
+              </span>
+              <ul class="">
+                
+                
+                  <li>
+                    <a
+                      class="selected-section"
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/index"
+                    >
+                      ZSH Configuration Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/01_zsh-config"
+                    >
+                      Basic ZSH Configuration
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/02_prompt"
+                    >
+                      Configuring Your Prompt
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/03_completion"
+                    >
+                      The Completion System
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/04_complete-setup"
+                    >
+                      Completed Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Using the shell
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/index"
+                    >
+                      Shell Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/01_help-hisory"
+                    >
+                      Finding Help
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/02_expansion-signals"
+                    >
+                      Expansion and Signals
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/03_streams-and-pipes"
+                    >
+                      (WIP) Streams and Pipes
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/04_commands"
+                    >
+                      Useful Commands
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/05_one-liners"
+                    >
+                      (WIP) Useful One-Liners
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Tmux
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/index"
+                    >
+                      Tmux Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/01_basic-usage"
+                    >
+                      Tmux Basic Usage
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/02_configuration"
+                    >
+                      Tmux Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+      </section>
+    </nav>
+    <main>
+      <h1 id="configuring-zsh-for-everyday-use">Configuring ZSH For Everyday Use</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>By the end of this module you will have created your own customized <code>zshrc</code> file that you can use to replace/augment your existing configuration, to make it much easier to perform tasks in the shell. Importantly, you will know what every option in that configuration file does and how to change it.</p>
+
+<p>Some of the syntax and conventions may seem strange or complicated. You can just take the completed configuration file from the final section and use that as your own <code>zshrc</code>. The sections in this module will walk through the important lines from that configuration file so that you know what they do, and how to customize them.</p>
+
+<p class="warning">You probably have an existing <code>~/.zshrc</code> file, and it might have important stuff you want to preserve. If you decide to replace your configuration file, be sure to make a backup first! There will be a section at the end with some guidelines for merging with your existing configuration.</p>
+
+<h2 id="how-to-explore-this-course">How to Explore this Course</h2>
+
+<h3 id="cli-text-editor">CLI Text Editor</h3>
+
+<p>Before you do anything else, make sure you install a command line text editor and learn how to enter text, save, and exit. Editing configuration files from the command line is a common chore, so make sure you are comfortable with it first.</p>
+
+<p>You might try using <code>neovim</code> or <code>emacs</code>, because I want to talk about modal text editing later. The learning curve is steep, but just taking the plunge and forcing yourself to use it as your daily driver will help you train and build muscle memory much faster.</p>
+
+<p>Otherwise, <code>nano</code> is probably the easiest way to get started. It’s keyboard driven, but it has a menu that shows you the important keybindings while you are editing. Run <code>man nano</code> and read the <code>DESCRIPTION</code> and <code>EDITING</code> sections.</p>
+
+<p>I recommend learning <code>vim</code> and <code>nano</code> because those are usually available on every system. When you have to shell to a remote server and fix something, those will probably be your only options.</p>
+
+<h3 id="install-zsh">Install ZSH</h3>
+
+<p>First, you will need to make sure you have <code>zsh</code> installed.</p>
+
+<p>If you are using a Mac, then this is the default shell already. However, you should consider installing a better terminal emulator like <a href="https://iterm2.com/">iTerm</a>, or <a href="https://github.com/kovidgoyal/kitty">kitty</a> (via <a href="https://brew.sh/">homebrew</a>).</p>
+
+<p>If you are on Linux or WSL, you will need to be sure you have it installed.</p>
+
+<p>The instructions vary, depending on your specific operating system or distribution, but it usually involves installing the <code>zsh</code> package from your package manager. Making it your default shell can be done either in the settings for your terminal emulator, or by using the <code>chsh</code> command.</p>
+
+<h3 id="running-the-examples">Running the Examples</h3>
+
+<p>We can test configuration files and shell scripts by starting a fresh <code>zsh</code> session in your terminal. This will ensure we’re working from a clean slate, with zero custom configuration, so we can experiment with changing settings and be sure scripts and commands will work consistently.</p>
+
+<p>To start, open your terminal emulator and start a new <code>zsh</code> session:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zsh <span class="nt">-df</span>
+</code></pre></div></div>
+
+<p>You may notice the prompt change to the default, which is just your system’s hostname and a ‘%’ character.</p>
+
+<p>Then you can <code>source</code> the configuration file that you want to test:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># example:</span>
+<span class="nb">source </span>example_config.zsh
+</code></pre></div></div>
+
+<h2 id="contents">Contents</h2>
+
+<p>In this module, we will walk through setting up a basic <code>zsh</code> shell environment.</p>
+
+<ul>
+  <li><a href="./01_zsh-config">Basic ZSH configuration</a> will cover configuring how your command history works, and adjusting some global settings.</li>
+  <li><a href="./02_prompt">Customizing your prompt</a> will cover how to create a custom prompt string, and we’ll talk about prompt generators and other tools that might automate the process for you.</li>
+  <li><a href="./03_completion">The completion system</a> will cover how to enable and customize the completion engine, which will help you enter commands correctly by showing you the valid options and letting you pick from a menu.</li>
+  <li><a href="./04_complete-setup">Finishing your set-up</a> will talk about some random topics, like plugins, plugin managers, and other shells you might find interesting. Then we’ll cover how to merge the final <code>zshrc</code> that we made in this module into your existing <code>zshrc</code> file.</li>
+</ul>
+
+<hr />
+
+<p><a href="./01_zsh-config">NEXT »</a></p>
+
+    </main>
+    <footer>
+      <a href="/jekyll-test/"> davelab</a>
+      <section>
+        <a href="/jekyll-test/test">(Secret test page)</a>
+        <a href="/jekyll-test/about">ABOUT</a>
+        <a href="https://github.com/dczmer/davelab.git" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

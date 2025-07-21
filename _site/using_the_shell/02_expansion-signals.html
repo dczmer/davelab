@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expansion and Signals</title>
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/reset.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="http://localhost:4000//jekyll-test/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="/jekyll-test/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="https://github.com/dczmer/davelab.git">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        
+        
+          
+          
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Zsh configuration
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/index"
+                    >
+                      ZSH Configuration Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/01_zsh-config"
+                    >
+                      Basic ZSH Configuration
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/02_prompt"
+                    >
+                      Configuring Your Prompt
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/03_completion"
+                    >
+                      The Completion System
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/04_complete-setup"
+                    >
+                      Completed Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="selected-module">
+                Using the shell
+              </span>
+              <ul class="">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/index"
+                    >
+                      Shell Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/01_help-hisory"
+                    >
+                      Finding Help
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class="selected-section"
+                      href="http://localhost:4000/jekyll-test/using_the_shell/02_expansion-signals"
+                    >
+                      Expansion and Signals
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/03_streams-and-pipes"
+                    >
+                      (WIP) Streams and Pipes
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/04_commands"
+                    >
+                      Useful Commands
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/05_one-liners"
+                    >
+                      (WIP) Useful One-Liners
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Tmux
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/index"
+                    >
+                      Tmux Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/01_basic-usage"
+                    >
+                      Tmux Basic Usage
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/02_configuration"
+                    >
+                      Tmux Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+      </section>
+    </nav>
+    <main>
+      <ul id="markdown-toc">
+  <li><a href="#expansion-and-signals" id="markdown-toc-expansion-and-signals">Expansion and Signals</a>    <ul>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#expansion-and-globbing" id="markdown-toc-expansion-and-globbing">Expansion and “Globbing”</a>        <ul>
+          <li><a href="#-and-" id="markdown-toc--and-">!? and !!</a>            <ul>
+              <li><a href="#try-it-out" id="markdown-toc-try-it-out">Try it Out</a></li>
+            </ul>
+          </li>
+          <li><a href="#string-interpolation-quoting-and-escaping" id="markdown-toc-string-interpolation-quoting-and-escaping">String Interpolation, Quoting, and escaping</a></li>
+        </ul>
+      </li>
+      <li><a href="#jobs" id="markdown-toc-jobs">Jobs</a>        <ul>
+          <li><a href="#starting-a-command-in-the-background" id="markdown-toc-starting-a-command-in-the-background">Starting a Command in the Background</a></li>
+        </ul>
+      </li>
+      <li><a href="#signals" id="markdown-toc-signals">Signals</a>        <ul>
+          <li><a href="#ps-kill-pkill" id="markdown-toc-ps-kill-pkill">ps, kill, pkill</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="expansion-and-signals">Expansion and Signals</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>This section will cover “shell expansion”, which allows you to pattern match file and directory paths as well as content from your history.</p>
+
+<p>We’ll also briefly cover some basic process management using <code>signals</code> and <code>jobs</code>.</p>
+
+<h2 id="expansion-and-globbing">Expansion and “Globbing”</h2>
+
+<p>The concept of a “globbing” comes from the libC function, <code>glob</code> (though it actually pre-dates <code>C</code>).</p>
+
+<p>A glob is a simple way of pattern matching file or directory paths in your commands.</p>
+
+<p><code>globs</code> are much more simple than a <code>regualr expression</code>, and you’ve probably already used this feature before.</p>
+
+<ul>
+  <li><code>*</code> matches zero or more characters.</li>
+  <li><code>?</code> matches exactly one character.</li>
+  <li><code>[]</code> specify a ‘group’ of characters to match, optionally negated with <code>!</code>.</li>
+</ul>
+
+<p>Examples:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># list all markdown files in this directory:</span>
+<span class="nb">ls</span> <span class="k">*</span>.md
+
+<span class="c"># look for log files in the form of `log-N.log`, for any (single-digit) value of `N`:</span>
+<span class="nb">ls </span>log-?.log
+
+<span class="c"># search for any file named `the-letter-X.txt`, where `X` is an alpha character:</span>
+<span class="nb">ls </span>the-letter-[abcdefghijklmnopqrstuvwxyz].txt
+
+<span class="c"># or, more simply:</span>
+<span class="nb">ls </span>the-letter-[[:alpha:]].txt
+
+<span class="c"># or any version where the letter is not (`!`) "q"</span>
+<span class="nb">ls </span>the-letter-[<span class="se">\!</span>q].txt
+</code></pre></div></div>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Glob_\(programming\)">Wikipedia page</a> is very short and has a good syntax table and some reference examples.</p>
+
+<p>When you enter a command, <code>zsh</code> will “expand” all the special directives in your command string and replace them with the actual values that match the patterns, BEFORE executing it as a shell command. This is like a “pre-processor” for your <code>C</code> compiler.</p>
+
+<p>One common pattern that you may be familiar with is <code>**</code> which would expand to all sub-directories:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># list all markdown files, anywhere under the current directory.</span>
+<span class="nb">ls</span> <span class="k">**</span>/<span class="k">*</span>.md
+</code></pre></div></div>
+
+<p>Another very useful globbing/expansion pattern is <code>{}</code>:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># open three files at once, from a directory location i don't</span>
+<span class="c"># want to type out every time:</span>
+vim /very/long/path/to/my/project/<span class="o">{</span>fileA,fileB,fileC<span class="o">}</span>.py <span class="nt">-O3</span>
+</code></pre></div></div>
+
+<p>The argument <code>/very/log/path/to/my/project/{fileA,fileB,fileC}.py</code> <em>expands</em> to:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/very/log/path/to/my/project/fileA.py <span class="se">\</span>
+  /very/log/path/to/my/project/fileB.py <span class="se">\</span>
+  /very/log/path/to/my/project/fileC.py
+</code></pre></div></div>
+
+<h3 id="-and-">!? and !!</h3>
+
+<p>Besides expanding “path” patterns, your shell also supports “history” expansion.</p>
+
+<p>Two that I use frequently are <code>!$</code> and <code>!!</code>. These two patterns will let you quickly substitute part of your previous command into your next command:</p>
+
+<ul>
+  <li><code>!$</code> - This will be replaced with the <em>last</em> parameter from the previous command you ran.</li>
+  <li><code>!!</code> - This will be replaced with the <em>entire</em> previous command.</li>
+</ul>
+
+<h4 id="try-it-out">Try it Out</h4>
+
+<p>Try the following sequence of commands:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir test
+ls</span> <span class="o">!</span><span class="err">$</span>
+<span class="nb">touch</span> <span class="o">!</span><span class="nv">$/</span>file.txt
+file <span class="o">!</span><span class="err">$</span>
+git add <span class="o">!</span><span class="err">$</span>
+
+<span class="nb">history</span> | <span class="nb">tail</span> <span class="nt">-n</span> 6
+</code></pre></div></div>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> /etc/test.test
+<span class="c"># touch: /ect/test.test: Permision denied</span>
+
+<span class="nb">sudo</span> <span class="o">!!</span>
+
+<span class="nb">rm</span> <span class="nt">-f</span> <span class="o">!</span><span class="err">$</span>
+<span class="c"># rm: /ect/test.test: Permision denied</span>
+
+<span class="nb">sudo</span> <span class="o">!!</span>
+</code></pre></div></div>
+
+<p>Try running <code>man zshall</code> and searching for <code>HISTORY EXPANSION</code> and <code>PATH EXPANSION</code> for</p>
+
+<h3 id="string-interpolation-quoting-and-escaping">String Interpolation, Quoting, and escaping</h3>
+
+<p>Shells make heavy use of string concatenation and interpolation.</p>
+
+<p>Simply putting two strings next to each other in a command will concatenate them:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"HELLO"</span> <span class="s2">"WORLD"</span>
+
+<span class="nb">echo</span> <span class="s2">"HELLO ""WORLD"</span>
+</code></pre></div></div>
+
+<p>A string that is surrounded in double-quotes (<code>"..."</code>) supports interpolation, and requires escaping of some special characters. A string surrounded in single-quotes does not support interpolation, and you don’t have to escape anything (but you have to be careful if you want to use <code>'</code> in your string).</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Print your prompt string in parentheses:</span>
+<span class="nb">echo</span> <span class="s2">"MY PROMPT: (</span><span class="nv">$PS1</span><span class="s2">)"</span>
+
+<span class="c"># Run a command and include it in your string:</span>
+<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span><span class="s2">!"</span>
+
+<span class="c"># Print the literal text "$PS1" (without interpolating the real value):</span>
+<span class="nb">echo</span> <span class="s2">"MY PROMPT: (</span><span class="se">\$</span><span class="s2">PS1)"</span>
+
+<span class="c"># or</span>
+<span class="nb">echo</span> <span class="s1">'MY PROMPT: ($PS1)'</span>
+</code></pre></div></div>
+
+<p>Run <code>man zshall</code> and search for <code>QUOTING</code></p>
+
+<p>One important note:</p>
+
+<p class="note">Expansion happens BEFORE the arguments are passed to the command!</p>
+
+<p>Sometimes you want to pass a pattern or glob to another command, like <code>find</code>:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Say i have a directory with two files in it already:</span>
+<span class="nb">ls</span> <span class="nb">.</span>
+<span class="c">#  file1.txt</span>
+<span class="c">#  file2.txt</span>
+
+<span class="c"># Now, I want to use `find` to locate all markdown files under `~/wiki`:</span>
+find ~/wiki <span class="nt">-name</span> <span class="k">*</span>.txt
+<span class="c">#  find: file1.txt: unknown primary or operator</span>
+<span class="c">#  find: file2.txt: unknown primary or operator</span>
+</code></pre></div></div>
+
+<p>What happened here? Your shell expanded <code>*.txt</code> BEFORE passing it to the command!</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this is not what we wanted:</span>
+find ~/wiki <span class="nt">-name</span> file1.txt file2.txt
+</code></pre></div></div>
+
+<p>We wanted to send the actual glob pattern string as an argument, not to expand it and pass those results as the arguments.</p>
+
+<p>The way to fix this is by quoting the <code>glob</code> pattern with single quotes.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find ~/wiki <span class="nt">-name</span> <span class="s1">'*.txt'</span>
+</code></pre></div></div>
+
+<p class="note">If you use double-quotes, then expansion still happens! Use single-quotes to avoid expansion, or else escape it with “\*.txt”.</p>
+
+<h2 id="jobs">Jobs</h2>
+
+<p>By default, when you run a command from the command line, it will run in the <em>foreground</em> - it takes control of your input and output for that terminal until it is completed.</p>
+
+<p>Sometimes you want a long-running command to run in the <em>background</em>, where it will run asynchronously, and you can continue doing other work in that same terminal. Other times, you might want to suspend the program you are currently interacting with, drop back to the shell, do something else, then either resume interacting with your application or send it to the background.</p>
+
+<ul>
+  <li><code>ctrl-z</code> - Suspend the current task and drop back to the shell.</li>
+  <li><code>jobs</code> - Command to print the number of suspended or background jobs you have active in your shell session.</li>
+  <li><code>fg</code> - Resume the first suspended job.</li>
+  <li><code>bg</code> - Send the first suspended job to the background.</li>
+</ul>
+
+<p class="todo">Try it Out section</p>
+
+<p>Try the following sequence of commands and keybindings:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nb">ls</span>
+&lt;ctrl-z&gt;
+nano ~/.zshrc
+&lt;ctrl-z&gt;
+</code></pre></div></div>
+
+<p>Now you have 2 suspended jobs:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">jobs</span>
+<span class="c">#  [1]  - suspended  man ls</span>
+<span class="c">#  [2]  - suspended  nano ~/.zshrc</span>
+</code></pre></div></div>
+
+<p>If you type <code>fg</code> it should resume the most recent job, which is <code>nano</code>.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">fg</span>
+&lt;ctrl-z&gt;
+</code></pre></div></div>
+
+<p>If you want to resume the other job, look at it’s ID in the <code>jobs</code> output. If we want to start job <code>[1]</code> instead, we would use <code>%1</code> as an argument to the <code>fg</code> command:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">fg</span> %1
+</code></pre></div></div>
+
+<p>Similarly, if we wanted to kill job one, we could do:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> %1
+</code></pre></div></div>
+
+<p>If the program we have suspended to the background is a long running process, that we want to run asynchronously while we do other things in the shell, we can use the <code>bg</code> command to do that:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># most recent job to background</span>
+<span class="nb">bg</span>
+
+<span class="c"># job 1 to background</span>
+<span class="nb">bg</span> %1
+</code></pre></div></div>
+
+<h3 id="starting-a-command-in-the-background">Starting a Command in the Background</h3>
+
+<p>If you want to start a command and run it directly in the background, you can add a <code>&amp;</code> (single ampersand) at the end:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / <span class="nt">-name</span> <span class="s1">'*.txt'</span>&amp;
+</code></pre></div></div>
+
+<p>The example above would search the entire system for ‘.txt’ files, which could take a very long time! By ending the command with <code>&amp;</code>, it runs in the background.</p>
+
+<p>While that command is running you will still be able to use you shell normally, but you may see the <code>STDERR</code> output in your terminal. When the command completes, you will see the results printed to your <code>STDOUT</code>.</p>
+
+<p>When the background job is completely finished, it will print a message like:</p>
+
+<p><code>[1]  + exit 1    find / -name '*.txt'</code></p>
+
+<p>You can find the running jog with <code>jobs</code>, and continue running it in the foreground with <code>fg</code>, if you want.</p>
+
+<h2 id="signals">Signals</h2>
+
+<p>A “signal” allows for manipulation from outside of the program or process. The most common things you might want to do are probably:</p>
+
+<ul>
+  <li>Kill a process</li>
+  <li>Kill a process (with fire)</li>
+  <li>Stop or suspend a process</li>
+</ul>
+
+<p>There are a several more, but we’re only covering the most basic ones.</p>
+
+<p>Try running <code>man signal</code> and browsing the documentation.</p>
+
+<p>Your programs can also “trap” any these signals and add custom behavior to handle those events.</p>
+
+<p>There are keybindings for a couple of the most common signals:</p>
+
+<ul>
+  <li><code>ctrl+c</code> - This will send the <code>SIGINT</code> signal, which tells the command to clean up and exit.</li>
+  <li><code>ctrl+\</code> - Sometimes the program hangs and doesn’t exit nicely when you send <code>SIGINT</code>. You can use <code>ctrl+\</code> to kill it harder, by sending the <code>SIGQUIT</code> signal.</li>
+</ul>
+
+<p>Another thing worth mentioning are <code>SIGHUP</code> and <code>SIGUSR1</code>/<code>SIGUSR2</code>. These commands are commonly used for custom signal handling in applications.</p>
+
+<p><code>SIGHUP</code> will tell the application to “hang-up” (yes, it’s that old). A common convention is to use this signal to instruct your application to re-init or re-read it’s configuration, without stopping and restarting.</p>
+
+<p>The <code>SIGUSR</code> singals can be used by your application to allow custom signal events that don’t map to any of the standard singals.</p>
+
+<h3 id="ps-kill-pkill">ps, kill, pkill</h3>
+
+<p>How do you send a specific signal to an application? If there is no existing keybinding, or you don’t know what that key is, you can use the <code>kill</code> command. Despite it’s name, <code>kill</code> allows you to send any signal code, not just <code>SIGKILL</code>.</p>
+
+<p>For example, if you really, really want to kill a process and completely nuke it, you can send it <code>SIGKILL</code> instead of the normal <code>SIGINT</code> or <code>SIGQUIT</code> signals:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | <span class="nb">grep </span>vim
+<span class="c">#  dave    9898    ... (more stuff truncated) /usr/bin/vim ...</span>
+<span class="c">#  dave   12345    ... (more stuff truncated) grep vim</span>
+
+<span class="nb">kill</span> <span class="nt">-9</span> 9898
+</code></pre></div></div>
+
+<p>We can use the <code>ps</code> command to find the process ID (<code>pid</code>) for a running command, then we can pass that <code>pid</code> to the <code>kill</code> command to target that running process. The <code>-9</code> means send the signal with ID=9, which is <code>SIGKILL</code>.</p>
+
+<p>To find a process ID, or to look to see if a process is running somewhere, use <code>ps aux</code> and then pipe that to grep to filter out the command that you want.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | <span class="nb">grep </span>vim
+<span class="c">#  dave    9898    ... (more stuff truncated) /usr/bin/vim ...</span>
+<span class="c">#  dave   12345    ... (more stuff truncated) grep vim</span>
+
+ps aux | <span class="nb">grep</span> <span class="o">[</span>v]im
+<span class="c">#  dave    9898    ... (more stuff truncated) /usr/bin/vim ...</span>
+</code></pre></div></div>
+
+<p class="note">You may notice the first version of the command returned 2 processes: the <code>vim</code> command we searched for, but also the <code>grep</code> command that we just typed.
+<br /><br />
+To omit the <code>grep</code> command, we use a glob “<code>[]</code>” around one character in the grep pattern string. This changes the text in the <code>ps</code> output to “<code>[v]im</code>”.
+<br /><br />
+Grep can use “<code>[v]im</code>” to match “<code>vim</code>” in the output, but it will not match against “<code>[v]im</code>” from the output. It’s a useful trick for when you are scripting things that use <code>ps</code> to find a process.</p>
+
+<p>Sometimes, you know the name of a command and you just want to nuke it. You can use the <code>pkill</code> command to match a process name, based on a regular expression, then send it a signal:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pkill <span class="nt">-9</span> <span class="nt">-f</span> vim
+</code></pre></div></div>
+
+<p>The parameter after the <code>-f</code> is the search pattern, and the <code>-9</code> sends the <code>SIGKILL</code> signal.</p>
+
+<p class="warning">DANGER! Be careful with <code>pkill</code>. If your search pattern matches more processes, besides the one you intended, they will all get killed too!</p>
+
+<hr />
+
+<p><a href="./03_streams-and-pipes">NEXT »</a></p>
+
+    </main>
+    <footer>
+      <a href="/jekyll-test/"> davelab</a>
+      <section>
+        <a href="/jekyll-test/test">(Secret test page)</a>
+        <a href="/jekyll-test/about">ABOUT</a>
+        <a href="https://github.com/dczmer/davelab.git" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

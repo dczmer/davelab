@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Completed Configuration</title>
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/reset.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="http://localhost:4000//jekyll-test/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="/jekyll-test/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="https://github.com/dczmer/davelab.git">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        
+        
+          
+          
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="selected-module">
+                Zsh configuration
+              </span>
+              <ul class="">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/index"
+                    >
+                      ZSH Configuration Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/01_zsh-config"
+                    >
+                      Basic ZSH Configuration
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/02_prompt"
+                    >
+                      Configuring Your Prompt
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/03_completion"
+                    >
+                      The Completion System
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class="selected-section"
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/04_complete-setup"
+                    >
+                      Completed Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Using the shell
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/index"
+                    >
+                      Shell Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/01_help-hisory"
+                    >
+                      Finding Help
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/02_expansion-signals"
+                    >
+                      Expansion and Signals
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/03_streams-and-pipes"
+                    >
+                      (WIP) Streams and Pipes
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/04_commands"
+                    >
+                      Useful Commands
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/05_one-liners"
+                    >
+                      (WIP) Useful One-Liners
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Tmux
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/index"
+                    >
+                      Tmux Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/01_basic-usage"
+                    >
+                      Tmux Basic Usage
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/02_configuration"
+                    >
+                      Tmux Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+      </section>
+    </nav>
+    <main>
+      <h1 id="completed-configuration">Completed Configuration</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#completed-configuration" id="markdown-toc-completed-configuration">Completed Configuration</a>    <ul>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#completing-your-configuration" id="markdown-toc-completing-your-configuration">Completing Your Configuration</a>        <ul>
+          <li><a href="#some-things-you-may-already-have" id="markdown-toc-some-things-you-may-already-have">Some Things You May Already Have</a></li>
+        </ul>
+      </li>
+      <li><a href="#plugins" id="markdown-toc-plugins">Plugins</a>        <ul>
+          <li><a href="#zsh-syntax-highlighting" id="markdown-toc-zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+          <li><a href="#zsh-history-substring-search" id="markdown-toc-zsh-history-substring-search">zsh-history-substring-search</a></li>
+          <li><a href="#zsh-autosuggestions" id="markdown-toc-zsh-autosuggestions">zsh-autosuggestions</a></li>
+          <li><a href="#installing-plugins" id="markdown-toc-installing-plugins">Installing Plugins</a></li>
+        </ul>
+      </li>
+      <li><a href="#fish-shell" id="markdown-toc-fish-shell">fish-shell</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>You probably already have a default <code>~/.zshrc</code> file, with some things you’ve had to add when installing other programs. You might also have some existing aliases or environment variables that you want to preserve. When adopting all (or part) of this configuration into your own file, you will want to be sure not to break anything you already have.</p>
+
+<p>I also want to cover a few <code>zsh</code> plugins that I really like. Installing and managing plugins is pretty easy, and you likely won’t need very many. But there are plugin managers and package managers you could use to install and configure plugins and color themes for you.</p>
+
+<h2 id="completing-your-configuration">Completing Your Configuration</h2>
+
+<p>The included file <a href="./zshrc.zsh">zshrc.zsh</a> is the combined configurations from every section in this module. We didn’t cover every single line that appears in this file, but every line is explained in the example <code>zsh</code> files included with all of the sections so far.</p>
+
+<p>You can use this configuration file to replace/augment your existing <code>~/.zshrc</code> file.</p>
+
+<p>You may already have some of the following:</p>
+
+<ul>
+  <li>Custom variables and aliases</li>
+  <li>Modifications to <code>$PATH</code></li>
+  <li>Commands for integration with other apps, like <code>pyenv</code>, <code>nvm</code>, etc. These are usually in the form of <code>source</code> or <code>.</code> commands, possibly within <code>if</code> conditional sections.</li>
+</ul>
+
+<p>To merge the contents of the two files:</p>
+
+<ol>
+  <li><strong>Make a backup copy of your existing <code>~/.zshrc</code> file.</strong></li>
+  <li>Copy this <a href="./zshrc.zsh">zshrc.zsh</a> file to <code>~/.zshrc</code>, replacing any existing file.</li>
+  <li>Go through your existing file, compare line-by-line to the example file.</li>
+  <li>Copy the lines that are missing to the <em>bottom</em> of your new <code>~/.zshrc</code> file.</li>
+</ol>
+
+<p>Things you may want to customize:</p>
+
+<ul>
+  <li>The <code>EDITOR</code> variable should point to your preferred CLI text editor.</li>
+  <li>The prompt-string (<code>$PS1</code>).</li>
+  <li>The <code>git</code>/VCS format strings (<code>zstyle ':completion:'</code>), especially the icons.</li>
+  <li>Enable <code>vim</code> or <code>emacs</code> keybindings (<code>bindkey -v</code> / <code>bindkey -e</code>).</li>
+</ul>
+
+<h3 id="some-things-you-may-already-have">Some Things You May Already Have</h3>
+
+<p>If you are doing regular development already, you may have made changes to your <code>zshrc</code> file to support various tools and programs already. Here are a couple of common ones you want to be sure to preserve. The examples are from a Macbook environment.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># any custom additions to your PATH, or things like PYTHONPATH</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:..."</span>
+
+<span class="c"># homebrew integration</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>/opt/homebrew/bin/brew shellenv<span class="si">)</span><span class="s2">"</span>
+
+<span class="c"># pyenv integration for managing isolated python installations</span>
+<span class="nb">export </span><span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.pyenv"</span>
+<span class="nb">export </span><span class="nv">PYTHON_BUILD_BUILD_PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.pyenv/tmp"</span>
+<span class="nb">command</span> <span class="nt">-v</span> pyenv <span class="o">&gt;</span>/dev/null <span class="o">||</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv init -<span class="si">)</span><span class="s2">"</span>
+<span class="k">if </span>which pyenv-virtualenv-init <span class="o">&gt;</span> /dev/null<span class="p">;</span> <span class="k">then </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv virtualenv-init -<span class="si">)</span><span class="s2">"</span><span class="p">;</span> <span class="k">fi</span>
+
+<span class="c"># nvm integration for managing isolated nodejs installations</span>
+<span class="nb">export </span><span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.nvm"</span>
+<span class="o">[</span> <span class="nt">-s</span> <span class="s2">"/opt/homebrew/opt/nvm/nvm.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"/opt/homebrew/opt/nvm/nvm.sh"</span>
+<span class="o">[</span> <span class="nt">-s</span> <span class="s2">"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"</span> <span class="o">]</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"</span>
+</code></pre></div></div>
+
+<p>If you are on your work computer, you will want to also look out for anything that mentions internal/proprietary tools and applications, as you probably want to keep using those.</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<h3 id="zsh-syntax-highlighting">zsh-syntax-highlighting</h3>
+
+<p>The <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> will colorize command text as you are typing. Valid command names are in green, invalid command names are red, mismatched brackets and strings will be highlighted, etc. This helps with catching syntax errors.</p>
+
+<p><img src="./images/syntax-highlighting.png" alt="image" /></p>
+
+<h3 id="zsh-history-substring-search">zsh-history-substring-search</h3>
+
+<p>The <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh-history-substring-search</a> plugin lets you type any substring of a previous command and then use the <code>up</code> and <code>down</code> arrow keys to cycle through history items. This is marginally more convenient than using <code>ctrl-r</code> to search through history items in some cases.</p>
+
+<p>The keybindings for navigating through history with this plugin are mapped with the following commands:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindkey <span class="s2">"</span><span class="k">${</span><span class="nv">terminfo</span><span class="p">[kcuu1]</span><span class="k">}</span><span class="s2">"</span> history-substring-search-up
+bindkey <span class="s2">"</span><span class="k">${</span><span class="nv">terminfo</span><span class="p">[kcud1]</span><span class="k">}</span><span class="s2">"</span> history-substring-search-down
+</code></pre></div></div>
+
+<p>These may not work on every system. If it doesn’t seem to be working for you, try this version instead:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindkey <span class="s1">'^[[A'</span> history-substring-search-up <span class="c"># or '\eOA'</span>
+bindkey <span class="s1">'^[[B'</span> history-substring-search-down <span class="c"># or '\eOB'</span>
+</code></pre></div></div>
+
+<p>On my Macbook, I had to use these alternate keybindings, but on my personal <code>linux</code> machines, the original version works correctly.</p>
+
+<h3 id="zsh-autosuggestions">zsh-autosuggestions</h3>
+
+<p>The <a href="https://www.nerdfonts.com/font-downloads">zsh-autosuggestions</a> plugin will show inline suggestions as you type. The suggestions come from doing a substring search through your history, starting from most recent entries.</p>
+
+<p><img src="./images/autosuggestions.png" alt="image" /></p>
+
+<p>If you want to accept the suggestion, press the right arrow key (<code>→</code>).</p>
+
+<p>You can configure how the suggestions are styled and if suggestions should be based on your command history or based on completion options.</p>
+
+<h3 id="installing-plugins">Installing Plugins</h3>
+
+<p>To install a <code>zsh</code> plugin, you just need to <code>source</code> the main <code>.zsh</code> file from that plugin folder. So you can download or clone the project from <code>github</code>, or you can usually install them with a package manager like <code>dnf</code> or <code>homebrew</code>. When you install with a package manager, you may have to do a little searching to find the exact location of the plugin folder, so you know how to write the <code>source</code> statement.</p>
+
+<p>Example of how to install these plugins on a Macbook:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>zsh-syntax-highlighting zsh-history-substring-search zsh-autosuggestions
+
+<span class="c"># verify the exact install directories:</span>
+find /opt/homerew <span class="nt">-name</span> zsh-syntax-highlighting.zsh
+find /opt/homerew <span class="nt">-name</span> zsh-history-substring-search.zsh
+find /opt/homerew <span class="nt">-name</span> zsh-autosuggestions.zsh
+</code></pre></div></div>
+
+<p>On my Macbook, the <code>zshrc</code> changes look like this (double-check the path is correct on your system):</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># load zsh-syntax-highlighting BEFORE zsh-history-substring-search!</span>
+<span class="nb">source</span> /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+<span class="nb">source</span> /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+<span class="nb">export </span><span class="nv">ZSH_AUTOSUGGEST_STRATEGY</span><span class="o">=(</span><span class="nb">history </span>completion<span class="o">)</span>
+
+<span class="nb">source</span> /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+<span class="nv">HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE</span><span class="o">=</span>1
+bindkey <span class="s1">'^[[A'</span> history-substring-search-up <span class="c"># or '\eOA'</span>
+bindkey <span class="s1">'^[[B'</span> history-substring-search-down <span class="c"># or '\eOB'</span>
+</code></pre></div></div>
+
+<p>There are also several plugin managers, but the most popular ones I know of are:</p>
+
+<ul>
+  <li><a href="https://github.com/zplug/zplug">zplug</a></li>
+  <li><a href="https://github.com/ohmyzsh/ohmyzsh">oh my zsh</a></li>
+</ul>
+
+<p>A word of warning, however: You probably don’t need/want that many <code>zsh</code> plugins to necessitate a plugin manager that is also a package manager. I suggest installing them with your normal package manager, because that way they get updated with everything else when you run updates.</p>
+
+<h2 id="fish-shell">fish-shell</h2>
+
+<p><a href="https://fishshell.com/">fish-shell</a> is a modern shell with lots of cool features and it’s own shell scripting language with improved/modernized syntax and conventions.</p>
+
+<p>However, there is a reason why I waited until the end to tell you about plugin managers and <code>fish</code>:</p>
+
+<p>Even if you never change your <code>zshrc</code> again, doing it yourself helps you build a better mental model of how these things work, and gives you the context you need to change or fix things yourself.</p>
+
+<p>I’ve known people who started out not being very comfortable on the command line, then they tried <code>fish</code> and suddenly started using it more and more. Eventually, most of those people ended up moving to <code>zsh</code> instead (usually with <code>oh my zsh</code>).</p>
+
+<p>The three plugins we covered here are ports of the three most useful features from <code>fish</code>. The configuration we’ve done so far provides a very similar environment to <code>fish</code>. And, even though we haven’t covered <code>zstyle</code> directly, we’ve seen enough that you could probably figure out how to customize your own color themes, or <code>source</code> a theme that someone else has made.</p>
+
+<p>The other major feature of <code>fish</code> is the “sensible scripting” language. The down-side to this is that the scripts you write here are not portable to any other shell or execution environment.</p>
+
+<p>I’d suggest sticking to <code>zsh</code> (or another <code>POSIX</code> compatible shell), and avoiding <code>fish</code>, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.</p>
+
+<hr />
+
+<p><a href="../">HOME</a></p>
+
+    </main>
+    <footer>
+      <a href="/jekyll-test/"> davelab</a>
+      <section>
+        <a href="/jekyll-test/test">(Secret test page)</a>
+        <a href="/jekyll-test/about">ABOUT</a>
+        <a href="https://github.com/dczmer/davelab.git" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

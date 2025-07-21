@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finding Help</title>
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/reset.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="http://localhost:4000//jekyll-test/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="http://localhost:4000//jekyll-test/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="/jekyll-test/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="https://github.com/dczmer/davelab.git">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        
+        
+          
+          
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Zsh configuration
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/index"
+                    >
+                      ZSH Configuration Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/01_zsh-config"
+                    >
+                      Basic ZSH Configuration
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/02_prompt"
+                    >
+                      Configuring Your Prompt
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/03_completion"
+                    >
+                      The Completion System
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/zsh_configuration/04_complete-setup"
+                    >
+                      Completed Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="selected-module">
+                Using the shell
+              </span>
+              <ul class="">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/index"
+                    >
+                      Shell Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class="selected-section"
+                      href="http://localhost:4000/jekyll-test/using_the_shell/01_help-hisory"
+                    >
+                      Finding Help
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/02_expansion-signals"
+                    >
+                      Expansion and Signals
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/03_streams-and-pipes"
+                    >
+                      (WIP) Streams and Pipes
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/04_commands"
+                    >
+                      Useful Commands
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/using_the_shell/05_one-liners"
+                    >
+                      (WIP) Useful One-Liners
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+          
+          
+          
+            <section class="subnav">
+              <span class="">
+                Tmux
+              </span>
+              <ul class="subnav-inactive">
+                
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/index"
+                    >
+                      Tmux Intro
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/01_basic-usage"
+                    >
+                      Tmux Basic Usage
+                    </a>
+                  </li>
+                
+                  <li>
+                    <a
+                      class=""
+                      href="http://localhost:4000/jekyll-test/tmux/02_configuration"
+                    >
+                      Tmux Configuration
+                    </a>
+                  </li>
+                
+              </ul>
+            </section>
+          
+        
+      </section>
+    </nav>
+    <main>
+      <ul id="markdown-toc">
+  <li><a href="#finding-help-and-some-misc-tips" id="markdown-toc-finding-help-and-some-misc-tips">Finding Help (and Some Misc. Tips)</a>    <ul>
+      <li><a href="#finding-help" id="markdown-toc-finding-help">Finding Help</a>        <ul>
+          <li><a href="#man---the-manual-pages" id="markdown-toc-man---the-manual-pages">man - The Manual Pages</a></li>
+          <li><a href="#try-it-out" id="markdown-toc-try-it-out">Try it Out</a></li>
+        </ul>
+      </li>
+      <li><a href="#command-help" id="markdown-toc-command-help">Command Help</a></li>
+      <li><a href="#using-zsh-autocomplete" id="markdown-toc-using-zsh-autocomplete">Using zsh Autocomplete</a></li>
+      <li><a href="#using-your-history" id="markdown-toc-using-your-history">Using your History</a>        <ul>
+          <li><a href="#reverse-incremental-search" id="markdown-toc-reverse-incremental-search">Reverse-Incremental Search</a></li>
+          <li><a href="#try-it-out-1" id="markdown-toc-try-it-out-1">Try it Out</a></li>
+        </ul>
+      </li>
+      <li><a href="#zsh-plugins" id="markdown-toc-zsh-plugins">zsh Plugins</a>        <ul>
+          <li><a href="#zsh-history-substring-search" id="markdown-toc-zsh-history-substring-search">zsh-history-substring-search</a></li>
+          <li><a href="#zsh-autosuggestions" id="markdown-toc-zsh-autosuggestions">zsh-autosuggestions</a></li>
+        </ul>
+      </li>
+      <li><a href="#replaying-sequences-of-commands" id="markdown-toc-replaying-sequences-of-commands">Replaying Sequences of Commands</a></li>
+      <li><a href="#using-pushdpopd" id="markdown-toc-using-pushdpopd">Using pushd/popd</a></li>
+      <li><a href="#entering-multiple-commands-at-once" id="markdown-toc-entering-multiple-commands-at-once">Entering Multiple Commands at Once</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="finding-help-and-some-misc-tips">Finding Help (and Some Misc. Tips)</h1>
+
+<h2 id="finding-help">Finding Help</h2>
+
+<p>There are a lot of commands, and every command has options and required parameters. The commands you use every day will become muscle-memory, but you will always need to look things up to find help or remember the options you need to use.</p>
+
+<h3 id="man---the-manual-pages">man - The Manual Pages</h3>
+
+<p>The first place you should look is the manual pages. Most commands have manual pages that tell you all about the command, how it works, what are the parameters and options, known bugs, and often times they will have examples of how to use them.</p>
+
+<p>To view the help for the <code>ls</code> command:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nb">ls</span>
+</code></pre></div></div>
+
+<p><img src="./images/man1.png" alt="image" /></p>
+
+<p>You can move up and down in the document using the arrow keys (<code>↓</code>/<code>↑</code>) or <code>vim</code> keys <code>j</code>/<code>k</code>.</p>
+
+<p>You can move down by one page with <code>space</code>.</p>
+
+<p>You can search through the document by typing <code>/</code> and then entering your search term. For example, if you want to search to see what the <code>-X</code> option does, you would type <code>/-X</code>.</p>
+
+<p>When you want to quit, press <code>q</code>.</p>
+
+<p>Press <code>h</code> to view the help menu to see all the commands you can use.</p>
+
+<h3 id="try-it-out">Try it Out</h3>
+
+<p>What does the <code>-t</code> in <code>ls -t</code> do?</p>
+
+<p>What does the <code>-S3</code> in the following command mean?</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nt">-S3</span> <span class="nb">printf</span>
+</code></pre></div></div>
+
+<h2 id="command-help">Command Help</h2>
+
+<p>If you know how to use the command but you need a quick reference, use the command’s help option.</p>
+
+<p>By convention, most commands and programs should have a help menu. You can usually see this by typing the command with either <code>-h</code> or <code>--help</code> as the parameter.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">--help</span>
+</code></pre></div></div>
+
+<p>Not every command has a help menu, but most do.</p>
+
+<h2 id="using-zsh-autocomplete">Using zsh Autocomplete</h2>
+
+<p>If you completed the <a href="../zsh_configuration">zsh configuration</a> module, then you should have enabled and configured autocompletion.</p>
+
+<p>If you already know the command but just can’t remember the arguments or commands, you can often use this to just <code>&lt;tab&gt;</code> complete your way to typing out the command.</p>
+
+<p><img src="./images/completion.png" alt="image" /></p>
+
+<h2 id="using-your-history">Using your History</h2>
+
+<p>When you use the shell every day, most commands you need are already in your history. There are a few tricks you can use that will allow you to quickly retrieve specific commands from your history.</p>
+
+<p>You can also rely on your history as a log of the sequence of commands you used to accomplish a task, that you need to repeat over and over.</p>
+
+<h3 id="reverse-incremental-search">Reverse-Incremental Search</h3>
+
+<p>The first time I saw someone using this feature, I thought they must be a wizard. They were entering commands so fast, and using far fewer keystrokes than you’d need to type them all out.</p>
+
+<p>But it’s not really magic, he was just (very efficiently) searching through his history and entering commands that he had already previously run.</p>
+
+<p>To use this feature, press <code>Ctrl+r</code> at the prompt.</p>
+
+<p><img src="./images/risearch-1.png" alt="images" /></p>
+
+<p>Now if you start typing, it will keep updating the command line with the best match, searching backwards through your history, for entries that contain your search term as a substring.</p>
+
+<p><img src="./images/risearch2.png" alt="image" /></p>
+
+<p>You can keep typing to refine your command, or you can use <code>Ctrl+r</code> and <code>Ctrl+Shift+r</code> to move forward and backwards through the other matches for your prompt.</p>
+
+<p>If you want to run the command, hit <code>Enter</code>/<code>Return</code>.</p>
+
+<p>If you want to cancel, hit <code>Ctrl+c</code>.</p>
+
+<p>If you want to edit the current selection before running it, use the left or right arrow keys to move around.</p>
+
+<h3 id="try-it-out-1">Try it Out</h3>
+
+<p class="todo">TODO</p>
+
+<h2 id="zsh-plugins">zsh Plugins</h2>
+
+<h3 id="zsh-history-substring-search">zsh-history-substring-search</h3>
+
+<p>The <a href="../../01_zsh-configuration/04_complete-setup">zsh-history-substring-search plugin</a> works like <code>Ctrl-r</code> but is a little more beginner friendly for most people.</p>
+
+<p>To use it, just type any substring/part of the command you want to summon from the history, and then press the “up” arrow (<code>↑</code>).</p>
+
+<p>If you want to cycle through more matches, you can cycle to the next match by pressing <code>↑</code> again, and you can go back with the “down” arrow (<code>↓</code>).</p>
+
+<p>This is less powerful than <code>Ctrl-r</code> because, once you hit the arrow key, you can’t continue typing to further refine your search. You have to cycle up/down, one entry at a time, based on the search string you already entered.</p>
+
+<h3 id="zsh-autosuggestions">zsh-autosuggestions</h3>
+
+<p>The <a href="../../01_zsh-configuration/04_complete-setup">zsh-autosuggestions plugin</a> will show an in-line “autocomplete” placeholder, with the most recent command from your history that would complete what you have typed so far:</p>
+
+<p><img src="./images/zsh-autosuggestions.png" alt="images" /></p>
+
+<p>If you want to accept the suggestion, use the right arrow key (<code>→</code>).</p>
+
+<h2 id="replaying-sequences-of-commands">Replaying Sequences of Commands</h2>
+
+<p>I’m not sure if everyone would consider this good advice, but it’s sometimes very convenient to just repeat a series of steps by cycling up through your command history by a fixed number of entries, and re-running each one in sequence.</p>
+
+<p>For example, if you had to repeat this operation, over and over, to test your code:</p>
+
+<ol>
+  <li>Export your <code>mysql</code> database using <code>mysqldump</code> and save it to <code>/tmp</code></li>
+  <li>Run a script to bootstrap a new copy of your database.</li>
+  <li>Run a script or command to populate the database according to some test criteria.</li>
+  <li>Export the <code>mysql</code> database again, to a second location.</li>
+  <li><code>diff</code> the two database dumps.</li>
+</ol>
+
+<p>A sequence of 5 commands, which you can repeat over and over without changing them.</p>
+
+<p>After you finish running the sequence, and you want to repeat it, just hit the “up” arrow (<code>↑</code>) 5 times to retrieve the command for step one.</p>
+
+<p>Once you run that command, it will now be at the bottom of your history list, which means that now step two is 5 commands back in your history. Press <code>↑</code> five more times and run it. Repeat until you’ve completed the sequence, hitting <code>↑</code> 5 times each time to run the next command.</p>
+
+<p>This is convenient, and I do it all the time, but it may not be ideal:</p>
+
+<ul>
+  <li>If you enter something in between commands, you can throw off the ‘5x’ offset and mess up your sequence very easily.</li>
+  <li>You might start moving too quickly and run the wrong commands out of sequence.</li>
+  <li>Your history file might get truncated and you lose this history.</li>
+</ul>
+
+<p>Once you’ve done this a few times, you should probably create a script instead.</p>
+
+<h2 id="using-pushdpopd">Using pushd/popd</h2>
+
+<p>Sometimes you may need to temporarily change to a different directory and run a few commands, but you don’t want to lose your spot. If you use <code>pushd</code> and <code>popd</code>, you can save your place in a “stack” of directory bookmarks and then return to them when you are done.</p>
+
+<p>Use <code>pushd</code> to move to a new directory and save your place on the <code>dirs</code> stack. Try the following sequence of commands:</p>
+
+<p class="todo">Try it Out section</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
+<span class="nb">pushd</span> /tmp
+<span class="nb">touch </span>test.txt
+<span class="nb">dirs</span> <span class="nt">-v</span>
+<span class="nb">popd</span>
+</code></pre></div></div>
+
+<p><img src="./images/pushd.png" alt="image" /></p>
+
+<p>You can put something in your <a href="../zsh_configuration/02_prompt">prompt string</a> to show how many levels of directories are on the stack:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="si">$(</span><span class="nb">dirs</span> <span class="nt">-v</span> | <span class="nb">wc</span> <span class="nt">-l</span> | xargs<span class="si">)</span>
+</code></pre></div></div>
+
+<h2 id="entering-multiple-commands-at-once">Entering Multiple Commands at Once</h2>
+
+<p>You can enter multiple commands at once using the <code>;</code> (semi-colon) character to separate commands:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /tmp <span class="p">;</span> <span class="nb">ls</span>
+</code></pre></div></div>
+
+<p>This would change directory to <code>/tmp</code> and immediately print out it’s contents.</p>
+
+<p>If you want to run a command ONLY if the previous command succeeded, you can use <code>&amp;&amp;</code>:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.txt'</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"FOUND TEXT FILES"</span>
+</code></pre></div></div>
+
+<p>If any text file were found under the current directory, then print the text “FOUND TEXT FILES”. If no matches were found, then the second command will not be executed.</p>
+
+<p>You can also use <code>||</code> to “or” two commands together: run the second command if the first command <em>fails</em>:</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*.txt'</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"NO TEXT FILES!"</span>
+</code></pre></div></div>
+
+<p>Similar to the previous example, this would print “NO TEXT FILES!” if the <code>find</code> command failed to find any text files.</p>
+
+<p class="note">These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
+<br /><br />
+This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won’t affect you when you are simply combining two commands because the logical <code>&amp;&amp;</code> and <code>||</code> operators hide the details and you can just focus on the high-level logic.</p>
+
+<hr />
+
+<p><a href="./02_expansion-signals">NEXT »</a></p>
+
+    </main>
+    <footer>
+      <a href="/jekyll-test/"> davelab</a>
+      <section>
+        <a href="/jekyll-test/test">(Secret test page)</a>
+        <a href="/jekyll-test/about">ABOUT</a>
+        <a href="https://github.com/dczmer/davelab.git" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

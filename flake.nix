@@ -1,5 +1,5 @@
 {
-  description = "davelab Jekyll Build";
+  description = "Flake utils demo";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
@@ -15,23 +15,33 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        packages = rec {
-          hello = pkgs.hello;
-          default = hello;
-        };
-        apps = rec {
-          hello = flake-utils.lib.mkApp { drv = self.packages.${system}.hello; };
-          default = hello;
+        packages = {
+          # install gems from gemset.nix
+          # run `bundle exec jekyll build` and copy output dir
+          # https://nixos.wiki/wiki/Packaging/Ruby
+          default = pkgs.stdenv.mkDerivation {
+            name = "davelab-site";
+            src = self;
+            version = "0.1a";
+            inputs = [ ];
+            buildPhase = '''';
+          };
         };
         devShells = {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              (ruby.withPackages (
-                ps: with ps; [
-                  jekyll
-                ]
-              ))
+              ruby
+              bundix
+              tidyp
+              prettier
+              vscode-langservers-extracted
             ];
+            shellHook = ''
+              export JEKYLL_NO_BUNDLER_REQUIRE=true
+
+              echo "- 'JEKYLL_ENV=production jeckyll build' to build the site"
+              echo "- 'bundle exec jeckyll serve -H localhost' to run dev server"
+            '';
           };
         };
       }

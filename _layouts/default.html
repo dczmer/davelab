@@ -1,0 +1,69 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/reset.css" />
+    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/site.css" />
+    <link rel="shortuct icon" type="image/ico" href="{{ site.url }}/{{ site.baseurl }}/img/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <a href="{{ site.baseurl }}/"> davelab</a>
+      </section>
+      <section title="I feel like there needs to be something on this side...">
+        <a href="{{ site.github }}">
+           GitHub
+        </a>
+      </section>
+    </header>
+    <nav>
+      <section>
+        {% assign sorted_collections = site.collections | sort: "course" %}
+        {% for collection in sorted_collections %}
+          {% assign is_collection = false %}
+          {% if page.collection == collection.label %}
+            {% assign is_collection = true %}
+          {% endif %}
+          {% if collection.docs.size > 0 %}
+            <section class="subnav">
+              <span class="{% if is_collection %}selected-module{% endif %}">
+                {{ collection.label | replace: "_", " " | capitalize }}
+              </span>
+              <ul class="{% if is_collection == false %}subnav-inactive{% endif %}">
+                {% assign sorted_docs = collection.docs | sort: "lesson" %}
+                {% for doc in sorted_docs %}
+                  <li>
+                    <a
+                      class="{% if doc.url == page.url %}selected-section{% endif %}"
+                      href="{{ site.url }}{{ site.baseurl }}{{ doc.url }}"
+                    >
+                      {{ doc.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </section>
+          {% endif %}
+        {% endfor %}
+      </section>
+    </nav>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      <a href="{{ site.baseurl }}/"> davelab</a>
+      <section>
+        <a href="{{ site.baseurl }}/test">(Secret test page)</a>
+        <a href="{{ site.baseurl }}/about">ABOUT</a>
+        <a href="{{ site.github }}" target="_blank"> GITHUB</a>
+      </section>
+    </footer>
+  </body>
+</html>

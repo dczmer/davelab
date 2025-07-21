@@ -1,0 +1,96 @@
+---
+title: Davelab v0.1 Alpha Preview PT
+description:
+url: https://dczmer.github.io/
+baseurl: /jekyll-test
+github: https://github.com/dczmer/davelab.git
+defaults:
+  - scope:
+      path: ''
+      type: pages
+    values:
+      layout: default
+      collection: ''
+      course: 0
+  - scope:
+      path: _zsh_configuration
+      type: pages
+    values:
+      layout: default
+      collection: _zsh_configuration
+  - scope:
+      path: _using_the_shell
+      type: pages
+    values:
+      layout: default
+      collection: _using_the_shell
+  - scope:
+      path: _tmux
+      type: pages
+    values:
+      layout: default
+      collection: _tmux
+collections:
+  zsh_configuration:
+    layout: default
+    output: true
+    sorty_by: lesson
+    permalink: /:collection/:path
+    course: 1
+  using_the_shell:
+    layout: default
+    output: true
+    sorty_by: lesson
+    permalink: /:collection/:path
+    course: 2
+  tmux:
+    layout: default
+    output: true
+    sorty_by: lesson
+    permalink: /:collection/:path
+    course: 4
+  posts:
+    output: false
+# required for github pages
+lsi: false
+safe: true
+source: .
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  show_warnings: true
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    enable: true
+    wrap: true
+    formatter: Rouge::Formatters::HTMLPygments
+    span:
+      disable: true
+liquid:
+  error_mode: warn
+  strict_filters: true
+  strict_variables: true
+# Build settings
+markdown: kramdown
+strict_front_matter: true
+include:
+  - favicon.ico
+exclude:
+  - .git
+  - gemset.nix
+  - flake.nix
+  - flake.lock
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - _TODO.md
+# Serve settings
+livereload: true
