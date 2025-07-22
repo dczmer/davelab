@@ -3,7 +3,6 @@ title: (WIP) Streams and Pipes
 layout: default
 lesson: 3
 ---
-
 - TC
 {:toc}
 
@@ -161,9 +160,11 @@ Then `tee` will redirect the output to the specified file, `/tmp/mypage.log`, wh
 With pipes, you directly connect two programs at opposite ends of a shared data stream. One program is the producer, which writes it's output directly to the stream. The other program is the consumer, which reads it's input directly from the stream.
 
 {: .note }
-NOTE TO SELF: Do NOT make a human centipede reference here. It's a perfect analogy, but NSFW.
+NOTE TO SELF: Do NOT make a human centipede reference here. It's a perfect analogy, but NSFW. Remember to delete this before publishing.
 
 If you've read the other sections in this module, you've already seen plenty of examples of this concept in other examples.
+
+Use `|` to pipe to programs together. The first program (left of `|`) will write to its output stream, and the second program will read that same stream as its input stream. As the first program writes more lines of data, the second program will process it and pass through to its own output stream.
 
 
 ```zsh

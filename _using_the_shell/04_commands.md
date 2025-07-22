@@ -3,7 +3,6 @@ title: Useful Commands
 layout: default
 lesson: 4
 ---
-
 - TC
 {:toc}
 
@@ -76,17 +75,17 @@ This would print `Hello Frank, you have $01.23 in your account.`
 
 You can use `wc` to count the number of lines, characters, bytes, or calculate the maximum line width of a file or stream of text. It can take input from `stdin` or from a filename as a positional argument.
 
+This would print the length of the longest line in the `README.md` file:
+
 ```zsh
 wc -L README.md
 ```
 
-This would print the length of the longest line in the `README.md` file.
+This would print the number of lines of text from the input string (3):
 
 ```zsh
 echo "1\n2\n\3\n" | wc -l
 ```
-
-This would print the number of lines of text from the input string (3).
 
 ## less - I Want to Print One "Page" of Output at a Time
 
@@ -242,7 +241,7 @@ This would print the third 'field' of the input records, where ' ' (space) is th
 
 ## sed - I Want to Run a regex or Substitution Over Lines
 
-"A stream editor for filtering and transforming text."
+> "A stream editor for filtering and transforming text."
 
 `sed` is very powerful, but the main thing I use it for is running a regex substitution over every line in a stream.
 
@@ -284,7 +283,7 @@ This would find all the markdown files and print their names in single quotes.
 
 ### xargs - I Want to Quickly Trim White-Space Padding From a String
 
-Another use for `xargs` is to quickly trip leading/trailing white-space from a string. If you pipe something to `xargs` with no arguments, then it will simply strip the white-space and echo the value:
+Another use for `xargs` is to quickly strip leading/trailing white-space from a string. If you pipe something to `xargs` with no arguments, then it will simply strip the white-space and echo the value:
 
 ```zsh
 echo '      hi     ' | xargs
@@ -292,8 +291,14 @@ echo '      hi     ' | xargs
 
 ## curl - I Want to Make an HTTP Request
 
+You can use `curl` to make an HTTP request.
+
+```zsh
+
+```
+
 {: .todo }
-Add a section about `curl`.
+Add a section about `curl`. GET a page and run regex. POST a form. mention ssl options.
 
 ## awk - I Want to Filter, Format, or Translate Tables
 

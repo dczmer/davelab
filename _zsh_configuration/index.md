@@ -16,6 +16,10 @@ You probably have an existing `~/.zshrc` file, and it might have important stuff
 
 ## How to Explore this Course
 
+I recommend opening your browser on one half of the screen, and then your terminal on the other side, so you can follow along:
+
+![image](../img/side-by-side.png)
+
 ### CLI Text Editor
 
 Before you do anything else, make sure you install a command line text editor and learn how to enter text, save, and exit. Editing configuration files from the command line is a common chore, so make sure you are comfortable with it first.

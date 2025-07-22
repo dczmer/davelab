@@ -44,8 +44,8 @@ Now type the (incomplete) command "`sed `" (note the space at the end), and pres
 
 ```zsh
 hostname% sed <TAB>
- README.md
- zshrc-example.zsh
+# README.md
+# zshrc-example.zsh
 ```
 
 You can cycle through the options by pressing `tab` again, and then enter/return to select an option.
@@ -57,11 +57,11 @@ Now enter the command `autoload compinit && compinit` and the completion engine 
 ```zsh
 hostname% autoload compinit && compinit
 hostname% sed <TAB>
- #  -- comment
- :  -- place label
- =  -- print current line number
- D  -- delete up to the first newline in the pattern space
- ...(truncated)
+# #  -- comment
+# :  -- place label
+# =  -- print current line number
+# D  -- delete up to the first newline in the pattern space
+# ...(truncated)
 ```
 
 Now you will see a list of all the options that are actually appropriate for `sed`.

@@ -39,10 +39,10 @@ Press `h` to view the help menu to see all the commands you can use.
 
 What does the `-t` in `ls -t` do?
 
-What does the `-S3` in the following command mean?
+What does the `-S1` in the following command mean?
 
 ```zsh
-man -S3 printf
+man -S1 printf
 ```
 
 ## Command Help

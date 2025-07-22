@@ -177,7 +177,7 @@ find ~/wiki -name '*.txt'
 ```
 
 {: .note }
-If you use double-quotes, then expansion still happens! Use single-quotes to avoid expansion, or else escape it with "\\\*.txt".
+If you use double-quotes, then expansion still happens! Use single-quotes to avoid expansion, or else escape the glob characters with a back-slash: <code>"\*.txt"</code>.
 
 ## Jobs
 

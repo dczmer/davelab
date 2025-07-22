@@ -34,7 +34,7 @@
           {% if collection.docs.size > 0 %}
             <section class="subnav">
               <span class="{% if is_collection %}selected-module{% endif %}">
-                {{ collection.label | replace: "_", " " | capitalize }}
+                {{ collection.course }}. {{ collection.label | replace: "_", " " | capitalize }}
               </span>
               <ul class="{% if is_collection == false %}subnav-inactive{% endif %}">
                 {% assign sorted_docs = collection.docs | sort: "lesson" %}
@@ -44,7 +44,7 @@
                       class="{% if doc.url == page.url %}selected-section{% endif %}"
                       href="{{ site.url }}{{ site.baseurl }}{{ doc.url }}"
                     >
-                      {{ doc.title }}
+                      {{ doc.lesson }}. {{ doc.title }}
                     </a>
                   </li>
                 {% endfor %}

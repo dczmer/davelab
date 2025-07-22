@@ -17,6 +17,12 @@ The icon characters used in some of the example format-strings require you to in
 See <a href="https://www.nerdfonts.com/#home">Nerd Fonts</a> for details.
 </p>
 <p>
+You can <a href="https://www.programmingfonts.org/#hack">view the different available fonts here</a>.
+</p>
+<p>
+And you can <a href="https://www.nerdfonts.com/cheat-sheet">search for specific icons here</a>.
+</p>
+<p>
 I like the monospace <a href="https://www.programmingfonts.org/#hack">Hack</a> font, personally.
 </p>
 <p>
@@ -82,7 +88,7 @@ To see your current prompt-string:
 
 ```zsh
 echo $PS1
- %m%# 
+# %m%# 
 ```
 
 The `%` characters start special sequences that will be translated to specific values when the prompt is displayed. For example, `%m` will be replaced with the hostname of the host system.
@@ -93,10 +99,10 @@ You can test a prompt-string with `print -P`
 
 ```zsh
 print -P "%m%# "
- hostname% 
+# hostname% 
 ```
 
-Here are the options used in the prompt from the example file:
+Here are the options used in the prompt from the [example file](./prompt-example.zsh):
 
 - `%1d` - `%d` prints the current working directory. The `1` means only show the current directory name, and not all of it's ancestors that make the full path.
 - `%?` - The status code from the previous command in this session.
@@ -127,7 +133,7 @@ echo "\033[32;1;4mHELLO\033[0m"
 This is pretty crazy, but not as bad as it looks:
 
 - `\033[...m` means anything between the `[` and the `m` should be interpreted as an escape sequence of integer values separated by ';' characters.
-- `32` means foreground color green.
+- `32` means <span style="color: green">foreground color green</span>.
 - `1` means **bold**
 - `4` means <ins>underline</ins>.
 - Then `\033[0m`, at the end, means reset to the default style again.
@@ -162,14 +168,15 @@ Try modifying this format string `%F{green}Hello%f` to have two sections of text
 
 <summary>Answer</summary>
 
-```zsh
+<pre>
 print -P "%F{green}%K{black}Hello%k%f %F{black}%K{green}World%k%f"
-```
+</pre>
+
 </details>
 
 ## VCS (Git) Information
 
-The example file includes a section that configures `zsh` to read information about the current git repository, and we use `zstyle` ton configure how it will be displayed in the prompt.
+The example file includes a section that configures `zsh` to read information about the current git repository, and we use `zstyle` to configure how it will be displayed in the prompt.
 
 I won't explain the `zstyle` module, but you can run `man zshmodules` and search for `zstyle` for the official documentation, and there are a lot of good tutorials available on the internet.
 
@@ -189,7 +196,7 @@ This format string will show:
 
 2. How to display the 'staged'/'unstaged' indicators:
 
-If you want to use the `%u` and `%c` characters to indicate that you have pending changes, then you may want to customize the content they show. By default, they show a `U` and a `C`, but I've changed them to use icons (which you probably cannot see here, without the appropriate font):
+If you want to use the `%u` and `%c` characters to indicate that you have pending changes, then you may want to customize the content they show. By default, they show a `U` and a `C`, but I've changed them to use icons from a special patched font that I have installed in my terminal emulator:
 
 ```zsh
 zstyle ':vcs_info:git:*' stagedstr " "

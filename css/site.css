@@ -4,8 +4,8 @@
   /* layout variables */
   --layout-margin: 0.5rem;
   --layout-padding: 1rem;
-  --margin-xxsmall: 0.2em;
-  --margin-xsmall: 0.4em;
+  --margin-xsmall: 0.2em;
+  --margin-small: 0.4em;
   --margin-medium: 0.8em;
   --margin-large: 1em;
   --margin-xlarge: 1.2em;
@@ -53,7 +53,7 @@ html {
 }
 
 body {
-  padding: var(--margin-xxsmall) var(--margin-xsmall);
+  padding: var(--margin-xsmall) var(--margin-small);
   display: grid;
   grid-template-columns: var(--nav-width) auto;
   row-gap: var(--layout-margin);
@@ -103,21 +103,6 @@ nav {
     }
   }
 
-  .selected-section {
-    font-weight: bold;
-    color: var(--orange) !important;
-
-    &::before {
-      content: " ";
-    }
-  }
-
-  /**
-  .subnav-inactive {
-    display: none;
-  }
-  **/
-
   .subnav a {
     color: var(--cyan);
 
@@ -133,7 +118,7 @@ nav {
     margin-bottom: 0;
 
     li {
-      margin-bottom: var(--margin-xsmall);
+      margin-bottom: var(--margin-small);
     }
   }
 }
@@ -146,6 +131,7 @@ main {
   li::marker {
     color: var(--purple);
   }
+
 }
 
 header {
@@ -165,6 +151,15 @@ header {
   }
 }
 
+.subnav .selected-section {
+  font-weight: bold;
+  color: var(--orange);
+
+  &::before {
+    content: " ";
+  }
+}
+
 /* narrow window mode */
 
 @media (max-width: 950px) {
@@ -181,7 +176,7 @@ header {
     }
 
     .subnav {
-      padding: var(--margin-xsmall) var(--margin-medium);
+      padding: var(--margin-small) var(--margin-medium);
       border: 1px solid var(--gray);
       border-radius: 5px;
     }
@@ -268,11 +263,6 @@ a {
     "Bitstream Vera Sans Mono", monospace;
 }
 
-ul,
-ol {
-  margin: var(--margin-medium) 0;
-}
-
 blockquote {
   color: var(--purple);
   font-style: italic;
@@ -288,7 +278,7 @@ blockquote {
 table:not(.rouge-table) {
   border: 1px solid var(--white);
   background: var(--gray);
-  margin-bottom: var(--margin-xsmall);
+  margin-bottom: var(--margin-small);
   border-radius: 5px;
 
   thead {
@@ -306,7 +296,7 @@ table:not(.rouge-table) {
   }
 
   td {
-    padding: var(--margin-xsmall) var(--margin-medium);
+    padding: var(--margin-small) var(--margin-medium);
   }
 }
 
@@ -316,8 +306,8 @@ hr {
 }
 
 img {
-  margin: var(--margin-xsmall) 0 var(--margin-large) 0;
-  padding: var(--margin-xxsmall);
+  margin: var(--margin-small) 0 var(--margin-large) 0;
+  padding: var(--margin-xsmall);
   border: 1px solid silver;
   border-radius: 5px;
 }
@@ -353,8 +343,8 @@ figcaption {
 
   &::before {
     display: block;
-    margin-right: var(--margin-xsmall);
-    margin-bottom: var(--margin-xsmall);
+    margin-right: var(--margin-small);
+    margin-bottom: var(--margin-small);
   }
 }
 
@@ -405,7 +395,7 @@ figcaption {
   color: var(--yellow);
   font-size: var(--font-small);
   font-style: italic;
-  margin: var(--margin-xsmall) 0 var(--margin-large) var(--margin-medium);
+  margin: var(--margin-small) 0 var(--margin-large) var(--margin-medium);
 }
 
 #markdown-toc {
@@ -429,7 +419,7 @@ pre,
 .highlighter-rouge {
   font-size: var(--code-font-size);
   background: var(--dark-gray);
-  font-family: "HackNerd", Verdana, Arial, Helvetica, sans-serif !important;
+  font-family: "HackNerd", Verdana, Arial, Helvetica, sans-serif;
 }
 
 .highlighter-rouge {
