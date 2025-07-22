@@ -77,11 +77,15 @@ markdown: kramdown
 strict_front_matter: true
 plugins:
   - jekyll-mermaid
+  - jekyll-minifier
 safe: true
 whitelist:
   - jekyll-mermaid
+  - jekyll-minifier
 mermaid:
   src: https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js
+jekyll-minifier:
+  compress_css: true
 include:
   - favicon.ico
 exclude:
