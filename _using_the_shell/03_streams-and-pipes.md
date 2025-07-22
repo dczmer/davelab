@@ -28,7 +28,7 @@ If your lines of text are separated by a common delimiter character, then shell 
 I think the term "stream" is a pretty good way to describe the concept. Data flows from in one direction and it can be split, combined, or diverted in various ways with a little bit of plumbing.
 
 {: .todo }
-TODO: diagram
+crappy drawing of a 'stream'
 
 On a Unix-based system (that includes Mac/Darwin and Linux), the kernel treats any data source or device the same way it treats a normal file. This just means that there is a consistent interface for reading, seeking, opening, closing, writing to all of these data sources.
 
@@ -40,8 +40,17 @@ Multiple programs can keep a file open and read/write to it at the same time. On
 
 When a program reads from `STDIN` ("standard input") stream, it will read any information in that stream and then wait for more data to be written. When it detects new data, it will process that, then wait again (until it receives a special "end of file" sequence).
 
-{: .todo }
-TODO: diagram
+{% mermaid %}
+---
+config:
+    theme: dark
+---
+flowchart LR
+    Start -->|Read STDIN| W(Wait)
+    W --> IN{New lines?}
+    IN --> Y(YES) --> Start
+    IN --> N(NO) --> W
+{% endmermaid %}
 
 In your interactive shell, `STDIN` defaults to the characters you type from your keyboard, like editing a file in a text editor. But, usually, we write another command to produce specific output and "pipe" that to the next program, to become that program's `STDIN` stream. This is like writing a program to produce a very specific input "file" for the next program to read.
 
@@ -51,8 +60,14 @@ You may have guessed by now, `STDOUT` is an _output_ stream, and it goes to your
 
 The first input starts with my keyboard, then the output of each command becomes the input of each subsequent command, and then the last output stream goes to my monitor for display.
 
-{: .todo }
-TODO: diagram
+{% mermaid %}
+---
+config:
+    theme: dark
+---
+flowchart LR
+    keyboard --> cmd1 --> cmd2 --> cmd3 --> screen
+{% endmermaid %}
 
 ### STDERR
 
@@ -145,21 +160,34 @@ Then `tee` will redirect the output to the specified file, `/tmp/mypage.log`, wh
 
 With pipes, you directly connect two programs at opposite ends of a shared data stream. One program is the producer, which writes it's output directly to the stream. The other program is the consumer, which reads it's input directly from the stream.
 
-{: .todo }
-TODO: image
-
 {: .note }
 NOTE TO SELF: Do NOT make a human centipede reference here. It's a perfect analogy, but NSFW.
 
 If you've read the other sections in this module, you've already seen plenty of examples of this concept in other examples.
 
-{: .todo }
-TODO: another example
 
-Normally, only the `STDOUT` of a program gets piped to the next one. If you want to send `STDERR` along with it, you can use `|&` to combine both output streams into one.
+```zsh
+# - find all markdown files under the current directory
+# - filter for files that start with '_' (output from find has leading "./")
+# - for each filename, run wc-l to show number of lines
+# - sort, in reverse order, so longest files are on top
+find . -name '*.md' | grep -E '^./_' | xargs wc -l | sort -r
+```
+
+<p class="note">
+Normally, only the STDOUT of a program gets piped to the next one. If you want to send STDERR along with it, you can use "<code>|&</code>" to combine both output streams into one.
+</p>
+
+### Try it Out
+
+Let's write a command by building it up incrementally, and examining the output at each stage.
 
 {: .todo }
-TODO: example
+Walk through a multi-part command, building it up one piece at a time.
+
+```zsh
+#
+```
 
 ---
 

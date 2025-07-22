@@ -2,7 +2,7 @@
 title: Davelab v0.1 Alpha Preview PT
 description:
 url: https://dczmer.github.io/
-baseurl: /jekyll-test
+baseurl: /davelab
 github: https://github.com/dczmer/davelab.git
 defaults:
   - scope:
@@ -53,7 +53,6 @@ collections:
     output: false
 # required for github pages
 lsi: false
-safe: true
 source: .
 incremental: false
 highlighter: rouge
@@ -76,6 +75,13 @@ liquid:
 # Build settings
 markdown: kramdown
 strict_front_matter: true
+plugins:
+  - jekyll-mermaid
+safe: true
+whitelist:
+  - jekyll-mermaid
+mermaid:
+  src: https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js
 include:
   - favicon.ico
 exclude:

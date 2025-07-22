@@ -1,5 +1,7 @@
 ## `fzf`
 
+A BONUS lesson! You win!
+
 (WIP - notes from working out my own configuration)
 
 ### Configuring

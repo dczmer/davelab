@@ -93,11 +93,6 @@ If you want to cancel, hit `Ctrl+c`.
 
 If you want to edit the current selection before running it, use the left or right arrow keys to move around.
 
-### Try it Out
-
-{: .todo }
-TODO
-
 ## zsh Plugins
 
 ### zsh-history-substring-search
@@ -148,25 +143,32 @@ Once you've done this a few times, you should probably create a script instead.
 
 Sometimes you may need to temporarily change to a different directory and run a few commands, but you don't want to lose your spot. If you use `pushd` and `popd`, you can save your place in a "stack" of directory bookmarks and then return to them when you are done.
 
-Use `pushd` to move to a new directory and save your place on the `dirs` stack. Try the following sequence of commands:
+Use `pushd` to move to a new directory and save your place on the `dirs` stack. Use `popd` to jump back to your previous location.
 
-{: .todo }
-Try it Out section
+You can use `dirs -v` to show your current directory stack.
+
+### Try it Out
+
+Try the following sequence of commands, and observe the changes to your working directory and the output of `dirs -v`:
 
 ```zsh
-cd ~
 pushd /tmp
-touch test.txt
+
+pushd /bin
+
+pushd ~/.config
+
 dirs -v
+
 popd
-```
 
-![image](./images/pushd.png)
+dirs -v
 
-You can put something in your [prompt string](../zsh_configuration/02_prompt) to show how many levels of directories are on the stack:
+popd
 
-```zsh
-$(dirs -v | wc -l | xargs)
+popd
+
+dirs -v
 ```
 
 ## Entering Multiple Commands at Once

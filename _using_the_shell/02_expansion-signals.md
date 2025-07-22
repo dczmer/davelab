@@ -190,15 +190,14 @@ Sometimes you want a long-running command to run in the _background_, where it w
 - `fg` - Resume the first suspended job.
 - `bg` - Send the first suspended job to the background.
 
-{: .todo }
-Try it Out section
+### Try it Out
 
 Try the following sequence of commands and keybindings:
 
 ```zsh
 man ls
 <ctrl-z>
-nano ~/.zshrc
+less ~/.zshrc
 <ctrl-z>
 ```
 
@@ -206,11 +205,11 @@ Now you have 2 suspended jobs:
 
 ```zsh
 jobs
-#  [1]  - suspended  man ls
-#  [2]  - suspended  nano ~/.zshrc
+#  [1]  - Stopped  man ls
+#  [2]  - Stopped  less ~/.zshrc
 ```
 
-If you type `fg` it should resume the most recent job, which is `nano`.
+If you type `fg` it should resume the most recent job, which is `less ~/.zshrc`:
 
 ```zsh
 fg
@@ -221,12 +220,20 @@ If you want to resume the other job, look at it's ID in the `jobs` output. If we
 
 ```zsh
 fg %1
+<ctrl-z>
 ```
 
-Similarly, if we wanted to kill job one, we could do:
+Now try killing the `man ls` job:
 
 ```zsh
 kill %1
+
+jobs
+#  [1]  - Terminated  man ls
+#  [2]  - Stopped  less ~/.zshrc
+
+jobs
+#  [2]  - Stopped  less ~/.zshrc
 ```
 
 If the program we have suspended to the background is a long running process, that we want to run asynchronously while we do other things in the shell, we can use the `bg` command to do that:
@@ -236,7 +243,13 @@ If the program we have suspended to the background is a long running process, th
 bg
 
 # job 1 to background
-bg %1
+bg %2
+```
+
+It doesn't really make sense to send this process to the background, that's something you would do for a long running script or other asynchronous task.
+
+```zsh
+kill %2
 ```
 
 ### Starting a Command in the Background
@@ -255,7 +268,7 @@ When the background job is completely finished, it will print a message like:
 
 `[1]  + exit 1    find / -name '*.txt'`
 
-You can find the running jog with `jobs`, and continue running it in the foreground with `fg`, if you want.
+You can find the running job with `jobs`, and continue running it in the foreground with `fg`, if you want.
 
 ## Signals
 
@@ -276,11 +289,8 @@ There are keybindings for a couple of the most common signals:
 - `ctrl+c` - This will send the `SIGINT` signal, which tells the command to clean up and exit.
 - `ctrl+\` - Sometimes the program hangs and doesn't exit nicely when you send `SIGINT`. You can use `ctrl+\` to kill it harder, by sending the `SIGQUIT` signal.
 
-Another thing worth mentioning are `SIGHUP` and `SIGUSR1`/`SIGUSR2`. These commands are commonly used for custom signal handling in applications.
-
-`SIGHUP` will tell the application to "hang-up" (yes, it's that old). A common convention is to use this signal to instruct your application to re-init or re-read it's configuration, without stopping and restarting.
-
-The `SIGUSR` singals can be used by your application to allow custom signal events that don't map to any of the standard singals.
+{: .note }
+Use "`ctrl+c`" when you need to quit out of a program that is not responding. Try to wait for the process to exit normally but, if it's really stuck, you can use "`ctrl+\`" to send it the `SIGKILL` signal. Doing this may possibly result in the application not cleaning up properly before exiting, which may cause issues when you try to run it again.
 
 ### ps, kill, pkill
 
@@ -312,9 +322,9 @@ ps aux | grep [v]im
 {: .note }
 You may notice the first version of the command returned 2 processes: the `vim` command we searched for, but also the `grep` command that we just typed.
 <br><br>
-To omit the `grep` command, we use a glob "`[]`" around one character in the grep pattern string. This changes the text in the `ps` output to "`[v]im`".
+To omit the `grep` command from the results, we use a glob "`[]`" around one character in the grep pattern string. This changes the text in the `ps` output to "`[v]im`".
 <br><br>
-Grep can use "`[v]im`" to match "`vim`" in the output, but it will not match against "`[v]im`" from the output. It's a useful trick for when you are scripting things that use `ps` to find a process.
+Grep can use "`[v]im`" (a "glob") to match "`vim`" in the output, but it will not match against the literal string "`[v]im`" from the output. It's a useful trick for when you are scripting things that use `ps` to find a process.
 
 Sometimes, you know the name of a command and you just want to nuke it. You can use the `pkill` command to match a process name, based on a regular expression, then send it a signal:
 
@@ -326,7 +336,6 @@ The parameter after the `-f` is the search pattern, and the `-9` sends the `SIGK
 
 {: .warning }
 DANGER! Be careful with `pkill`. If your search pattern matches more processes, besides the one you intended, they will all get killed too!
-
 
 ---
 
