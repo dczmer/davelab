@@ -1,6 +1,6 @@
 # davelab
 
-[davelab!](https://dczmer.github.io/jekyll-test/)
+[davelab!](https://dczmer.github.io/davelab/)
 
 
 Documentation site made with [Jekyll](https://jekyllrb.com/) static-site generator, deployed automatically to [Github Pages](https://pages.github.com/) using [Github Actions](https://github.com/features/actions).

@@ -84,7 +84,7 @@ nav {
   grid-column: 1;
   font-size: var(--nav-font-size);
   color: var(--cyan);
-  padding: 0;
+  padding: var(--margin-medium);
 
   section {
     display: flex;
