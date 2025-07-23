@@ -7,7 +7,7 @@ lesson: 0
 
 ## Overview
 
-Don't struggle managing multiple terminal windows manually. Manage them with layouts so you can view them side-by-side, in a grid, or jump between the with a key press.
+Don't struggle managing multiple terminal windows manually. Manage them with layouts so you can view them side-by-side, in a grid, or jump between them with a key press.
 
 ![image](./images/tmux.png)
 

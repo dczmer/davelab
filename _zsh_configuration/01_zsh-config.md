@@ -184,6 +184,17 @@ bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 ```
 
+{: .note }
+If the last two `bindkey` using the "`terminfo`" variable don't seem to work, you can figure out the exact keycode values to use by pressing `<ctrl-v>` and then pressing the key. It will print the actual keycode to the terminal.
+<br>
+For example, you may need something like this:
+
+```zsh
+# alternate keybindings, if the above do not work
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+```
+
 If you use `vim` or `emacs`, then `zsh` can use the normal keybindings from those editors to edit your command text at the prompt. If you don't use either of those, you can ignore this option:
 
 ```zsh

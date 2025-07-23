@@ -35,7 +35,7 @@ When you want to quit, press `q`.
 
 Press `h` to view the help menu to see all the commands you can use.
 
-### Try it Out
+#### Try it Out
 
 What does the `-t` in `ls -t` do?
 
@@ -45,7 +45,7 @@ What does the `-S1` in the following command mean?
 man -S1 printf
 ```
 
-## Command Help
+### Command Help
 
 If you know how to use the command but you need a quick reference, use the command's help option.
 
@@ -57,7 +57,7 @@ ssh --help
 
 Not every command has a help menu, but most do.
 
-## Using zsh Autocomplete
+### Using zsh Autocomplete
 
 If you completed the [zsh configuration](../zsh_configuration) module, then you should have enabled and configured autocompletion.
 
@@ -65,13 +65,44 @@ If you already know the command but just can't remember the arguments or command
 
 ![image](./images/completion.png)
 
-## Using your History
+### Using your History
 
 When you use the shell every day, most commands you need are already in your history. There are a few tricks you can use that will allow you to quickly retrieve specific commands from your history.
 
 You can also rely on your history as a log of the sequence of commands you used to accomplish a task, that you need to repeat over and over.
 
-### Reverse-Incremental Search
+## Entering Multiple Commands at Once
+
+You can enter multiple commands at once using the `;` (semi-colon) character to separate commands:
+
+```zsh
+cd /tmp ; ls
+```
+
+This would change directory to `/tmp` and immediately print out it's contents.
+
+If you want to run a command ONLY if the previous command succeeded, you can use `&&`:
+
+```zsh
+find . -name '*.txt' && echo "FOUND TEXT FILES"
+```
+
+If any text file were found under the current directory, then print the text "FOUND TEXT FILES". If no matches were found, then the second command will not be executed.
+
+You can also use `||` to "or" two commands together: run the second command if the first command _fails_:
+
+```zsh
+find . -name '*.txt' || echo "NO TEXT FILES!"
+```
+
+Similar to the previous example, this would print "NO TEXT FILES!" if the `find` command failed to find any text files.
+
+{: .note }
+These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
+<br><br>
+This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical `&&` and `||` operators hide the details and you can just focus on the high-level logic.
+
+## Reverse-Incremental Search
 
 The first time I saw someone using this feature, I thought they must be a wizard. They were entering commands so fast, and using far fewer keystrokes than you'd need to type them all out.
 
@@ -170,37 +201,6 @@ popd
 
 dirs -v
 ```
-
-## Entering Multiple Commands at Once
-
-You can enter multiple commands at once using the `;` (semi-colon) character to separate commands:
-
-```zsh
-cd /tmp ; ls
-```
-
-This would change directory to `/tmp` and immediately print out it's contents.
-
-If you want to run a command ONLY if the previous command succeeded, you can use `&&`:
-
-```zsh
-find . -name '*.txt' && echo "FOUND TEXT FILES"
-```
-
-If any text file were found under the current directory, then print the text "FOUND TEXT FILES". If no matches were found, then the second command will not be executed.
-
-You can also use `||` to "or" two commands together: run the second command if the first command _fails_:
-
-```zsh
-find . -name '*.txt' || echo "NO TEXT FILES!"
-```
-
-Similar to the previous example, this would print "NO TEXT FILES!" if the `find` command failed to find any text files.
-
-{: .note }
-These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
-<br><br>
-This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical `&&` and `||` operators hide the details and you can just focus on the high-level logic.
 
 ---
 

@@ -43,7 +43,7 @@ zsh -df
 Now type the (incomplete) command "`sed `" (note the space at the end), and press `tab`. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
 
 ```zsh
-hostname% sed <TAB>
+sed <TAB>
 # README.md
 # zshrc-example.zsh
 ```
@@ -55,8 +55,9 @@ But these options don't make any sense for the `sed` command, it doesn't expect 
 Now enter the command `autoload compinit && compinit` and the completion engine will show a more appropriate menu for the context:
 
 ```zsh
-hostname% autoload compinit && compinit
-hostname% sed <TAB>
+autoload compinit && compinit
+
+sed <TAB>
 # #  -- comment
 # :  -- place label
 # =  -- print current line number

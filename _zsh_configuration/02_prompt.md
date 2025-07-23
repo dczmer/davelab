@@ -290,6 +290,12 @@ If these are not sufficient, you can always call a function or another program t
 
 ### Try it Out
 
+First, `source` the example prompt file:
+
+```zsh
+source ./prompt-example.zsh
+```
+
 Type an invalid command, like `ls` for a directory that doesn't exist:
 
 ```zsh
