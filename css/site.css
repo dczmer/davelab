@@ -47,6 +47,11 @@
 html {
   max-width: 1400px;
   margin: 0 auto;
+
+}
+
+html,
+body {
   background: var(--gray);
   color: var(--white);
   font-family: "HackNerd", Verdana, Arial, Helvetica, sans-serif;
