@@ -22,6 +22,7 @@ Put your terminal next to your browser so you can read and follow the examples a
 
 ## Contents
 
+{: .course-toc }
 - [Finding help](./01_help-hisory)
 - [Expansion and signals](./02_expansion-signals)
 - [Combining commands - streams and pipes](./03_streams-and-pipes)

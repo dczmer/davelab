@@ -34,6 +34,7 @@ We will start with the default configuration and then we'll see how to customize
 
 ## Contents
 
+{: .course-toc }
 - [Basic tmux usage](./01_basic-usage) will cover the basics of how to start, stop, and manage layouts.
 - [Configuration](./02_configuration) will cover how to configure and customize `tmux`.
 

@@ -184,6 +184,29 @@ A     B     C
 
 If you wanted to make this a CSV table, add `-o,` to use a comma as the separator.
 
+Another useful feature of `column`, is that it can output the table of data as JSON.
+
+```zsh
+echo "a b c\nd e f\ng h i" | column --table-columns=col1,col2,col3 --json
+#  {
+#     "table": [
+#        {
+#           "col1": "a",
+#           "col2": "b",
+#           "col3": "c"
+#        },{
+#           "col1": "d",
+#           "col2": "e",
+#           "col3": "f"
+#        },{
+#           "col1": "g",
+#           "col2": "h",
+#           "col3": "i"
+#        }
+#     ]
+#  }
+```
+
 ## sort - I Want to Sort Lines
 
 Sort lines of text.
@@ -291,14 +314,36 @@ echo '      hi     ' | xargs
 
 ## curl - I Want to Make an HTTP Request
 
-You can use `curl` to make an HTTP request.
+You can use `curl` to make an HTTP request and print the response to `STDOUT`. You can filter and search the output to make a cheap unit test, and `curl` works really well for web-scraping scripts.
 
 ```zsh
-
+curl https://kernel.org/category/releases.html
 ```
 
-{: .todo }
-Add a section about `curl`. GET a page and run regex. POST a form. mention ssl options.
+If you are working on a local development server, you may need to ignore certificate issues. You can use `-k` to skip certificate checking.
+
+```zsh
+curl -k https://localhost/insecure.html
+```
+
+You can use `curl` to `POST` a form:
+
+```zsh
+# HTML form-encoded
+curl --request POST --data "name=dave" https://localhost/api
+
+# JSON encoded (use "\" to break command over multiple lines)
+curl --request POST \
+    --header "Content-Type: application/json" \
+    --data '{"name": "dave"}' \
+    https://localhost/api
+```
+
+If you are testing an authorized webapp, you might need to include a session cookie with your request:
+
+```zsh
+curl -b "sessionid=1234" https://localhost/authorized
+```
 
 ## awk - I Want to Filter, Format, or Translate Tables
 

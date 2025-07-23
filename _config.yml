@@ -25,6 +25,12 @@ defaults:
       layout: default
       collection: _using_the_shell
   - scope:
+      path: _basic_scripting
+      type: pages
+    values:
+      layout: default
+      collection: _basic_scripting
+  - scope:
       path: _tmux
       type: pages
     values:
@@ -43,6 +49,12 @@ collections:
     sorty_by: lesson
     permalink: /:collection/:path
     course: 2
+  basic_scripting:
+    layout: default
+    output: true
+    sorty_by: lesson
+    permalink: /:collection/:path
+    course: 3
   tmux:
     layout: default
     output: true

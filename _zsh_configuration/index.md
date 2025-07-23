@@ -63,6 +63,7 @@ source example_config.zsh
 
 In this module, we will walk through setting up a basic `zsh` shell environment.
 
+{: .course-toc }
 - [Basic ZSH configuration](./01_zsh-config) will cover configuring how your command history works, and adjusting some global settings.
 - [Customizing your prompt](./02_prompt) will cover how to create a custom prompt string, and we'll talk about prompt generators and other tools that might automate the process for you.
 - [The completion system](./03_completion) will cover how to enable and customize the completion engine, which will help you enter commands correctly by showing you the valid options and letting you pick from a menu.

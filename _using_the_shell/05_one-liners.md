@@ -1,7 +1,7 @@
 ---
-title: (WIP) Useful One-Liners
+title: (TODO) Useful One-Liners
 layout: default
-lesson: 4
+lesson: 5
 ---
 # Useful One-Liner Examples
 

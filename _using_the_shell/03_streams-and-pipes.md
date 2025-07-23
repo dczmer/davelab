@@ -1,5 +1,5 @@
 ---
-title: (WIP) Streams and Pipes
+title: Streams and Pipes
 layout: default
 lesson: 3
 ---
@@ -183,11 +183,92 @@ Normally, only the STDOUT of a program gets piped to the next one. If you want t
 
 Let's write a command by building it up incrementally, and examining the output at each stage.
 
-{: .todo }
-Walk through a multi-part command, building it up one piece at a time.
+First, navigate to the top-level directory of this repository. If you haven't already cloned the repository, use the following command:
 
 ```zsh
-#
+git clone https://github.com/dczmer/davelab
+```
+
+Let's find all the `markdown` files in this project, sort them by how many lines long they are, the export that as `JSON`.
+
+First, `find` all the metadata files:
+
+```zsh
+find . -name '*.md'
+#  README.md
+#  about.md
+#  index.md
+#  ...
+```
+
+Then we use `xargs` to run a command over every line from the previous command's output. Each line is a filename that we will pass to `wc -l` to count the number of lines in that file.
+
+```zsh
+find . -name '*.md' | xargs wc -l
+#    17  ./README.md
+#    42  ./about.md
+#     7  ./index.md
+#  ...
+#  2828  total
+```
+
+Notice the "total" line at the bottom. We want to remove that. We can use `head`, which normally gives you the first few lines of a stream, with a count value of `-1` which will effectively just truncate the very last line.
+
+{: .note }
+Use "\\" to break a command over multiple lines.
+
+```zsh
+find . -name '*.md' \
+    | xargs wc -l \
+    | head -n-1
+#    17  ./README.md
+#    42  ./about.md
+#     7  ./index.md
+#  ...
+```
+
+Now sort that list, numerically (`-n`), in descending order (`-r` "reverse").
+
+```zsh
+find . -name '*.md' \
+    | xargs wc -l \
+    | head -n-1 \
+    | sort -nr
+#  461  ./_using_the_shell/04_commands.md
+#  342  ./_using_the_shell/02_expansion-signals.md
+#  339  ./_zsh_configuration/02_prompt.md
+#  ...
+```
+
+Then we can use `column --json` to export it as `JSON`.
+
+
+```zsh
+find . -name '*.md' \
+    | xargs wc -l \
+    | head -n-1 \
+    | sort -nr \
+    | column --table-columns=size,name --json
+#  {
+#     "table": [
+#        {
+#           "size": "461",
+#           "name": "./_using_the_shell/04_commands.md"
+#        },{
+#           "size": "342",
+#           "name": "./_using_the_shell/02_expansion-signals.md"
+#        },{
+```
+
+If it's too much to read at once, you can pipe it to `less`:
+
+```zsh
+find . -name '*.md' \
+    | xargs wc -l \
+    | head -n-1 \
+    | sort -nr \
+    | column --table-columns=size,name --json \
+    | less
 ```
 
 ---
