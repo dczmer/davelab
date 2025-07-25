@@ -33,7 +33,7 @@ Put your terminal next to your browser so you can read and follow the examples a
 - [Expansion and signals](./02_expansion-signals)
 - [Combining commands - streams and pipes](./03_streams-and-pipes)
 - [Useful commands for every day tasks](./04_commands)
-- [Real-life Examples](./05_one-liners)
+- [Lab: Using the Shell](./05_lab1.md)
 
 ---
 
