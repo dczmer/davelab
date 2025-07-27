@@ -8,23 +8,16 @@ lesson: 0
 {: .todo }
 Coming soon!
 
-- formalities:
-  * `shellcheck`
-  * shebang, formatting, white-space, quoting
-  * exit codes
-- variables and script arguments:
-  * arguments
-  * default values
-  * capturing the output of a command into a variable
+- [First Steps](./01_first-steps)
+- [Arguments and Variables](./02_arguments_and_variables)
 - conditionals, "tests", and loops
 - functions
 - working with strings:
   * concatenation, expansion, and interpolation
   * slicing strings
-- arithmetic:
+- arithmetic and arrays:
   * `$(( ))`
   * bc
-- debugging (-e and -x)
-- export and eval
-- traps... "It's a trap!"
-- perl -e
+  * arrays
+- debugging (-e and -x) and traps... "It's a trap!"
+- lab: basic scripting

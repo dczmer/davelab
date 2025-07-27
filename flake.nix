@@ -38,9 +38,10 @@
             ];
             shellHook = ''
               export JEKYLL_NO_BUNDLER_REQUIRE=true
+              alias -- jekyll-serve="bundle exec jeckyll serve -H localhost"
 
               echo "- 'JEKYLL_ENV=production jeckyll build' to build the site"
-              echo "- 'bundle exec jeckyll serve -H localhost' to run dev server"
+              echo "- 'jekyll-serve' to run dev server"
             '';
           };
         };
