@@ -12,6 +12,7 @@ TODO:
     + resize images
 - imagemagick script to optimize images
 - grunt/make to minify+concat css, optimize imgs, bundle install, bundix, etc.
+- collapse TOCs when on mobile view
 - create custom collections_dir "courses"
 - dynamic menu, course navigation (up/down/contents/next/prev)
 - light mode?

@@ -32,6 +32,7 @@
             packages = with pkgs; [
               ruby
               bundix
+              imagemagick
               tidyp
               prettier
               vscode-langservers-extracted

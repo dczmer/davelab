@@ -29,7 +29,7 @@
   --orange: #ffb86c;
   --yellow: #f1fa8c;
   --yellow2: #d2d979;
-  --yellow3: #797d43;
+  --yellow3: #f2fb99;
   --green: #50fa7b;
   --green2: #39ba5a;
   --purple: #bd93f9;
@@ -49,18 +49,22 @@
 *::after {
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
   }
 }
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
 img,
 picture,
 video,
@@ -69,12 +73,14 @@ svg {
   display: block;
   max-width: 100%;
 }
+
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
+
 p,
 h1,
 h2,
