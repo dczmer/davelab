@@ -88,17 +88,12 @@ liquid:
 markdown: kramdown
 strict_front_matter: true
 plugins:
-  - jekyll-mermaid
-  #- jekyll-minifier
+  - jekyll-minifier
 safe: true
 whitelist:
-  - jekyll-mermaid
-  #- jekyll-minifier
-mermaid:
-  src: https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js
-# NOTE: minifier breaks formatting of the mermaid diagrams :(
-#jekyll-minifier:
-#  compress_css: true
+  - jekyll-minifier
+jekyll-minifier:
+  compress_css: true
 include:
   - favicon.ico
 exclude:

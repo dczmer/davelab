@@ -5,11 +5,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="davelab" />
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/reset.css" />
-    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/dracula-rouge.css" />
-    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/site.css" />
+    <link rel="preload" href="{{ site.url }}/{{ site.baseurl }}/css/dracula-rouge.css" as="style" />
+    <link rel="preload" href="{{ site.url }}/{{ site.baseurl }}/css/site.css" as="style" />
+    <style>
+      {% include critical.css %}
+    </style>
     <link rel="shortuct icon" type="image/ico" href="{{ site.url }}/{{ site.baseurl }}/img/favicon.ico" />
   </head>
   <body>
@@ -65,5 +68,7 @@
         <a href="{{ site.github }}" target="_blank"> GITHUB</a>
       </section>
     </footer>
+    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/dracula-rouge.css" />
+    <link rel="stylesheet" href="{{ site.url }}/{{ site.baseurl }}/css/site.css" />
   </body>
 </html>

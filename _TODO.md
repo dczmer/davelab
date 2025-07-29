@@ -4,6 +4,12 @@ the first course is pretty good, but the others lack interactivity and the way i
 
 TODO:
 
+- lighthouse findings:
+  * static asset caching is short-lived; idk how much i can modify this with just github pages
+  * images:
+    + set fixed sizes on the img tags
+    + convert to avif or webp format
+    + resize images
 - imagemagick script to optimize images
 - grunt/make to minify+concat css, optimize imgs, bundle install, bundix, etc.
 - create custom collections_dir "courses"

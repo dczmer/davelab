@@ -39,17 +39,7 @@ Multiple programs can keep a file open and read/write to it at the same time. On
 
 When a program reads from `STDIN` ("standard input") stream, it will read any information in that stream and then wait for more data to be written. When it detects new data, it will process that, then wait again (until it receives a special "end of file" sequence).
 
-{% mermaid %}
----
-config:
-    theme: dark
----
-flowchart LR
-    Start -->|Read STDIN| W(Wait)
-    W --> IN{New lines?}
-    IN --> Y(YES) --> Start
-    IN --> N(NO) --> W
-{% endmermaid %}
+![image](images/diagram-stdin.png)
 
 In your interactive shell, `STDIN` defaults to the characters you type from your keyboard, like editing a file in a text editor. But, usually, we write another command to produce specific output and "pipe" that to the next program, to become that program's `STDIN` stream. This is like writing a program to produce a very specific input "file" for the next program to read.
 
@@ -59,14 +49,7 @@ You may have guessed by now, `STDOUT` is an _output_ stream, and it goes to your
 
 The first input starts with my keyboard, then the output of each command becomes the input of each subsequent command, and then the last output stream goes to my monitor for display.
 
-{% mermaid %}
----
-config:
-    theme: dark
----
-flowchart LR
-    keyboard --> cmd1 --> cmd2 --> cmd3 --> screen
-{% endmermaid %}
+![image](images/diagram-pipeline.png)
 
 ### STDERR
 
