@@ -49,7 +49,7 @@ You may have guessed by now, `STDOUT` is an _output_ stream, and it goes to your
 
 The first input starts with my keyboard, then the output of each command becomes the input of each subsequent command, and then the last output stream goes to my monitor for display.
 
-![image](images/diagram-pipeline.avif){:width=753" height="70"}
+![image](images/diagram-pipeline.avif){:width="753" height="70"}
 
 ### STDERR
 

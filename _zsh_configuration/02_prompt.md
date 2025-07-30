@@ -35,7 +35,7 @@ If you are on Mac, you should be able to install these fonts via `homebrew`.
 
 The default `zsh` prompt is very basic, usually just the system's `hostname` followed by a '%'.
 
-![image](./images/PS1-default.avif "Default prompt")
+![image](./images/PS1-default.avif "Default prompt"){:width="96" height="20"}
 
 But you can configure the prompt to show whatever information you want, like the current working directory, the date and time, the name of the current git branch, and whether you have changes that have not been committed, etc.
 
