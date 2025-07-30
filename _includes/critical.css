@@ -72,6 +72,18 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  box-sizing: content-box;
+  height: auto;
+}
+
+.full-image {
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    width: 100%;
+  }
 }
 
 input,

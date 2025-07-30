@@ -44,7 +44,7 @@ Now, instead of looking at a regular terminal, you are looking at a new `window`
 
 At the bottom of the screen, you should see the `statusbar` and a "tab" with the name of your current `session`. As you open more windows, they will be added to the `statusbar` and the active `window` will have an asterisk `*` by it's name.
 
-![image](./images/tmux-default.png)
+![image](./images/tmux-default.png){:width="940" height="31"}
 
 ### The Prefix
 
@@ -59,7 +59,7 @@ For example, split the current `horizontally`:
 
 If you did it correctly, you should see the screen now split into two equal-sized terminals.
 
-![image](./images/first-split.png)
+![image](./images/first-split.png){:width="471" height="588"}
 
 The notation that `tmux` uses for this command is written like `C-b "`. Since the `prefix` is used for every command, it is frequently just omitted from the documentation, so this example would just be `"` and you would know that you have to type the `prefix` first.
 
@@ -72,7 +72,7 @@ Now move to the bottom pane and open a new vertical split:
 1. `C-b ↓` to move down.
 2. `C-b %` to make a vertical split.
 
-![image](./images/second-split.png)
+![image](./images/second-split.png){:width="471" height="588"}
 
 To close one of the panes, first move to it and then run `exit` at your command line, or use `Ctrl+d` to do the same thing.
 

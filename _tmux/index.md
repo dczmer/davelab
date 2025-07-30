@@ -9,7 +9,8 @@ lesson: 0
 
 Don't struggle managing multiple terminal windows manually. Manage them with layouts so you can view them side-by-side, in a grid, or jump between them with a key press.
 
-![image](./images/tmux.png)
+{: .full-image }
+![image](./images/tmux.png){:width="960" height="600"}
 
 All of the terminals that you open in your layout will be saved to the active `session`. If you close your terminal window (or if you disconnect from a remote host using `tmux`), then you can re-attach to that `tmux` session and pick up exactly where you left off.
 
@@ -17,7 +18,8 @@ All of the terminals that you open in your layout will be saved to the active `s
 
 Keep your shell open on one half of the screen, and this document in your browser on the other half.
 
-![image](../img/side-by-side.png)
+{: .full-image }
+![image](../img/side-by-side.png){:height="1200" width="1920"}
 
 Follow along with the exercises by typing commands in your terminal and interacting with `tmux`, as instructed.
 

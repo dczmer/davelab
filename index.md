@@ -26,7 +26,8 @@ git clone https://github.com/dczmer/davelab.git
 
 Try putting your browser on one side of your desktop, and your terminal on the other side, so they both take up exactly half of the screen. Browse through the course material while you work along in the terminal at the same time.
 
-![image](./img/side-by-side.png)
+{: .full-image }
+![image](./img/side-by-side.png){:height="1200" width="1920"}
 
 Each section will briefly cover the material, then explain how you can try it out and experiment.
 

@@ -23,7 +23,7 @@ To view the help for the `ls` command:
 man ls
 ```
 
-![image](./images/man1.png)
+![image](./images/man1.png){:width="582" height="471"}
 
 You can move up and down in the document using the arrow keys (`↓`/`↑`) or `vim` keys `j`/`k`.
 
@@ -63,7 +63,7 @@ If you completed the [zsh configuration](../zsh_configuration) module, then you 
 
 If you already know the command but just can't remember the arguments or commands, you can often use this to just `<tab>` complete your way to typing out the command.
 
-![image](./images/completion.png)
+![image](./images/completion.png){:width="471" height="253"}
 
 ### Using your History
 
@@ -110,11 +110,11 @@ But it's not really magic, he was just (very efficiently) searching through his 
 
 To use this feature, press `Ctrl+r` at the prompt.
 
-![images](./images/risearch-1.png)
+![images](./images/risearch-1.png){:width="206" height="62"}
 
 Now if you start typing, it will keep updating the command line with the best match, searching backwards through your history, for entries that contain your search term as a substring.
 
-![image](./images/risearch2.png)
+![image](./images/risearch2.png){:width="273" height="77"}
 
 You can keep typing to refine your command, or you can use `Ctrl+r` and `Ctrl+Shift+r` to move forward and backwards through the other matches for your prompt.
 
@@ -140,7 +140,7 @@ This is less powerful than `Ctrl-r` because, once you hit the arrow key, you can
 
 The [zsh-autosuggestions plugin](../../01_zsh-configuration/04_complete-setup) will show an in-line "autocomplete" placeholder, with the most recent command from your history that would complete what you have typed so far:
 
-![images](./images/zsh-autosuggestions.png)
+![images](./images/zsh-autosuggestions.png){:width="277" height="58"}
 
 If you want to accept the suggestion, use the right arrow key (`→`).
 

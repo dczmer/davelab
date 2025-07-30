@@ -11,6 +11,7 @@ TODO:
     + convert to avif or webp format
     + resize images
 - imagemagick script to optimize images
+- template thing to automatically set the image sizes from the file metadata...
 - grunt/make to minify+concat css, optimize imgs, bundle install, bundix, etc.
 - collapse TOCs when on mobile view
 - create custom collections_dir "courses"

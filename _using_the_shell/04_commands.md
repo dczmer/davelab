@@ -480,4 +480,4 @@ cat ./jq-object.json | jq -r '.[] | [ .col1, .col2, .col3 ] | @tsv'
 
 ---
 
-[NEXT >>](./05_one-liners)
+[NEXT >>](./05_lab1)
