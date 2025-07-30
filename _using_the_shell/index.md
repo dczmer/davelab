@@ -25,7 +25,7 @@ Follow along with this text, while typing the examples into your terminal.
 Put your terminal next to your browser so you can read and follow the examples at the same time:
 
 {: .full-image }
-![image](../img/side-by-side.png){:height="1200" width="1920"}
+![image](../img/side-by-side.avif){:height="1200" width="1920"}
 
 ## Contents
 

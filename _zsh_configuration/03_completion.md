@@ -12,11 +12,11 @@ lesson: 3
 
 `zsh` has an advanced completion engine that can be used to autocomplete the name of a command, the path to a file, or even command arguments.
 
-![image](./images/completion.png){:width="939" height="243"}
+![image](./images/completion.avif){:width="939" height="243"}
 
 It will help you complete the name of a command and even auto-correct spelling mistakes. It will also allow you to autocomplete command arguments by showing a menu of the valid options for the current context.
 
-![image](./images/spelling.png){:width="939" height="176"}
+![image](./images/spelling.avif){:width="939" height="176"}
 
 ## Auto-Complete Engine
 

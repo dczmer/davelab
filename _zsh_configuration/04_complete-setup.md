@@ -73,7 +73,7 @@ If you are on your work computer, you will want to also look out for anything th
 
 The [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) will colorize command text as you are typing. Valid command names are in green, invalid command names are red, mismatched brackets and strings will be highlighted, etc. This helps with catching syntax errors.
 
-![image](./images/syntax-highlighting.png){:width="299" height="32"}
+![image](./images/syntax-highlighting.avif){:width="299" height="32"}
 
 ### zsh-history-substring-search
 
@@ -99,7 +99,7 @@ On my Macbook, I had to use these alternate keybindings, but on my personal `lin
 
 The [zsh-autosuggestions](https://www.nerdfonts.com/font-downloads) plugin will show inline suggestions as you type. The suggestions come from doing a substring search through your history, starting from most recent entries.
 
-![image](./images/autosuggestions.png){:width="349" height="30"}
+![image](./images/autosuggestions.avif){:width="349" height="30"}
 
 If you want to accept the suggestion, press the right arrow key (`→`).
 

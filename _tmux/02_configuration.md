@@ -65,7 +65,7 @@ set -g status-right '%Y-%m-%d %T %A'
 set-option -g status-position bottom
 ```
 
-![image](./images/status-style.png){:width="941" height="35"}
+![image](./images/status-style.avif){:width="941" height="35"}
 
 #### Format String
 
@@ -97,7 +97,7 @@ set -g status-left '#[fg=#4EA1FF]#{?window_zoomed_flag,🔍,}[#S(#{session_attac
 set -g status-right-length 20
 ```
 
-![image](./images/status-style2.png){:width="942" height="36"}
+![image](./images/status-style2.avif){:width="942" height="36"}
 
 The default styles and colors are set by the `status-style` option. When you use `#{default}` to reset styles, this is what it will use as the default.
 
@@ -107,7 +107,7 @@ You can also set a different style for the active session "tab" on the status li
 set-option -g window-status-current-style fg=#BD5EFF
 ```
 
-![image](./images/status-style3.png){:width="941" height="36"}
+![image](./images/status-style3.avif){:width="941" height="36"}
 
 ## tmux-send-keys
 
@@ -123,7 +123,7 @@ This is a cool trick and can be very useful for scripting or making custom keybi
 tmux send-keys -t {down-of} "ls -al" Enter
 ```
 
-![image](./images/tmux-send-keys.png){:width="471" height="588"}
+![image](./images/tmux-send-keys.avif){:width="471" height="588"}
 
 ## Plugins and Alternatives
 

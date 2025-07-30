@@ -19,7 +19,7 @@ You probably have an existing `~/.zshrc` file, and it might have important stuff
 I recommend opening your browser on one half of the screen, and then your terminal on the other side, so you can follow along:
 
 {: .full-image }
-![image](../img/side-by-side.png){:height="1200" width="1920"}
+![image](../img/side-by-side.avif){:height="1200" width="1920"}
 
 ### CLI Text Editor
 
