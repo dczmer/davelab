@@ -11,7 +11,7 @@ lesson: 2
 
 ## Overview
 
-You can copy the provided configuration file to `~.tmux.conf` or `~/.config/tmux/tmux.conf` and use it directly. It's a pretty standard configuration and it's short enough that we can walk through the whole thing, and you can change it to your taste.
+You can copy the provided configuration file to `~/.tmux.conf` or `~/.config/tmux/tmux.conf` and use it directly. It's a pretty standard configuration and it's short enough that we can walk through the whole thing, and you can change it to your taste.
 
 Start by `sourcing` the [Example tmux.conf](./tmux.conf) into your current session:
 
