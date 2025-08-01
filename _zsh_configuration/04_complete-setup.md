@@ -121,6 +121,9 @@ find /opt/homerew -name zsh-history-substring-search.zsh
 find /opt/homerew -name zsh-autosuggestions.zsh
 ```
 
+{: .note }
+If you are on Mac, then you may need to "`brew install coreutils`" if you do not have the "`find`" command.
+
 On my Macbook, the `zshrc` changes look like this (double-check the path is correct on your system):
 
 ```zsh
@@ -146,6 +149,8 @@ A word of warning, however: You probably don't need/want that many `zsh` plugins
 
 [fish-shell](https://fishshell.com/) is a modern shell with lots of cool features and it's own shell scripting language with improved/modernized syntax and conventions.
 
+![image](./images/fish-shell.avif){:width="564" height="225"}
+
 However, there is a reason why I waited until the end to tell you about plugin managers and `fish`:
 
 Even if you never change your `zshrc` again, doing it yourself helps you build a better mental model of how these things work, and gives you the context you need to change or fix things yourself.
@@ -157,7 +162,6 @@ The three plugins we covered here are ports of the three most useful features fr
 The other major feature of `fish` is the "sensible scripting" language. The down-side to this is that the scripts you write here are not portable to any other shell or execution environment.
 
 I'd suggest sticking to `zsh` (or another `POSIX` compatible shell), and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.
-
 
 ---
 

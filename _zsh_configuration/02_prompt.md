@@ -133,7 +133,7 @@ echo "\033[32;1;4mHELLO\033[0m"
 This is pretty crazy, but not as bad as it looks:
 
 - `\033[...m` means anything between the `[` and the `m` should be interpreted as an escape sequence of integer values separated by ';' characters.
-- `32` means <span style="color: green">foreground color green</span>.
+- `32` means <span style="color: #50fa7b">foreground color green</span>.
 - `1` means **bold**
 - `4` means <ins>underline</ins>.
 - Then `\033[0m`, at the end, means reset to the default style again.
@@ -148,7 +148,7 @@ OK, that doesn't look much better, but let's go over it:
 
 - `%B...%b` - anything between `%B` and `%b` will be **bold**.
 - `%U...%u` - anything between `%U` and `%u` will be <ins>underlined</ins>.
-- `%F{green}...%f` - anything between `}` and `%f` will have a green foreground color.
+- `%F{green}...%f` - anything between `}` and `%f` will have a <span style="color: #50fa7b">green foreground color</span>.
 
 ### Try it Out
 
@@ -182,7 +182,7 @@ I won't explain the `zstyle` module, but you can run `man zshmodules` and search
 
 I will go over some of the things that I think you may want to customize, using all of the things we've covered so far:
 
-### The normal `git` status format.
+### The normal git status format.
 
 ```zsh
 zstyle ':vcs_info:git:*' formats '%F{green} %f(%b)%F{yellow}%u%c%f'

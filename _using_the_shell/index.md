@@ -18,6 +18,16 @@ I'm also still collecting generally useful 'one-liners' to include in the last s
 
 By the end of this module you will be familiar with a hand-full of the most common and useful shell commands for daily tasks, how to combine them together into 'one-liners' to complete a task, and we'll see some real world examples.
 
+## Requirements
+
+If you are on Mac, then you should [install Homebrew](https://docs.brew.sh/Installation). This is your best option for installing and managing software outside of the app store.
+
+Many of the commands and programs used in this chapter are from the `coreutils` project. On a Linux system, these may already be installed in your base system. If they are not, then you should be able to install them with your system package manager.
+
+```zsh
+brew install coreutils
+```
+
 ## How to Explore this Course
 
 Follow along with this text, while typing the examples into your terminal.

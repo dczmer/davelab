@@ -250,7 +250,8 @@ You should manage your `zshrc` configuration as a `git` repository. This will al
 2. Copy your custom `zshrc` file, or the provided [zshrc-example.zsh](./zshrc-example.zsh), to that repository and call it `zshrc.zsh`.
 3. If you have additional source files/modules, put them in the same directory.
 4. Add all the files to the repository and make an initial commit.
-5. Now you can make a symbolic link to point `~/.zshrc` to your `zshrc.zsh` file.
+5. Delete the existing `.zshrc` file, if it exists (maybe make a backup).
+6. Now you can make a symbolic link to point `~/.zshrc` to your `zshrc.zsh` file.
 
 ```zsh
 cd ~
