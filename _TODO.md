@@ -1,25 +1,25 @@
-first, i just want to finish the breadth of the content i want to cover.
-this isn't really where i want it yet.
-the first course is pretty good, but the others lack interactivity and the way information is presented and grouped doesn't make a lot of sense. some of it just reads like a raw dump of random bits of information.
-
 TODO:
 
-- run better acc. audit
-- imagemagick script to optimize images:
-  * `mogrify avif *.png`
+- run better accessibility audit
 - template thing to automatically set the image sizes from the file metadata...
-- grunt/make to minify+concat css, optimize imgs, bundle install, bundix, etc.
-- create custom collections_dir "courses"
 - dynamic menu, course navigation (up/down/contents/next/prev)
-- light mode?
+- create custom collections_dir "courses"
 - license file:
   * properly credit:
-    + css reset article https://www.joshwcomeau.com/css/custom-css-reset/
     + dracula theme
+- customize actions:
+  * build on nix
 
 
 Updates:
 
+- alt-h:
+  * lookup help for command you are typing
+  * works by default with `bindkey -e` (might be default)
+  * for vim keybindings: `bindkey -M vimcmd 'K' run-help` to follow vim conventions instead
+- alt-.:
+  * auto insert the last argument to previous command (like using '!$')
+  * for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - zsh config:
   * don't worry about learning all of the different commands and syntaxes in this section, just make sure you understand _what_ the lines are doing so you know exactly what your system is doing. once your shell is customized to your liking, you won't have to touch most of these lines ever again.
   * color scheme advice: use your shell because it has deeper integration into all systems in your shell
@@ -49,6 +49,7 @@ Future Course Ideas:
     + dual boot (not usually needed these days)
     + vms (old but still valid for best isolation)
     + containers
+    + software (pyenv/venv/etc)
   * dependencies:
     + local/static
     + system/dynamic
@@ -79,6 +80,4 @@ Future Course Ideas:
 - nix!
 
 - newer command line tools and alternatives:
-  * fzf, rg/ag, fd
-
-- do we need a section on how to install and use a package manager? who is my target audience...
+  * fzf, rg/ag, fd, bat

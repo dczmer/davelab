@@ -26,9 +26,6 @@ If your lines of text are separated by a common delimiter character, then shell 
 
 I think the term "stream" is a pretty good way to describe the concept. Data flows from in one direction and it can be split, combined, or diverted in various ways with a little bit of plumbing.
 
-{: .todo }
-crappy drawing of a 'stream'
-
 On a Unix-based system (that includes Mac/Darwin and Linux), the kernel treats any data source or device the same way it treats a normal file. This just means that there is a consistent interface for reading, seeking, opening, closing, writing to all of these data sources.
 
 The reason I bring this up is because it will help you understand what streams are if you think of them as files. Files that don't actually exist anywhere on disk and disappear when the command sequence is complete.

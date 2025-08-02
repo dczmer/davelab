@@ -20,11 +20,12 @@ Coming soon!
 
 - [First Steps](./01_first-steps)
 - [Arguments and Variables](./02_arguments_and_variables)
-- conditionals, "tests", and loops
+- conditionals, "tests", case, and loops
 - functions
 - working with strings:
   * concatenation, expansion, and interpolation
   * slicing strings
+  * files/paths/extensions/basename
 - arithmetic and arrays:
   * `$(( ))`
   * bc

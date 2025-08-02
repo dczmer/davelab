@@ -72,7 +72,6 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
-  box-sizing: content-box;
   height: auto;
 }
 
@@ -296,6 +295,10 @@ footer {
     flex-direction: row;
     flex-wrap: nowrap;
     gap: var(--margin-xlarge);
+  }
+
+  section a:nth-child(n+2)::before {
+    content: "| ";
   }
 }
 

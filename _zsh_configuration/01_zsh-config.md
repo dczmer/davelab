@@ -185,8 +185,10 @@ bindkey "${terminfo[kend]}" end-of-line
 ```
 
 {: .note }
-If the last two `bindkey` using the "`terminfo`" variable don't seem to work, you can figure out the exact keycode values to use by pressing `<ctrl-v>` and then pressing the key. It will print the actual keycode to the terminal.
-<br>
+If the last two `bindkey` using the "`terminfo`" variable don't seem to work, you can figure out the exact keycode values to use by pressing "`<ctrl-v>`" and then pressing the key. It will print the actual keycode to the terminal.
+<br />
+(If using `vim` keybindings, it's "`<ctrl-q><ctrl-v>`" instead).
+<br />
 For example, you may need something like this:
 
 ```zsh

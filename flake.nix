@@ -39,10 +39,12 @@
             ];
             shellHook = ''
               export JEKYLL_NO_BUNDLER_REQUIRE=true
-              alias -- jekyll-serve="bundle exec jeckyll serve -H localhost"
+              alias -- jekyll-serve="bundle exec jekyll serve -H localhost"
+              alias -- jekyll-build="JEKYLL_ENV=production jekyll build"
 
-              echo "- 'JEKYLL_ENV=production jeckyll build' to build the site"
+              echo "- 'bundle install' to install or update dependencies"
               echo "- 'jekyll-serve' to run dev server"
+              echo "- 'jekyll-build' to build the production version"
             '';
           };
         };
