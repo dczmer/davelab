@@ -196,7 +196,6 @@ main {
   li::marker {
     color: var(--purple);
   }
-
 }
 
 header {
@@ -303,7 +302,7 @@ footer {
 }
 
 main > * {
-  margin-left: var(--margin-medium);
+  margin: var(--margin-medium);
 }
 
 p {
