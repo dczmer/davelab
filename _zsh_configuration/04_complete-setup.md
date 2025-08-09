@@ -71,7 +71,7 @@ If you are on your work computer, you will want to also look out for anything th
 
 ### zsh-syntax-highlighting
 
-The [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) will colorize command text as you are typing. Valid command names are in green, invalid command names are red, mismatched brackets and strings will be highlighted, etc. This helps with catching syntax errors.
+The [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) will colorize command text as you are typing. Valid command names are in green, invalid command names are red, mismatched brackets and strings will be highlighted. This helps with catching syntax errors.
 
 ![image](./images/syntax-highlighting.avif){:width="299" height="32"}
 
@@ -161,7 +161,7 @@ The three plugins we covered here are ports of the three most useful features fr
 
 The other major feature of `fish` is the "sensible scripting" language. The down-side to this is that the scripts you write here are not portable to any other shell or execution environment.
 
-I'd suggest sticking to `zsh` (or another `POSIX` compatible shell), and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.
+I'd suggest sticking to `zsh` (or another [POSIX](https://en.wikipedia.org/wiki/POSIX) compatible shell), and avoiding `fish`, but you might still like to use a plugin manager if you find it easier, or if you want an easy way to install color schemes.
 
 ---
 

@@ -20,14 +20,8 @@ Updates:
 - alt-.:
   * auto insert the last argument to previous command (like using '!$')
   * for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
-- zsh config:
-  * don't worry about learning all of the different commands and syntaxes in this section, just make sure you understand _what_ the lines are doing so you know exactly what your system is doing. once your shell is customized to your liking, you won't have to touch most of these lines ever again.
-  * color scheme advice: use your shell because it has deeper integration into all systems in your shell
 - image captions and alt text
-- zsh prompt:
   * note: wc requires coreutils
-  * more text coloring around the example descriptions (in "red text" ...)
-  * mention zsh prompt generator webapps
 - zsh completion:
   * sed, find requires coreutils
 - zsh completed setup:

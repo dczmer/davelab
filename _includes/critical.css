@@ -258,6 +258,7 @@ header {
 
     .subnav:hover ul {
       display: block;
+      margin-top: 1em;
       z-index: 1;
     }
 
@@ -318,11 +319,4 @@ h6 {
   color: var(--orange);
   margin-top: var(--margin-large);
   margin-left: 0;
-}
-
-a {
-  color: var(--cyan);
-  font-family:
-    "HackNerd", Monaco, "Courier New", "DejaVu Sans Mono",
-    "Bitstream Vera Sans Mono", monospace;
 }

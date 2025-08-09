@@ -30,5 +30,5 @@ Coming soon!
   * `$(( ))`
   * bc
   * arrays
-- debugging (-e and -x) and traps... "It's a trap!"
+- traps... "It's a trap!"
 - lab: basic scripting

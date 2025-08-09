@@ -124,7 +124,7 @@ Try running `man zshmisc` from the prompt and then searching (with `/`) for `EXP
 
 The traditional way of defining styles and colors in the terminal is to use [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-So if you wanted to print "HELLO" in green, bold text, with underline, you'd write something like:
+So if you wanted to print "HELLO" in <span style="color: #39ba5a">green</span>, bold text, with underline, you'd write something like:
 
 ```zsh
 echo "\033[32;1;4mHELLO\033[0m"
@@ -162,7 +162,7 @@ Try running `man zshmisc` from the prompt and then searching (with `/`) for `"EX
 
 Try modifying this format string `%F{green}Hello%f` to have two sections of text, with opposite foreground and background colors. So maybe "HELLO" in green foreground and black background, and "WORLD" in black foreground and green background. Use `print -P` to test it out.
 
-<span style="background: black; color: green">HELLO</span> <span style="background: green; color: black">WORLD</span>
+<span style="background: black; color: #50fa7b">HELLO</span> <span style="background: #50fa7b; color: black">WORLD</span>
 
 <details>
 
@@ -190,9 +190,9 @@ zstyle ':vcs_info:git:*' formats '%F{green} %f(%b)%F{yellow}%u%c%f'
 
 This format string will show:
 
-- A green 'git' icon (you need a specific font to see it properly).
+- A <span style="color: green">green</span> 'git' icon (you need a specific font to see it properly).
 - The name of the current branch, in parentheses.
-- In yellow, two characters that will indicate if you have pending staged or unstaged changes in your working tree. If you don't have any pending changes, these characters will not show up.
+- In <span style="color: #f1fa8c">yellow</span>, two characters that will indicate if you have pending staged or unstaged changes in your working tree. If you don't have any pending changes, these characters will not show up.
 
 ### How to display the 'staged'/'unstaged' indicators:
 
@@ -242,7 +242,7 @@ You can also define a prompt-string to display on the right-side of the command-
 export RPROMPT='%F{blue}%t%f'
 ```
 
-This would show the current time, in blue text, on the far right side of your command line.
+This would show the current time, in <span style="color: #8be9fd">blue</span> text, on the far right side of your command line.
 
 ![image](./images/rprompt.avif){:width="937" height="29"}
 
@@ -270,14 +270,14 @@ The escape sequence starts with `%(`, followed by:
 print -P '%0(?,0,%F{red}%?%f)'
 ```
 
-This will print the status code of the previous command, in red, if the code was non-zero. If the code was zero, it prints a zero in the default color.
+This will print the status code of the previous command, in <span style="color: #ff5555">red</span>, if the code was non-zero. If the code was zero, it prints a zero in the default color.
 
 - `%0(` - We're evaluating condition that means 'if status code == N'. This specifies N = 0 for our comparison.
 - `?` - The condition is based on the status code of the last command (equal to N). A value of zero means the previous command exited without error.
 - `,` - The delimiter we chose to use is a `,` (comma). You can use anything, as long as you don't use that same value in your format string.
 - `0` - The 'true' prompt-string. Just prints a `0` in the default colors.
 - `,` The same delimiter character again.
-- `%F{red}%?%f` - The 'false' condition (NOT equal to 0), which prints the response code in red.
+- `%F{red}%?%f` - The 'false' condition (NOT equal to 0), which prints the response code in <span style="color: #ff5555">red</span>.
 
 Here is the final prompt format, including conditional formatting for background jobs and the status code of the previous command.
 
@@ -302,7 +302,7 @@ Type an invalid command, like `ls` for a directory that doesn't exist:
 ls xyz123
 ```
 
-You should see a red status code in your prompt string.
+You should see a <span style="color: #ff5555">red</span> status code in your prompt string.
 
 Now try suspending a job to the background with `ctrl+z`:
 
@@ -310,7 +310,7 @@ Now try suspending a job to the background with `ctrl+z`:
 less ./README.md
 ```
 
-Press `ctrl+z` to suspend the process to the background. You should see a yellow `1` next to your prompt now.
+Press `ctrl+z` to suspend the process to the background. You should see a <span style="color: #f1fa8c">yellow `1`</span> next to your prompt now.
 
 Type `fg` to bring the job back to the foreground, then hit `q` to exit.
 

@@ -45,6 +45,8 @@
               echo "- 'bundle install' to install or update dependencies"
               echo "- 'jekyll-serve' to run dev server"
               echo "- 'jekyll-build' to build the production version"
+
+              exec zsh
             '';
           };
         };

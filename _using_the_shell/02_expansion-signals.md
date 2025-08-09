@@ -15,9 +15,10 @@ This section will cover "shell expansion", which allows you to pattern match fil
 
 We'll also briefly cover some basic process management using `signals` and `jobs`.
 
-## Expansion and "Globbing"
+{: .note }
+Some of the commands on this page require the "`coreutils`" package ("`brew install coreutils`").
 
-The concept of a "globbing" comes from the libC function, `glob` (though it actually pre-dates `C`).
+## Expansion and "Globbing"
 
 A glob is a simple way of pattern matching file or directory paths in your commands.
 
@@ -33,7 +34,7 @@ Examples:
 # list all markdown files in this directory:
 ls *.md
 
-# look for log files in the form of `log-N.log`, for any (single-digit) value of `N`:
+# look for log files in the form of `log-N.log`, for any (single-character) value of `N`:
 ls log-?.log
 
 # search for any file named `the-letter-X.txt`, where `X` is an alpha character:
@@ -42,13 +43,13 @@ ls the-letter-[abcdefghijklmnopqrstuvwxyz].txt
 # or, more simply:
 ls the-letter-[[:alpha:]].txt
 
-# or any version where the letter is not (`!`) "q"
+# or any version where the character is not (`!`) "q"
 ls the-letter-[\!q].txt
 ```
 
 The [Wikipedia page](https://en.wikipedia.org/wiki/Glob_\(programming\)) is very short and has a good syntax table and some reference examples.
 
-When you enter a command, `zsh` will "expand" all the special directives in your command string and replace them with the actual values that match the patterns, BEFORE executing it as a shell command. This is like a "pre-processor" for your `C` compiler.
+When you enter a command, `zsh` will "expand" all the special directives in your command string and replace them with the actual values that match the patterns, BEFORE executing it as a shell command.
 
 One common pattern that you may be familiar with is `**` which would expand to all sub-directories:
 
@@ -142,20 +143,15 @@ echo 'MY PROMPT: ($PS1)'
 
 Run `man zshall` and search for `QUOTING`
 
-One important note:
-
-{: .note }
-Expansion happens BEFORE the arguments are passed to the command!
-
 Sometimes you want to pass a pattern or glob to another command, like `find`:
 
 ```zsh
-# Say i have a directory with two files in it already:
+# Say you are currently in a directory with two .txt files in it:
 ls .
 #  file1.txt
 #  file2.txt
 
-# Now, I want to use `find` to locate all markdown files under `~/wiki`:
+# Now, I want to use `find` to locate all .txt files under the directory `~/wiki`:
 find ~/wiki -name *.txt
 #  find: file1.txt: unknown primary or operator
 #  find: file2.txt: unknown primary or operator

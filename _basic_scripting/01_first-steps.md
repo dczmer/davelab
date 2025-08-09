@@ -157,3 +157,8 @@ echo $MY_VARIABLE
 
 {: .todo }
 TODO
+
+# -e and -x
+
+{: .todo }
+TODO

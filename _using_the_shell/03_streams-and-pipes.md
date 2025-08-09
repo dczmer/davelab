@@ -16,11 +16,7 @@ If you combine multiple commands this way, you can write little programs in your
 
 These lines of text are typically filtered, pattern-matched, transformed and then printed or sent as input into yet another program.
 
-If your lines of text are separated by a common delimiter character, then shell commands can understand this and treat the data as a _list of records_ of tabular data.
-
-- Generate, translate, filter, and transform text:
-    * This could include everything from building reports to writing a command that generates another, very complicated command.
-- _Process lists of records_ of tabular data
+If your lines of text are separated by a common delimiter character - like spaces, tabs, commas - then shell commands can understand this and treat the data as a _list of records_ of tabular data.
 
 ## I/O Streams
 

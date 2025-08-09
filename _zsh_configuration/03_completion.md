@@ -42,6 +42,10 @@ zsh -df
 
 Now type the (incomplete) command "`sed `" (note the space at the end), and press `tab`. Since the completion engine has not been initialized, you will get the default shell completion, which is usually to show a simple menu with the files in the current directory.
 
+{: .note }
+To use the "`sed`" command, you need to install "`coreutils`" from your package manager.<br />
+(`brew install coreutils`)
+
 ```zsh
 sed <TAB>
 # README.md
