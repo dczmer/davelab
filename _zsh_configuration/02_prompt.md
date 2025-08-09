@@ -190,7 +190,7 @@ zstyle ':vcs_info:git:*' formats '%F{green} %f(%b)%F{yellow}%u%c%f'
 
 This format string will show:
 
-- A <span style="color: green">green</span> 'git' icon (you need a specific font to see it properly).
+- A <span style="color: #50fa7b">green</span> 'git' icon (you need a specific font to see it properly).
 - The name of the current branch, in parentheses.
 - In <span style="color: #f1fa8c">yellow</span>, two characters that will indicate if you have pending staged or unstaged changes in your working tree. If you don't have any pending changes, these characters will not show up.
 

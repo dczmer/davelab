@@ -155,10 +155,144 @@ echo $MY_VARIABLE
 
 # Finding the Path of the Running Script
 
-{: .todo }
-TODO
+Frequently, you will want to write scripts that work on files that we expect to be at a location relative to the script file. For example, scripts that are typically included with a software project source code may need to know exactly how to reach the important files that it needs to work on.
 
-# -e and -x
+```text
+-+ project_root/
+ |-- my_script.sh    # <-- this script needs to run over every .py file in the project
+ |-- main.py
+ |-+ lib/
+ | |- server.py
+ | |- utilities.py
+ |-+ test/
+   |- test_server.py
+   |- test_utilities.py
+```
 
-{: .todo }
-TODO
+If you only use absolute file paths, then you would have to prescribe that everyone working on the project installs the source code at the exact same path on their system. But, if you want to be able to find the other files under the same directory without hard-coding a path, you need to use relative paths.
+
+```zsh
+# absolute path
+wc -l /hard-coded/path/to/project/lib/server.py
+
+# relative path (from top-level directory of the project folder)
+wc -l ./lib/server.py
+```
+
+So we could write `my_script.sh` to use relative paths, like `./lib` or `./test`.
+
+```zsh
+# relative paths work well, when we run from the directory containing the script file
+sh ./my_script.sh
+```
+
+But if we ever try to call the script from a different working directory, then the relative files, like `./lib`, are treated as relative the directory we're running from.
+
+```zsh
+# change to /tmp, away from where the script is located
+cd /tmp
+
+# this fails because now it considers `./lib` to mean `/tmp/lib` :(
+sh /path/to/project/my_script.sh
+```
+
+To find the working directory, we need to do a little processing of the shell script arguments. We'll walk through how it works, but you can probably just save this one to your notes or make a snippet to apply it when you need it.
+
+## The Easy Way, with ZSH
+
+If you don't care about "portability" and you are only writing a script for yourself to run, then `zsh` makes this very easy:
+
+```zsh
+ABS_PATH="${0:a}"
+```
+
+This is still `$0`, the name of the current script, but we're applying an expansion operation on the value to get the absolute path. We'll cover more of the variables and how you can modify them with `${VAR}` syntax in the next section.
+
+- `$0` is still the (relative) path of the current script file.
+- `${VAR}` syntax allows you to do operations on the variable, like perform variable expansion or provide default values. `$0` and `${0}` are the same thing.
+- `:a` is a special modifier that says to treat `$0` as a relative path name, and replace it with it's absolute path.
+- And we always wrap the value in double-quotes, so it does not break on white-space characters. `shellcheck` will make sure you remember this.
+
+## The "Portable" Way
+
+Here is the "portable" way to do it (will work on most shells):
+
+```zsh
+# get the name and (relative) path of the script (script argument 0)
+DIR_NAME="$(dirname -- "$0")"
+
+# get the absolute path of DIR_NAME
+ABS_PATH="$(cd $DIR_NAME &>/dev/null && pwd)"
+```
+
+- Using `$(...)` to capture a variable.
+- Wrap `$(...)` commands with double-quotes to avoid issues with white-space in directory names.
+- `$0` is the name of the script file that is executing.
+- `dirname` is a shell function that returns just the directory part of a file path.
+- `cd $DIR_NAME &>/dev/null` changes the working directory to the target script directory.
+  - This will only change the directory for the commands inside of this `$(...)` section, and does not affect the rest of the script.
+  - `&>/dev/null` Redirects `STDOUT` and `STDERR` (all output) to the null device, suppressing any output from this command.
+- `&& pwd` prints the current working directory as soon as we change to the script directory. The `pwd` output will be the absolute path to the directory.
+
+So that is the "portable" way to do it. It is a little strange at first, but not really that bad once you know what it does.
+
+# Debugging with "-e" and "-x"
+
+Shell scripts are made of a sequence of shell commands. What happens when one command in the script fails? Do you expect the script to stop, or to keep on going?
+
+If a command in the middle of your script fails, the error will be printed to STDERR, but the script will just keep on running from the next command. But you can change this behavior using `-e`.
+
+When you need to debug your shell script, it's useful to be able to see exactly what commands are running, so you can trace and verify execution.
+
+- `-e` will cause the script to immediately `exit` with a failing return code whenever a command in the script has an error, instead of just printing the error and continuing on with the script.
+- `-x` will print each command before it runs. This will be the command _after_ any and all expansion operations are performed. So this is useful for debugging, not only as a trace log of what commands run, but because it shows you the results of commands you have constructed using expansion or globs.
+
+For both of these options, you can disable them again with `+OPTION` (`+e` / `+x`). This means you can selectively turn them off and on at different portions of the script.
+
+```zsh
+# turn on `-x` to show debug trace
+set -x
+
+# `-e` is off by default.
+# if this command fails, the script will keep running
+mkdir -p /tmp/test123
+touch /tmp/test123/{README.md,main.py}
+
+# after this line, any failing commands cause the script to exit instead
+set -e
+
+wc -l /tmp/test123/main.py
+
+# we can turn it off again, and failing commands will not exit the script again
+set +e
+
+touch /tmp/test123/test_main.py
+
+# and now turn it on again to see an error
+set -e
+
+# i haven't installed py.test on this machine:
+py.test /tmp/test123/test_main.py
+
+# this will never run
+echo "DONE"
+```
+
+And we would see a trace log, and that the script exited before printing the message "DONE":
+
+```zsh
+# +/tmp/test.sh:4> mkdir -p /tmp/test123
+# +/tmp/test.sh:5> touch /tmp/test123/README.md /tmp/test123/main.py
+# +/tmp/test.sh:7> set -e
+# +/tmp/test.sh:9> wc -l /tmp/test123/main.py
+# 0 /tmp/test123/main.py
+# +/tmp/test.sh:11> set +e
+# +/tmp/test.sh:13> touch /tmp/test123/test_main.py
+# +/tmp/test.sh:15> set -e
+# +/tmp/test.sh:17> py.test /tmp/test123/test_main.py
+# /tmp/test.sh:17: command not found: py.test
+```
+
+---
+
+[NEXT >>](./02_arguments_and_variables)

@@ -30,7 +30,7 @@ zsh -df
 
 This will enter a clean `zsh` shell with NO configuration (only the default settings).
 
-When you want to apply the contents of the example file (or your own test files), you can `source` those files to import them into the current session:
+When you want to apply the contents of the [example file](./zshrc-example.zsh) (or your own test files), you can `source` those files to import them into the current session:
 
 ```zsh
 source ./zshrc-example.zsh

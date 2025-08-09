@@ -13,6 +13,8 @@ TODO:
 
 Updates:
 
+- `touch`
+- side-by-side image
 - alt-h:
   * lookup help for command you are typing
   * works by default with `bindkey -e` (might be default)
@@ -22,15 +24,10 @@ Updates:
   * for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - image captions and alt text
   * note: wc requires coreutils
-- zsh completion:
-  * sed, find requires coreutils
-- zsh completed setup:
-  * what is posix/link
 - tmux basic usage: muscle memory will automate the keybindings eventually
 - signals: ctrl+d
 - about symlinks
 - distinct style for visited links
-- side-by-side image
 - images with `ls -all`
 - some basic analytics
 
@@ -53,6 +50,16 @@ Future Course Ideas:
     + per-project dependency management and isolation (pyenv+pip, etc)
     + nix, flatpack, etc.
 
+- nix!:
+  * easy intro: using nix package manger for development:
+    + search and install packages in your profile
+    + make a devShell (but no packaging):
+      + dependency isolation
+      + aliases and commands, env vars, etc
+      + containers
+  * what is nixos all about?
+  * language and packaging primer and resources (not going to teach that here)
+
 - pet projects:
   * why linux is a good OS for development and learning
   * a bit of `make`
@@ -70,8 +77,6 @@ Future Course Ideas:
 - keyboard-centric interaction (cli, linux, window managers, hot keys, fzf, etc.)
 
 - typing, type systems, and a bit of type theory
-
-- nix!
 
 - newer command line tools and alternatives:
   * fzf, rg/ag, fd, bat

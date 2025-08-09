@@ -18,12 +18,6 @@ These short lessons can't teach you everything you need to be an expert. They wi
 
 ## Navigating the Chapters
 
-Clone this repository so you have a local copy to work in. In your shell, navigate to the directory for each module as you go.
-
-```text
-git clone https://github.com/dczmer/davelab.git
-```
-
 Try putting your browser on one side of your desktop, and your terminal on the other side, so they both take up exactly half of the screen. Browse through the course material while you work along in the terminal at the same time.
 
 {: .full-image }

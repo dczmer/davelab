@@ -35,11 +35,19 @@ I recommend learning `vim` and `nano` because those are usually available on eve
 
 First, you will need to make sure you have `zsh` installed.
 
-If you are using a Mac, then this is the default shell already. However, you should consider installing a better terminal emulator like [iTerm](https://iterm2.com/), or [kitty](https://github.com/kovidgoyal/kitty) (via [homebrew](https://brew.sh/)). 
+If you are using a Mac, then this is the default shell already.
 
 If you are on Linux or WSL, you will need to be sure you have it installed.
 
 The instructions vary, depending on your specific operating system or distribution, but it usually involves installing the `zsh` package from your package manager. Making it your default shell can be done either in the settings for your terminal emulator, or by using the `chsh` command.
+
+### Terminal Emulators
+
+Linux graphical desktop environments and Mac OS come with basic terminals. However, you should consider installing a better terminal emulator like [iTerm](https://iterm2.com/), or [kitty](https://github.com/kovidgoyal/kitty) (via [homebrew](https://brew.sh/)).
+
+I typically use `kitty`, which provides a lot of features like transparent backgrounds and applying a single color scheme consistently across your entire terminal environment. To configure `kitty`, you need to edit the `~/.config/kitty/kitty.conf` file. When you save your changes, the terminal will instantly update to reflect the new settings.
+
+If you are on Mac and you don't like configuring things through a config file, and would prefer something with menus that still does a pretty good job, then you might start with `iTerm` instead.
 
 ### Running the Examples
 
