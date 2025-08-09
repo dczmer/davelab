@@ -157,6 +157,10 @@ nav {
     color: var(--white);
     padding: var(--margin-medium);
     border-bottom: 1px solid var(--gray);
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   .selected-module {

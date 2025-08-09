@@ -4,10 +4,12 @@ lesson: 1
 layout: default
 ---
 
+# First Steps
+
 - TC
 {:toc}
 
-# Shellcheck
+## Shellcheck
 
 Before you begin, you should [install ShellCheck](https://github.com/koalaman/shellcheck?tab=readme-ov-file#installing). It will lint and analyze your shell script for syntax issues and many common mistakes.
 
@@ -42,7 +44,7 @@ Not only will it warn you about any issues, it will also link you to a wiki page
 
 If possible, see if you can integrate it with your IDE or editor, so that it automatically analyzes your scripts while you edit.
 
-# The "Shebang"
+## The "Shebang"
 
 When you work from the command line, on a UNIX-like system, filename extensions don't really matter. You usually pass the name of a file to a command directly, instead of clicking on the file and the OS uses the extension to open the right program.
 
@@ -87,7 +89,7 @@ Add that `export` command to your `~/.zshrc` file to make it permanent. See [ZSH
 You can also make other types of files executable, like `python` or `perl` scripts, for example. Just set the `-x` bit with `chmod` and set the path to the `python` or `perl` executables.
 
 
-# Formatting, White-Space
+## Formatting, White-Space
 
 When entering multiple commands at the prompt, you use `;` (or `&&` or `||`) to separate multiple commands. In a script file, a newline also separates commands.
 
@@ -118,7 +120,7 @@ You can use the `\` to split the command anywhere there is white-space, it doesn
 
 Otherwise, white-space between tokens do not really matter and are a matter of convention and personal taste.
 
-# Exit Codes
+## Exit Codes
 
 The convention for UNIX commands, and shell scripts, is to use an "exit code" of 0 to indicate the program terminated normally, or a non-zero value to indicate there was some error.
 
@@ -132,7 +134,7 @@ exit 1
 
 If you let a script run until the end, and never call `exit`, then it will return an exit code of "0" automatically. If you call `exit` with no arguments, it will default to "0" as well.
 
-# Export and Source
+## Export and Source
 
 When you define a variable or a function in your script, it is local only to that script, and not accessible from the shell after the script has finished executing.
 
@@ -153,90 +155,7 @@ echo $MY_VARIABLE
 #  HELLO WORLD
 ```
 
-# Finding the Path of the Running Script
-
-Frequently, you will want to write scripts that work on files that we expect to be at a location relative to the script file. For example, scripts that are typically included with a software project source code may need to know exactly how to reach the important files that it needs to work on.
-
-```text
--+ project_root/
- |-- my_script.sh    # <-- this script needs to run over every .py file in the project
- |-- main.py
- |-+ lib/
- | |- server.py
- | |- utilities.py
- |-+ test/
-   |- test_server.py
-   |- test_utilities.py
-```
-
-If you only use absolute file paths, then you would have to prescribe that everyone working on the project installs the source code at the exact same path on their system. But, if you want to be able to find the other files under the same directory without hard-coding a path, you need to use relative paths.
-
-```zsh
-# absolute path
-wc -l /hard-coded/path/to/project/lib/server.py
-
-# relative path (from top-level directory of the project folder)
-wc -l ./lib/server.py
-```
-
-So we could write `my_script.sh` to use relative paths, like `./lib` or `./test`.
-
-```zsh
-# relative paths work well, when we run from the directory containing the script file
-sh ./my_script.sh
-```
-
-But if we ever try to call the script from a different working directory, then the relative files, like `./lib`, are treated as relative the directory we're running from.
-
-```zsh
-# change to /tmp, away from where the script is located
-cd /tmp
-
-# this fails because now it considers `./lib` to mean `/tmp/lib` :(
-sh /path/to/project/my_script.sh
-```
-
-To find the working directory, we need to do a little processing of the shell script arguments. We'll walk through how it works, but you can probably just save this one to your notes or make a snippet to apply it when you need it.
-
-## The Easy Way, with ZSH
-
-If you don't care about "portability" and you are only writing a script for yourself to run, then `zsh` makes this very easy:
-
-```zsh
-ABS_PATH="${0:a}"
-```
-
-This is still `$0`, the name of the current script, but we're applying an expansion operation on the value to get the absolute path. We'll cover more of the variables and how you can modify them with `${VAR}` syntax in the next section.
-
-- `$0` is still the (relative) path of the current script file.
-- `${VAR}` syntax allows you to do operations on the variable, like perform variable expansion or provide default values. `$0` and `${0}` are the same thing.
-- `:a` is a special modifier that says to treat `$0` as a relative path name, and replace it with it's absolute path.
-- And we always wrap the value in double-quotes, so it does not break on white-space characters. `shellcheck` will make sure you remember this.
-
-## The "Portable" Way
-
-Here is the "portable" way to do it (will work on most shells):
-
-```zsh
-# get the name and (relative) path of the script (script argument 0)
-DIR_NAME="$(dirname -- "$0")"
-
-# get the absolute path of DIR_NAME
-ABS_PATH="$(cd $DIR_NAME &>/dev/null && pwd)"
-```
-
-- Using `$(...)` to capture a variable.
-- Wrap `$(...)` commands with double-quotes to avoid issues with white-space in directory names.
-- `$0` is the name of the script file that is executing.
-- `dirname` is a shell function that returns just the directory part of a file path.
-- `cd $DIR_NAME &>/dev/null` changes the working directory to the target script directory.
-  - This will only change the directory for the commands inside of this `$(...)` section, and does not affect the rest of the script.
-  - `&>/dev/null` Redirects `STDOUT` and `STDERR` (all output) to the null device, suppressing any output from this command.
-- `&& pwd` prints the current working directory as soon as we change to the script directory. The `pwd` output will be the absolute path to the directory.
-
-So that is the "portable" way to do it. It is a little strange at first, but not really that bad once you know what it does.
-
-# Debugging with "-e" and "-x"
+## Debugging with "-e" and "-x"
 
 Shell scripts are made of a sequence of shell commands. What happens when one command in the script fails? Do you expect the script to stop, or to keep on going?
 

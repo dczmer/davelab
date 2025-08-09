@@ -20,7 +20,7 @@ Coming soon!
 
 - [First Steps](./01_first-steps)
 - [Arguments and Variables](./02_arguments_and_variables)
-- conditionals, "tests", case, and loops
+- [Conditionals and Loops](./03_conditionals_and_loops)
 - functions
 - working with strings:
   * concatenation, expansion, and interpolation
@@ -30,5 +30,8 @@ Coming soon!
   * `$(( ))`
   * bc
   * arrays
-- traps... "It's a trap!"
 - lab: basic scripting
+
+---
+
+[NEXT >>](./01_first-steps)
