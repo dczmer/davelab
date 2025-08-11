@@ -18,6 +18,7 @@ setopt EXTENDED_HISTORY
 
 # GIT/VCS Prompt Support
 autoload -Uz vcs_info
+setopt prompt_subst
 precmd() {
     vcs_info
 }
@@ -27,7 +28,6 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr " "
 zstyle ':vcs_info:git:*' unstagedstr " "
 zstyle ':vcs_info:git:*' actionformats '%F{green} %f(%F{yellow}%b%f|%F{red}%a%f)'
-setopt prompt_subst
 
 export PS1='${vcs_info_msg_0_} %F{blue} %f%1d%1(j. %F{yellow}%j%f.)%F{blue}>%f '
 export RPROMPT='<%0(?..%F{red}%?%f)%F{blue}%t%f'

@@ -178,6 +178,14 @@ print -P "%F{green}%K{black}Hello%k%f %F{black}%K{green}World%k%f"
 
 The example file includes a section that configures `zsh` to read information about the current git repository, and we use `zstyle` to configure how it will be displayed in the prompt.
 
+{: .note }
+If you are seeing a literal "${vcs_info_msg_0_}" in your prompt string, verify the following:<br />
+&nbsp;&nbsp;1. Ensure you are calling "autoload" for "vcs_info" BEFORE you ever try to use it.<br />
+&nbsp;&nbsp;2. Ensure you are calling "setopt prompt_subst". You may need to put it directly after the "autoload" command.<br />
+&nbsp;&nbsp;3. Ensure you are using single-quotes for your PS1 string.<br />
+&nbsp;&nbsp;4. Make sure you have defined the "precmd()" function to call "vcs_info".<br />
+&nbsp;&nbsp;5. Double-check your implementation against the [example file](./prompt-example.zsh).
+
 I won't explain the `zstyle` module, but you can run `man zshmodules` and search for `zstyle` for the official documentation, and there are a lot of good tutorials available on the internet.
 
 I will go over some of the things that I think you may want to customize, using all of the things we've covered so far:

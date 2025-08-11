@@ -9,6 +9,11 @@
 #
 # load vsc_info, which lets zsh gather info about your version-controlled data.
 autoload -Uz vcs_info
+# you need this to make the prompt string work correctly with vcs_info.
+# this enables your PS1 and other prompt strings to interpolate certain values
+# into the string, even when the string is using single-quotes, which don't
+# usually allow interpolation.
+setopt prompt_subst
 # this will run before each time the prompt is rendered.
 # it creates a new variable called `vcs_info_msg_0` with info about the current
 # system.
@@ -49,12 +54,6 @@ zstyle ':vcs_info:git:*' unstagedstr " "
 zstyle ':vcs_info:git:*' actionformats '%F{green} %f(%F{yellow}%b%f|%F{red}%a%f)'
 #===============================================================================
 #===============================================================================
-
-# you need this to make the prompt string work correctly with vcs_info.
-# this enables your PS1 and other prompt strings to interpolate certain values
-# into the string, even when the string is using single-quotes, which don't
-# usually allow interpolation.
-setopt prompt_subst
 
 # This is a simple prompt, that I like:
 # - our custom vcs_info string, from above
