@@ -1,5 +1,6 @@
 TODO:
 
+- some basic analytics... page hits over time
 - run better accessibility audit
 - template thing to automatically set the image sizes from the file metadata...
 - dynamic menu, course navigation (up/down/contents/next/prev)
@@ -7,14 +8,14 @@ TODO:
 - license file:
   * properly credit:
     + dracula theme
-- customize actions:
-  * build on nix
+- customize gh actions:
+  * build and deploy on nix-based container
 
 
 Updates:
 
-- `touch`
-- side-by-side image
+- `touch` command, `mkdir -p` tip
+- new "side-by-side" image
 - alt-h:
   * lookup help for command you are typing
   * works by default with `bindkey -e` (might be default)
@@ -23,16 +24,18 @@ Updates:
   * auto insert the last argument to previous command (like using '!$')
   * for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - image captions and alt text
-  * note: wc requires coreutils
 - tmux basic usage: muscle memory will automate the keybindings eventually
 - signals: ctrl+d
 - about symlinks
 - distinct style for visited links
-- images with `ls -all`
-- some basic analytics
+- images with `ls -all` typo
+- newer command line tools and alternatives:
+  * fzf, rg/ag, fd, bat
 
 
 Future Course Ideas:
+
+These seem like they might be better suited for a separate site, or a series of blogs about self-guided training, pet projects, programming for fun, etc.
 
 - dependency management and isolation concepts:
   * isolation:
@@ -78,5 +81,9 @@ Future Course Ideas:
 
 - typing, type systems, and a bit of type theory
 
-- newer command line tools and alternatives:
-  * fzf, rg/ag, fd, bat
+---
+
+Feedback:
+- Might be worth mentioning vi as it's even more likely to be installed than vim (especially in container environments) and you can probably "get by" if you know vim.
+- binding ^e clobbers "jump to end of line" in ZSH by default. If they use your home+end mappings then it doesn't matter much but it might be worth calling out
+- This might be a good reference to add for people who want to dive into writing auto-complete for an arbitrary command https://mill-build.org/blog/14-bash-zsh-completion.html
