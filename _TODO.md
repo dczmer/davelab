@@ -1,10 +1,9 @@
 TODO:
 
-- some basic analytics... page hits over time
-- run better accessibility audit
-- template thing to automatically set the image sizes from the file metadata...
 - dynamic menu, course navigation (up/down/contents/next/prev)
 - create custom collections_dir "courses"
+- run better accessibility audit
+- template thing to automatically set the image sizes from the file metadata
 - license file:
   * properly credit:
     + dracula theme
@@ -14,22 +13,26 @@ TODO:
 
 Updates:
 
-- `touch` command, `mkdir -p` tip
+- `cheet sheets` and resources/links at the end of every module
+- keybindings:
+  * remove/replace some of my custom binds, like ctrl+e/home/end
+  * list the emacs versions, or appropriate keybind command
+  * make a section for the vim keybinds i use
+  * alt-h:
+    + lookup help for command you are typing
+    + works by default with `bindkey -e` (might be default)
+    + for vim keybindings: `bindkey -M vimcmd 'K' run-help` to follow vim conventions instead
+  * alt-.:
+    + auto insert the last argument to previous command (like using '!$')
+    + for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - new "side-by-side" image
-- alt-h:
-  * lookup help for command you are typing
-  * works by default with `bindkey -e` (might be default)
-  * for vim keybindings: `bindkey -M vimcmd 'K' run-help` to follow vim conventions instead
-- alt-.:
-  * auto insert the last argument to previous command (like using '!$')
-  * for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - image captions and alt text
-- tmux basic usage: muscle memory will automate the keybindings eventually
 - signals: ctrl+d
+- `touch` command, `mkdir -p` tip
 - about symlinks
-- distinct style for visited links
-- images with `ls -all` typo
-- newer command line tools and alternatives:
+- replace images with `ls -all` typo
+- This might be a good reference to add for people who want to dive into writing auto-complete for an arbitrary command https://mill-build.org/blog/14-bash-zsh-completion.html
+- section for newer command line tools and alternatives:
   * fzf, rg/ag, fd, bat
 
 
@@ -80,10 +83,3 @@ These seem like they might be better suited for a separate site, or a series of 
 - keyboard-centric interaction (cli, linux, window managers, hot keys, fzf, etc.)
 
 - typing, type systems, and a bit of type theory
-
----
-
-Feedback:
-- Might be worth mentioning vi as it's even more likely to be installed than vim (especially in container environments) and you can probably "get by" if you know vim.
-- binding ^e clobbers "jump to end of line" in ZSH by default. If they use your home+end mappings then it doesn't matter much but it might be worth calling out
-- This might be a good reference to add for people who want to dive into writing auto-complete for an arbitrary command https://mill-build.org/blog/14-bash-zsh-completion.html

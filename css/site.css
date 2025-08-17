@@ -177,7 +177,7 @@ pre,
 .highlighter-rouge {
   border: 1px solid var(--white);
   border-radius: 5px;
-  margin:  var(--margin-medium) var(--margin-medium) var(--margin-medium);
+  margin: var(--margin-xlarge) var(--margin-medium);
   padding: var(--margin-medium);
 }
 

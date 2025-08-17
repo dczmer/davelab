@@ -14,59 +14,6 @@ You probably already have a default `~/.zshrc` file, with some things you've had
 
 I also want to cover a few `zsh` plugins that I really like. Installing and managing plugins is pretty easy, and you likely won't need very many. But there are plugin managers and package managers you could use to install and configure plugins and color themes for you.
 
-## Completing Your Configuration
-
-The included file [zshrc.zsh](./zshrc.zsh) is the combined configurations from every section in this module. We didn't cover every single line that appears in this file, but every line is explained in the example `zsh` files included with all of the sections so far.
-
-You can use this configuration file to replace/augment your existing `~/.zshrc` file.
-
-You may already have some of the following:
-
-- Custom variables and aliases
-- Modifications to `$PATH`
-- Commands for integration with other apps, like `pyenv`, `nvm`, etc. These are usually in the form of `source` or `.` commands, possibly within `if` conditional sections.
-
-To merge the contents of the two files:
-
-1. **Make a backup copy of your existing `~/.zshrc` file.**
-2. Copy this [zshrc.zsh](./zshrc.zsh) file to `~/.zshrc`, replacing any existing file.
-3. Go through your existing file, compare line-by-line to the example file.
-4. Copy the lines that are missing to the _bottom_ of your new `~/.zshrc` file.
-
-Things you may want to customize:
-
-- The `EDITOR` variable should point to your preferred CLI text editor.
-- The prompt-string (`$PS1`).
-- The `git`/VCS format strings (`zstyle ':completion:'`), especially the icons.
-- Enable `vim` or `emacs` keybindings (`bindkey -v` / `bindkey -e`).
-
-### Some Things You May Already Have
-
-If you are doing regular development already, you may have made changes to your `zshrc` file to support various tools and programs already. Here are a couple of common ones you want to be sure to preserve. The examples are from a Macbook environment.
-
-```zsh
-# any custom additions to your PATH, or things like PYTHONPATH
-export PATH="$PATH:..."
-
-# homebrew integration
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# pyenv integration for managing isolated python installations
-export PYENV_ROOT="$HOME/.pyenv"
-export PYTHON_BUILD_BUILD_PATH="$HOME/.pyenv/tmp"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-# nvm integration for managing isolated nodejs installations
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] \
-    && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-```
-
-If you are on your work computer, you will want to also look out for anything that mentions internal/proprietary tools and applications, as you probably want to keep using those.
-
 ## Plugins
 
 ### zsh-syntax-highlighting
@@ -144,6 +91,60 @@ There are also several plugin managers, but the most popular ones I know of are:
 - [oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 A word of warning, however: You probably don't need/want that many `zsh` plugins to necessitate a plugin manager that is also a package manager. I suggest installing them with your normal package manager, because that way they get updated with everything else when you run updates.
+
+
+## Completing Your Configuration
+
+The included file [zshrc.zsh](./zshrc.zsh) is the combined configurations from every section in this module. We didn't cover every single line that appears in this file, but every line is explained in the example `zsh` files included with all of the sections so far.
+
+You can use this configuration file to replace/augment your existing `~/.zshrc` file.
+
+You may already have some of the following:
+
+- Custom variables and aliases
+- Modifications to `$PATH`
+- Commands for integration with other apps, like `pyenv`, `nvm`, etc. These are usually in the form of `source` or `.` commands, possibly within `if` conditional sections.
+
+To merge the contents of the two files:
+
+1. **Make a backup copy of your existing `~/.zshrc` file.**
+2. Copy this [zshrc.zsh](./zshrc.zsh) file to `~/.zshrc`, replacing any existing file.
+3. Go through your existing file, compare line-by-line to the example file.
+4. Copy the lines that are missing to the _bottom_ of your new `~/.zshrc` file.
+
+Things you may want to customize:
+
+- The `EDITOR` variable should point to your preferred CLI text editor.
+- The prompt-string (`$PS1`).
+- The `git`/VCS format strings (`zstyle ':completion:'`), especially the icons.
+- Enable `vim` or `emacs` keybindings (`bindkey -v` / `bindkey -e`).
+
+### Some Things You May Already Have
+
+If you are doing regular development already, you may have made changes to your `zshrc` file to support various tools and programs already. Here are a couple of common ones you want to be sure to preserve. The examples are from a Macbook environment.
+
+```zsh
+# any custom additions to your PATH, or things like PYTHONPATH
+export PATH="$PATH:..."
+
+# homebrew integration
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# pyenv integration for managing isolated python installations
+export PYENV_ROOT="$HOME/.pyenv"
+export PYTHON_BUILD_BUILD_PATH="$HOME/.pyenv/tmp"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# nvm integration for managing isolated nodejs installations
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] \
+    && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+```
+
+If you are on your work computer, you will want to also look out for anything that mentions internal/proprietary tools and applications, as you probably want to keep using those.
 
 ## fish-shell
 
