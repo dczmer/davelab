@@ -1,5 +1,7 @@
 TODO:
 
+- finish content already laid out
+- add a new section on prototyping and personal projects and development
 - dynamic menu, course navigation (up/down/contents/next/prev)
 - create custom collections_dir "courses"
 - run better accessibility audit
@@ -13,7 +15,7 @@ TODO:
 
 Updates:
 
-- `cheet sheets` and resources/links at the end of every module
+- `cheet sheets`, labs, and resources/links at the end of every module
 - keybindings:
   * remove/replace some of my custom binds, like ctrl+e/home/end
   * list the emacs versions, or appropriate keybind command
@@ -36,9 +38,32 @@ Updates:
   * fzf, rg/ag, fd, bat
 
 
-Future Course Ideas:
+---
 
-These seem like they might be better suited for a separate site, or a series of blogs about self-guided training, pet projects, programming for fun, etc.
+
+I've decided the next major module will be about:
+
+> Prototyping, Personal Projects, and Self-Guided Learning
+
+because i've been talking to people who seem to have trouble with local development on personal projects, tutorials, etc. as well as managing dependencies and troubleshooting conflicting versions of packages. i'm also a big fan of doing personal projects for fun and learning, and want to show some of the ways i've made that easier for myself
+
+- find something that you like, which is at least tangentially related to your work, and dive in:
+  * even if it's not _directly_ applicable to your work, you will still learn new things that may be transferable and someday your work may _need_ someone with that domain knowledge
+- using source control
+- dependencies (including the programming language) and dependency management
+- isolation with software
+- isolation with containers (and tips for development)
+- running services with docker
+- notes and documentation
+- planning, setting goals and expectations (and limitations)
+- feedback cycles and optimizing for development and debugging
+- making building blocks: templates, snippets, codegen, aliases, reference implementations and kMS
+- lab:
+  * use python + pyenv + pip/poetry/etc to make isolated project with git
+  * debug problems with system python, packages not found, etc.
+- very quick demo of a nix dev shell for the same project
+
+NOTES:
 
 - dependency management and isolation concepts:
   * isolation:
@@ -56,16 +81,6 @@ These seem like they might be better suited for a separate site, or a series of 
     + per-project dependency management and isolation (pyenv+pip, etc)
     + nix, flatpack, etc.
 
-- nix!:
-  * easy intro: using nix package manger for development:
-    + search and install packages in your profile
-    + make a devShell (but no packaging):
-      + dependency isolation
-      + aliases and commands, env vars, etc
-      + containers
-  * what is nixos all about?
-  * language and packaging primer and resources (not going to teach that here)
-
 - pet projects:
   * why linux is a good OS for development and learning
   * a bit of `make`
@@ -80,6 +95,12 @@ These seem like they might be better suited for a separate site, or a series of 
 
 - feedback cycles and debugging
 
-- keyboard-centric interaction (cli, linux, window managers, hot keys, fzf, etc.)
-
-- typing, type systems, and a bit of type theory
+- nix!:
+  * easy intro: using nix package manger for development:
+    + search and install packages in your profile
+    + make a devShell (but no packaging):
+      + dependency isolation
+      + aliases and commands, env vars, etc
+      + containers
+  * what is nixos all about?
+  * language and packaging primer and resources (not going to teach that here)

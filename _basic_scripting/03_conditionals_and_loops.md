@@ -44,17 +44,19 @@ else
 fi
 ```
 
+### Test Operators
+
+If the `if` statement is based on the exit code of a _command_, then how do you check other kinds of conditions, like if two strings are equal, one number is greater than another number, or if a string is empty?
+
+{: .todo }
+"tests" `[[ ... ]]`
+
+Here is a [nice reference](https://linuxhandbook.com/bash-test-operators/).
+
 ## The "case" Command
 
 {: .todo }
 TODO
-
-## Conditional "Tests"
-
-{: .todo }
-TODO
-
-- use `$RANDOM`
 
 ## The "while" Command
 
