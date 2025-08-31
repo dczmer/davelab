@@ -106,11 +106,11 @@ Print the last few entries from the history:
 tail ~/.zsh_history
 ```
 
-Use the `up` and `down` arrow keys to cycle through the entries at the terminal. You can hit enter/return to re-run the command or use the `left` and `right` arrow keys to move around and edit the command first.
+You can use the `up` and `down` arrow keys to cycle through the entries from your history file at the command prompt. You can hit enter/return to re-run the command or use the `left` and `right` arrow keys to move around and edit the command first.
 
 Press `ctrl+r` and start typing 'hello' when prompted for a search.
 
-Try navigating back to the `find` command, and changing `.md` to `.zsh` to search for `zsh` files instead of markdown.
+Try navigating back to the `find` command, using either the arrow keys or `ctrl+r` search, and change `.md` to `.zsh` to search for `zsh` files instead of markdown.
 
 ## Custom Environment Varibles
 
@@ -136,7 +136,7 @@ echo $PATH
 ```
 
 {: .note }
-`zsh` allows you to manage variables like `PATH` as actual array objects. The included [zshrc-example](./zshrc-example.zsh) file uses this to set the path:
+`zsh` allows you to manage variables like `PATH` as actual array types. The included [zshrc-example](./zshrc-example.zsh) file uses this to set the path:
 `export path=($path ~/bin)`
 
 ## Aliases
@@ -170,6 +170,8 @@ Now you can commit everything at once with a very short command.
 gca "commit message"
 ```
 
+Whenever you have a complicated command, or frequently used command and you want to save yourself some keystrokes, use an alias. When you need to work with arguments, or when the alias gets too long or complicated, consider using a function or script file instead.
+
 ## Custom Keybindings
 
 You can make your own custom keybindings to invoke special `zsh` functions. Here are a couple that I always use:
@@ -185,11 +187,25 @@ bindkey "${terminfo[kend]}" end-of-line
 ```
 
 {: .note }
-If the last two `bindkey` using the "`terminfo`" variable don't seem to work, you can figure out the exact keycode values to use by pressing "`<ctrl-v>`" and then pressing the key. It will print the actual keycode to the terminal.
-<br />
-(If using `vim` keybindings, it's "`<ctrl-q><ctrl-v>`" instead).
-<br />
+If the last two `bindkey` using the "`terminfo`" variable don't seem to work, you can figure out the exact keycode values to use by pressing "`<ctrl+v>`" and then pressing the key. See the next section for more details.
+
+### Terminfo
+
+Not every system has the same underlying key-code values, which can make using keybindings difficult between multiple operating systems and distributions. Some systems give you this handy `$terminfo` variable that you can use to look up keycodes from a mapping. Some systems do not have this.
+
+To find out exactly what codes your system defines, use `<ctrl+v>` (default/`emacs` mode), or `<ctrl+q><ctrl+v>` (`vi` mode) and then press the key you want to map. The keycode value you need to use will be inserted at the position of the cursor.
+
 For example, you may need something like this:
+
+```zsh
+<ctrl+v><Home>
+# ^[[1~
+
+<ctrl+v<End>
+# ^[[4~
+```
+
+Then you would need to fix your keybindings, like this:
 
 ```zsh
 # alternate keybindings, if the above do not work
@@ -197,16 +213,82 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 ```
 
-If you use `vim` or `emacs`, then `zsh` can use the normal keybindings from those editors to edit your command text at the prompt. If you don't use either of those, you can ignore this option:
+### Keybinding Modes
+
+There are two keybinding configurations that ship with `zsh`: `emacs` or `vi`. By default, it uses the `emacs` mode.
+
+But if you are used to `vi` commands, then you may prefer to set `vi` mode:
 
 ```zsh
 # use vim keybindings
 bindkey -v
 ```
 
-### The Line Editor
+This changes all of the default keybindings and allows you to edit your command line input like a buffer in `vim`: hit `Esc`, move to the beginning with `0`, move the end with `$`, replace the next word with `ciw`, etc.
 
-The `zsh` line editor will let you open your `EDITOR` with the contents of the command you are currently entering at the prompt. There, you can edit the command like a normal text file. When you save and exit, the full command will be pasted at the command line, ready to enter.
+The different keybinding modes have different sets of functions mapped by default. For example, `vi` mode doesn't have a keybinding for `end-of-line` by default, because you can do that with standard `vi` commands. But `emacs` mode sets that to `ctrl+e` by default.
+
+If you have the default `emacs` mode enabled, you don't really need to map `beginning-of-line` or `end-of-line`, because they are already mapped to `ctrl+a` and `ctrl+e`, respectively. But, you can also map them to `home` and `end` if you want.
+
+### Line Editor and Keybinding Reference
+
+The keybinding interface, and the list of functions that are available for mapping, are provided by the `zle` (`zsh` line editor) module.
+
+The functions that we map to the keybinding are called "widgets."
+
+To get help, run `man zshzle` to see the manual page for the `zsh` line-editor.
+
+Search for `ZLE WIDGETS` to find details about how widgets work, and how to implement your own with a shell function.
+
+Search for `STANDARD WIDGETS` to see the list of included widgets and their default mappings. Since there are three potential ways to map any widget - `emacs`, `viins` and `vicmd` (`vi` insert and command modes) - then you will see three mappings next to each widget.
+
+The mappings go in order, as described in this section of the manual:
+
+> WIDGET (emacs), (viins), (vicmd)
+
+Let's use the `beginning-of-line` widget as an example:
+
+> beginning-of-line (^A) (unbound) (unbound)
+
+In this example, the default keybindings for the `beginning-of-line` widget are:
+
+1. `^A` (`ctrl+a`) for `emacs` mode.
+2. Unbound for `viins` mode.
+3. Unbound for `vicmd` mode.
+
+If you want to make a custom keybinding for one specific widget mode only, you can use `-M` and the target type:
+
+```zsh
+bindkey -M vimcmd 'K' run-help
+```
+
+This keybinding makes `K` (capital "K") show the `man` page for the current command you are entering at the prompt. But in `emacs` mode, this is already mapped to `Alt+h` by default.
+
+Another mapping I like to steal from `emacs` mode for my `vi` keybindings is `Ctrl+.` to automatically insert the last argument of the previous command.
+
+```zsh
+bindkey -M viins '^[.' insert-last-word'
+```
+
+```zsh
+mkdir /tmp/hello
+
+echo <ctrl+.>
+# /tmp/hello
+```
+
+This same functionality is also available by using the special `!$` variable directly:
+
+```zsh
+mkdir /tmp/hello
+
+echo !$
+# /tmp/hello
+```
+
+### edit-command-line
+
+The `zsh` line editor provides a widget that will let you open your `EDITOR` with the contents of the command you are currently entering at the prompt. There, you can edit the command like a normal text file. When you save and exit, the full command will be pasted at the command line, ready to enter.
 
 First, you need to enable it, and bind a key to start it:
 
@@ -214,9 +296,20 @@ First, you need to enable it, and bind a key to start it:
 autoload edit-command-line
 zle -N edit-command-line
 
-# bind ctrl+e to start the line editor.
-bindkey "^e" edit-command-line
+bindkey "^z" edit-command-line
 ```
+
+{: .note }
+I personally use `vi` mode, so I don't have a good suggestion for a default `emacs` binding. I suggested `ctrl+z` because it's an easy shortcut that doesn't conflict with any other default mappings for this mode.
+
+I have this mapped to `ctrl+e` in `vi` insert mode:
+
+```zsh
+# bind ctrl+e to start the line editor.
+bindkey -M viins "^e" edit-command-line
+```
+
+This is particularly useful when your commands start to get complicated or take up multiple lines, or when you have to make heavy edits to a previous command from your history. You can also just write the command to a file from your editor to save it as the beginning of a script.
 
 #### Try it Out
 
@@ -227,7 +320,7 @@ zsh -df
 source ./zshrc-example.zsh
 ```
 
-Start typing a command, `ls /bin` but do not press enter/return. Now press `Ctrl+e` to launch the editor.
+Start typing a command, `ls /bin` but do not press enter/return. Now press `Ctrl+z` to launch the editor.
 
 In the text editor, change the text from `ls /bin`, to `find . -name '*sh'`. Save the file and exit the editor. Press enter to run the command.
 
@@ -244,7 +337,7 @@ source ./aliases.zsh
 . aliases.zsh
 ```
 
-## Managing Your Configuration as a Git Repository
+### Managing Your Configuration as a Git Repository
 
 You should manage your `zshrc` configuration as a `git` repository. This will allow you to back it up and easily copy it to other machines. It will also let you create checkpoints by making local commits whenever you make a change. If you really mess up, you can just go back to the previous commit.
 

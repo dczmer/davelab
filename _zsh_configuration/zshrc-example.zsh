@@ -75,13 +75,15 @@ alias -- ll='ls -l'
 #
 # The ZSH line editor lets you open a text editor with the current content from
 # your prompt, edit it, then write it out to put it back on the terminal.
-# use vim keybindings for the line editor.
-#bindkey -v
+#
+# If use vim keybindings for the line editor:
+#   bindkey -v
+#
 # automatically find the location of the edit-command-line function from $fpath.
 autoload edit-command-line
 zle -N edit-command-line
-# bind ctrl+e to start the line editor.
-bindkey "^e" edit-command-line
+# bind ctrl+z to start the line editor.
+bindkey "^z" edit-command-line
 # Other keybindings:
 # Ctrl+shift+K will instantly erase your entire command so you can start over.
 bindkey "^K" kill-whole-line

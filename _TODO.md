@@ -1,5 +1,9 @@
 TODO:
 
+- fictional scenario and file system to run all examples/labs over:
+  * the examples are more effective if you don't have to first create 30 json files to search through
+  * a simple 'project' structure gives us some motivation/justification for doing various actions
+  * provides a test bed and foundation to build the labs on
 - finish content already laid out
 - add a new section on prototyping and personal projects and development
 - dynamic menu, course navigation (up/down/contents/next/prev)
@@ -11,22 +15,11 @@ TODO:
     + dracula theme
 - customize gh actions:
   * build and deploy on nix-based container
+- `cheet sheets`, labs, and resources/links at the end of every module
 
 
 Updates:
 
-- `cheet sheets`, labs, and resources/links at the end of every module
-- keybindings:
-  * remove/replace some of my custom binds, like ctrl+e/home/end
-  * list the emacs versions, or appropriate keybind command
-  * make a section for the vim keybinds i use
-  * alt-h:
-    + lookup help for command you are typing
-    + works by default with `bindkey -e` (might be default)
-    + for vim keybindings: `bindkey -M vimcmd 'K' run-help` to follow vim conventions instead
-  * alt-.:
-    + auto insert the last argument to previous command (like using '!$')
-    + for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
 - new "side-by-side" image
 - image captions and alt text
 - signals: ctrl+d

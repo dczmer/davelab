@@ -11,6 +11,8 @@ By the end of this module you will have created your own customized `zshrc` file
 
 Some of the syntax and conventions may seem strange or complicated. You can just take the completed configuration file from the final section and use that as your own `zshrc`. The sections in this module will walk through the important lines from that configuration file so that you know what they do, and how to customize them.
 
+You don't have to become an expert on everything we cover here, I just want you to understand what your configuration is doing, what useful functionality is available, and give you enough of a working mental model that you can make your own modifications and troubleshoot when needed.
+
 {: .warning }
 You probably have an existing `~/.zshrc` file, and it might have important stuff you want to preserve. If you decide to replace your configuration file, be sure to make a backup first! There will be a section at the end with some guidelines for merging with your existing configuration.
 

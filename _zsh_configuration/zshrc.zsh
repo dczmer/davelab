@@ -51,11 +51,11 @@ unsetopt MENU_COMPLETE
 
 # Custom keybindings:
 
-# use vim keybindings for the line editor.
-#bindkey -v
+# To use vim keybindings for the line editor:
+#  bindkey -v
 autoload edit-command-line
 zle -N edit-command-line
-bindkey "^e" edit-command-line
+bindkey "^z" edit-command-line
 bindkey "^K" kill-whole-line
 bindkey "^R" history-incremental-search-backward
 bindkey "${terminfo[khome]}" beginning-of-line
