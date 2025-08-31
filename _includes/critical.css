@@ -249,6 +249,10 @@ header {
       border-radius: 5px;
     }
 
+    .subnav:last-child {
+      border-bottom: 1px solid var(--gray);
+    }
+
     .subnav ul {
       display: none;
       position: absolute;

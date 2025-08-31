@@ -21,6 +21,7 @@ Coming soon!
 - [First Steps](./01_first-steps)
 - [Arguments and Variables](./02_arguments_and_variables)
 - [Conditionals and Loops](./03_conditionals_and_loops)
+- arrays and loops
 - functions
 - working with strings:
   * concatenation, expansion, and interpolation
@@ -29,7 +30,6 @@ Coming soon!
 - arithmetic and arrays:
   * `$(( ))`
   * bc
-  * arrays
 - lab: basic scripting
 
 ---

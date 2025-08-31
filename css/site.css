@@ -33,6 +33,7 @@ table:not(.rouge-table) {
 
   th {
     background: var(--dark-gray);
+    padding: 0.4em;
   }
 
   td {

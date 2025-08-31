@@ -34,7 +34,34 @@ Project/site:
 - can i make some kind of non-js tracking pixel? just for counting page loads and metrics i can mine from the headers or client ip
 
 
+<<<<<<< Updated upstream
 ---
+=======
+Updates:
+
+- `cheet sheets` and resources/links at the end of every module
+- keybindings:
+  * remove/replace some of my custom binds, like ctrl+e/home/end
+  * list the emacs versions, or appropriate keybind command
+  * make a section for the vim keybinds i use
+  * alt-h:
+    + lookup help for command you are typing
+    + works by default with `bindkey -e` (might be default)
+    + for vim keybindings: `bindkey -M vimcmd 'K' run-help` to follow vim conventions instead
+  * alt-.:
+    + auto insert the last argument to previous command (like using '!$')
+    + for vim mode, you need to make a keybinding `bindkey -M viins '^[.' insert-last-word'`
+- new "side-by-side" image
+- image captions and alt text
+- signals: ctrl+d
+- `touch` command, `mkdir -p` tip
+- `{}` to move a file in a distant folder
+- about symlinks
+- replace images with `ls -all` typo
+- This might be a good reference to add for people who want to dive into writing auto-complete for an arbitrary command https://mill-build.org/blog/14-bash-zsh-completion.html
+- section for newer command line tools and alternatives:
+  * fzf, rg/ag, fd, bat
+>>>>>>> Stashed changes
 
 
 I've decided the next major module will be about:
