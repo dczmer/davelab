@@ -36,6 +36,12 @@ defaults:
     values:
       layout: default
       collection: _tmux
+  - scope:
+      path: _personal_projects
+      type: pages
+    values:
+      layout: default
+      collection: _personal_projects
 collections:
   zsh_configuration:
     layout: default
@@ -61,6 +67,12 @@ collections:
     sorty_by: lesson
     permalink: /:collection/:path
     course: 4
+  personal_projects:
+    layout: default
+    output: true
+    sorty_by: lesson
+    permalink: /:collection/:path
+    course: 5
   posts:
     output: false
 # required for github pages
