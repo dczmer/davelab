@@ -23,6 +23,43 @@ A simplified overview of the process is that it's mostly about printing, filteri
 
 Read along and try out each of the examples as you go. Try reading the `man` pages for each command and experimenting with the examples. In the next section, we'll use these to make some useful "one-liners".
 
+## touch - I want to create a blank file
+
+This is very basic, but if you just want to create a file so that it exists, use the `touch` command:
+
+```zsh
+touch /tmp/newfile.txt
+```
+
+That will create an empty file with the specified name and path.
+
+## mkdir - I want to create a new directory
+
+You can create a new directory with `mkdir`:
+
+```zsh
+mkdir test
+```
+
+To remove a directory, you have to supply the `-r` (recursive) flag to the `rm` command:
+
+```zsh
+rm test
+# rm: cannot remove 'test': Is a directory
+
+rm -r test
+```
+
+If you want to create a directory _AND_ it's parent directories at the same time, use the `-p` (parent) option:
+
+```zsh
+mkdir test/123/4
+# mkdir: cannot create directory ‘test/123/4’: No such file or directory
+
+# creates both the "123" and "4" directories at once:
+mkdir -p test/123/4
+```
+
 ## echo - I Want to Print a String
 
 Print some text to the `stdout` stream:

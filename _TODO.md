@@ -1,11 +1,27 @@
 TODO:
 
+- finish content already laid out
+- section for newer command line tools and alternatives:
+  * fzf, rg/ag, fd, bat
+  * move jq section here
 - fictional scenario and file system to run all examples/labs over:
   * the examples are more effective if you don't have to first create 30 json files to search through
   * a simple 'project' structure gives us some motivation/justification for doing various actions
   * provides a test bed and foundation to build the labs on
-- finish content already laid out
 - add a new section on prototyping and personal projects and development
+- `cheet sheets`, labs, and resources/links at the end of every module
+- i feel like it needs some silly pictures of cats and some humor...
+
+
+Updates:
+
+- new "side-by-side" image
+- replace images with `ls -all` typo
+- image captions and alt text
+
+
+Project/site:
+
 - dynamic menu, course navigation (up/down/contents/next/prev)
 - create custom collections_dir "courses"
 - run better accessibility audit
@@ -15,20 +31,7 @@ TODO:
     + dracula theme
 - customize gh actions:
   * build and deploy on nix-based container
-- `cheet sheets`, labs, and resources/links at the end of every module
-
-
-Updates:
-
-- new "side-by-side" image
-- image captions and alt text
-- signals: ctrl+d
-- `touch` command, `mkdir -p` tip
-- about symlinks
-- replace images with `ls -all` typo
-- This might be a good reference to add for people who want to dive into writing auto-complete for an arbitrary command https://mill-build.org/blog/14-bash-zsh-completion.html
-- section for newer command line tools and alternatives:
-  * fzf, rg/ag, fd, bat
+- can i make some kind of non-js tracking pixel? just for counting page loads and metrics i can mine from the headers or client ip
 
 
 ---
