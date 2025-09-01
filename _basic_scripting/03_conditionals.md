@@ -118,7 +118,7 @@ case "$x" in
 esac
 ```
 
-In this example, we're evaluating the value of the `x` variable and matching it against a few specific target values. But you could substitute any command by using `"$( ... )` to capture it's output as the `case` pattern.
+In this example, we're evaluating the value of the `x` variable and matching it against a few specific target values. But you could substitute any command by using `"$( ... )"` to capture it's output as the `case` pattern.
 
 ```zsh
 case "$(head -n1 /tmp/logfile)" in

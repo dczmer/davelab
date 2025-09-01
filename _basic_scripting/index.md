@@ -22,7 +22,7 @@ Coming soon!
 - [Arguments and Variables](./02_arguments_and_variables)
 - [Conditional Logic](./03_conditionals)
 - [Arrays and Loops](./04_arrays_and_loops)
-- functions
+- [Functions](./05_functions)
 - working with strings:
   * concatenation, expansion, and interpolation
   * slicing strings

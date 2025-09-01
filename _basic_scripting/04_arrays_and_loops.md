@@ -9,41 +9,152 @@ layout: default
 
 # Arrays and Loops
 
-{: .todo }
-Cover arrays, zsh arrays, loops, and demo how to loop over the array of script variables to implement an argument parser using a case statement.
-
 ## Arrays
 
-Most shells don't have actual "array" data types.
+Arrays aren't really a standard shell feature, but most modern shells have some implementation. Bash arrays are probably the most appropriate implementation to cover here, because `zsh` fully supports it and because you will probably want/need to write scripts for servers or development machines that have `bash`.
 
-As we covered before, your shell is designed to process "lines of text". If there is a common delimiter between values in a line, like white-space or a comma, then many commands can recognize this as a "table of records".
+{: .note }
+We're intentionally using "bash" array syntax here, not "zsh" arrays. They work differently but "zsh" supports both systems.
 
-So if you need an array, just make a 1-row "table" of data with a 1-line string.
+### Declaring an Array
+
+There are two ways to declare an array:
 
 ```zsh
-myarray="1 2 3 4 5 6 7 8 9 0"
+# 1. Declare array-type variable
+declare -a array1
+
+# 2. Assign array literal
+array2=(a b c d e)
 ```
 
-Since " " (space) is the default separator, the shell can loop directly over the elements and you can use special operators to access the elements or manipulate this array data.
+You can also create an associative array (or dictionary/map):
 
-TODO:
-- indexing
-- checking length
-- shift
-- append/prepend with string interpolation
-- slicing
+```zsh
+declare -A associative
 
-### ZSH Arrays
+associative2=(["key"]="value")
+```
 
-zsh has actual array type but i just use the bash/string way
+### Indexing and Subscripting
 
-## For Loop
+Accessing elements in arrays works much like you'd expect:
 
-break, continue
+```zsh
+echo "$array2[0]"
+# a
+
+# negative values count from the end
+echo "$array2[-1]:
+# e
+
+echo "$associative['key1']"
+# value1
+```
+
+You can get all values in an array using `[@]` subscript.
+
+```zsh
+echo "${array2[@]}"
+# a b c d e
+```
+
+Use variable expansion operator `#`, along with the `[@]` subscript, to print the length of an array:
+
+```zsh
+echo "${#array2[@]}"
+# 5
+```
+
+You can print the keys with expansion operator `!` and the `[@]` subscript:
+
+```zsh
+echo "${!array2[@]}"
+# 0 1 2 3 4
+
+echo "${!associative[@]}"
+# key1 key2 key3
+```
+
+You can also "slice" arrays by specifying a starting index, and the length of the slice:
+
+```zsh
+echo "${array[@]:3:2}"
+# d e
+
+# note the space before '-' is required
+echo "${array[@]: -3:2}"
+# c d
+```
+
+### Setting Values
+
+You can assign a value directly using a subscript:
+
+```zsh
+array1[0]="a"
+array1[1]="b"
+
+associative["key1"]="value1"
+```
+
+And you can append elements using `+=`:
+
+```zsh
+array1+=("c")
+# can append multiple elements
+array1+=("d" "e")
+
+associative+=(["key2"]="value2" ["key3"]="value3")
+```
 
 ## For ... In
 
-loop over an array
+The `for ... in` command will loop over all of the elements of an array:
+
+```zsh
+for element in "${array2[@]}"; do
+    echo "$element"
+done
+```
+
+You can loop over the indexes or keys of an associative array:
+
+```zsh
+for key in "${!associative[@]}"; do
+    echo "$key"
+done
+```
+
+The `for ... in` loop works over other `[LIST]` types too. A `[LIST]` is a series of strings, separated by spaces.
+
+Use brace-expansion to make a sequence of numbers:
+
+```zsh
+for i in {1..10}; do
+    echo "$i"
+done
+```
+
+Use file globs to make a sequence of entries:
+
+```zsh
+for path in /tmp/*; do
+    echo "$path"
+done
+```
+
+## For Loop
+
+You can also write a standard `c`-style `for` loop:
+
+```zsh
+for ((i=0; i < 10; i++)); do
+    echo "i=${i}"
+done
+```
+
+We haven't covered `((...))` operator yet, but this allows arithmetic operations on the values inside the parentheses.
 
 ## While / Until
 
@@ -159,3 +270,7 @@ The string `":lb:"` means:
 - `b:` - Specifies the `-b` switch, with a required argument (indicated by the trailing `:`).
 
 Since we specified the leading `:`, `getopt` will resolve to `:` in the case we receive `-b` without the required parameter. Without the leading `:` it would just print a generic error message and exit.
+
+---
+
+[NEXT >>](./05_functions)
