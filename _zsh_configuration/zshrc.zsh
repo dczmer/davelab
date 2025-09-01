@@ -68,7 +68,7 @@ export EDITOR='vim'
 # all uppercase letters sort before lowercase letters, like the ASCII table.
 export LC_COLLATE=C
 # Add a custom PATH location for custom scripts.
-export path=($path "~/bin")
+export PATH="$PATH:~/bin"
 
 # Custom aliases:
 

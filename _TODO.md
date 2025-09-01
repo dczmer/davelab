@@ -1,6 +1,5 @@
 TODO:
 
-- 01_zsh-config remove mention of other way of managing path; update example files
 - implement 'about' section
 - finish content already laid out
 - section for newer command line tools and alternatives:
@@ -37,7 +36,7 @@ Project/site:
 
 ---
 
-I've decided the next major module will be about:
+I've decided the next (last?) major module will be about:
 
 > Prototyping, Personal Projects, and Self-Guided Learning
 

@@ -55,7 +55,7 @@ export LC_COLLATE=C
 # When you type a command at the shell, it will look through these paths to
 # find the matching file. You do not need to use the full path to the scripts
 # in these paths.
-export path=($path "~/bin")
+export PATH="$PATH:~/bin"
 # If we didn't use the `typeset` command, at the top of the file, you would
 # manage your PATH like this instead:
 # `export PATH="$PATH:~/bin"`
