@@ -1,6 +1,5 @@
 TODO:
 
-- implement 'about' section
 - finish content already laid out
 - section for newer command line tools and alternatives:
   * fzf, rg/ag, fd, bat

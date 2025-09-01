@@ -1,5 +1,5 @@
 ---
-title: Conditional Logic
+title: Functions and Conditional Logic
 lesson: 3
 layout: default
 ---
@@ -7,9 +7,11 @@ layout: default
 - TC
 {:toc}
 
-# Conditional Logic
+# Functions and Conditional Logic
 
-## The "if" Command
+## Conditionals
+
+### The "if" Command
 
 To do a simple "if/else" block on a boolean conditional statement, we use the `if` command. You may be able to tell from the syntax that it _is_ a command and not a built-in "language feature."
 
@@ -44,7 +46,7 @@ else
 fi
 ```
 
-## Test Operators
+### Test Operators
 
 If the `if` statement is based on the exit code of a _command_, then how do you check other kinds of conditions, like if two strings are equal, one number is greater than another number, or if a string is empty?
 
@@ -105,7 +107,7 @@ Here are a few common ones:
 | `-f`     | Check if the target is a file      | `[[ -f /tmp/test.txt ]]` |
 | `-d`     | Check if the target is a directory | `[[ -d ~/source ]]`      |
 
-## The "case" Command
+### The "case" Command
 
 The `case` statement allows you to evaluate a condition, and then supply a list of values to match on the result and the commands that should be executed for each match.
 
@@ -164,6 +166,71 @@ esac
 ```
 
 If `$x` resolves to "hello", then it will print both messages.
+
+## Functions
+
+Functions allow you to group commands and logic into reusable components that work like any other command or shell script. This means a function call sets a return status and works with the standard I/O streams.
+
+### Syntax
+
+```zsh
+my_func () {
+  echo "hello world"
+}
+```
+
+- Starts with the name of the function.
+- Followed by `()` to indicate that it's a function.
+- Body surrounded by `{}`.
+
+The parentheses are always written "empty" `()` - you don't actually list your arguments there.
+
+### Arguments
+
+A function gets its arguments using the same variables used for the script parameters: `$@`, `$1`, `$2`, ...
+
+```zsh
+my_func () {
+  echo "$1"
+
+  # default values work just like script defaults
+  echo "${3:-'default'}"
+}
+```
+
+This does mean you can't directly access script arguments from within a function.
+
+### Return
+
+The `return` command doesn't return a specific value back to the caller of your function. It actually sets the value of `$?`. It's the return code for a function.
+
+This allows functions to work just like any other command or script. They can work with streams and logical operators.
+
+So how do you actually return a value to the caller? You put it on the output stream.
+
+```zsh
+my_func () {
+  echo "echo writes a string to the output stream"
+}
+
+output=$(my_func)
+echo "$output"
+# echo writes a string to the output stream
+```
+
+### Global and Local Variables
+
+Variables defined in your script files are global by default. To make a local-only variable inside of your function, use `local`:
+
+```zsh
+GLOBAL_VAR="GLOBAL"
+
+my_func () {
+  local local_var="local"
+
+  echo "$GLOBAL_VAR $local_var"
+}
+```
 
 ---
 

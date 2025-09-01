@@ -273,4 +273,4 @@ Since we specified the leading `:`, `getopt` will resolve to `:` in the case we 
 
 ---
 
-[NEXT >>](./05_functions)
+[NEXT >>](./05_strings)
