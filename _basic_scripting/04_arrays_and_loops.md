@@ -14,13 +14,36 @@ Cover arrays, zsh arrays, loops, and demo how to loop over the array of script v
 
 ## Arrays
 
+Most shells don't have actual "array" data types.
+
+As we covered before, your shell is designed to process "lines of text". If there is a common delimiter between values in a line, like white-space or a comma, then many commands can recognize this as a "table of records".
+
+So if you need an array, just make a 1-row "table" of data with a 1-line string.
+
+```zsh
+myarray="1 2 3 4 5 6 7 8 9 0"
+```
+
+Since " " (space) is the default separator, the shell can loop directly over the elements and you can use special operators to access the elements or manipulate this array data.
+
+TODO:
+- indexing
+- checking length
+- shift
+- append/prepend with string interpolation
+- slicing
+
 ### ZSH Arrays
+
+zsh has actual array type but i just use the bash/string way
 
 ## For Loop
 
-<!-- break, continue -->
+break, continue
 
 ## For ... In
+
+loop over an array
 
 ## While / Until
 
@@ -102,7 +125,7 @@ while [[ "$1" != "" ]]; do
     case "$1" in
         -l)     echo "Supplied -l switch." ;;
         --beep) echo "beep" ;;
-        *)      echo "Usage: $0 [-l] [--beep]"; exit 1 ;;
+        *)      echo "Usage: [-l] [--beep]"; exit 1 ;;
     esac
 
     # shift to next parameter
@@ -123,7 +146,7 @@ while getopts ":lb:" opt; do
     case $opt in
         l)      echo "Supplied -l switch." ;;
         b)      echo "Supplied -b switch with value ${OPTARG}." ;;
-        :)      echo "Invalid option for ${OPTARG}."; exit 1 ;;
+        :)      echo "Missing value for ${OPTARG}."; exit 1 ;;
         *)      echo "Unknown ${opt}."; exit 1 ;;
     esac
 done
