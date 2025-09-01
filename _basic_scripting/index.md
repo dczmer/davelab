@@ -20,8 +20,8 @@ Coming soon!
 
 - [First Steps](./01_first-steps)
 - [Arguments and Variables](./02_arguments_and_variables)
-- [Conditionals and Loops](./03_conditionals_and_loops)
-- arrays and loops
+- [Conditional Logic](./03_conditionals)
+- [Arrays and Loops](./04_arrays_and_loops)
 - functions
 - working with strings:
   * concatenation, expansion, and interpolation

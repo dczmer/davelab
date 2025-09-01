@@ -1,13 +1,13 @@
 ---
-title: (TODO) Conditionals and Loops
+title: Conditional Logic
 lesson: 3
 layout: default
 ---
 
-# Conditionals and Loops
-
 - TC
 {:toc}
+
+# Conditional Logic
 
 ## The "if" Command
 
@@ -165,7 +165,6 @@ esac
 
 If `$x` resolves to "hello", then it will print both messages.
 
-## The "while" Command
+---
 
-{: .todo }
-Describe the use of "while"/"until" and demonstrate how to use it along with "case" to implement a simple menu with validation.
+[NEXT >>](./04_arrays_and_loops)

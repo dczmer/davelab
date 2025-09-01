@@ -4,10 +4,10 @@ lesson: 2
 layout: default
 ---
 
-# Arguments and Variables
-
 - TC
 {:toc}
+
+# Arguments and Variables
 
 ## Variables
 
@@ -76,7 +76,7 @@ The parameters passed to your script are available as sequentially-numbered vari
 Your script doesn't know that "`-x value`" means "option '`x`' with value '`value`'," it only understands each token as a separate positional argument. Keep your script simple, with positional arguments, or else you will need to use something like "`getopts`".
 <br />
 <br />
-"man bash" or "man zshbuiltins" and search for "getopts"
+See [the later section on "getopt"](../basic_scripting/04_arrays_and_loops#getopts) for details.
 
 If you want all of the arguments at once, the `$@` variable will contain them all in an "array" - a string where each value is separated by white-space.
 
@@ -198,4 +198,4 @@ This would echo every line it reads from `STDIN`, and prepend "input: " before e
 
 ---
 
-[NEXT >>](./03_conditionals_and_loops)
+[NEXT >>](./03_conditionals)

@@ -4,10 +4,10 @@ lesson: 1
 layout: default
 ---
 
-# First Steps
-
 - TC
 {:toc}
+
+# First Steps
 
 ## Shellcheck
 
