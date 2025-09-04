@@ -3,16 +3,16 @@ title: About davelab
 ---
 # About davelab
 
-> Using the shell is becoming a lost art. Despite the fact that it is very old interface paradigm, it's still the fastest and most efficient way to work with your operating system.
-<cite>- Me</cite>
-
 I frequently observe other engineers struggling to work from the command line. Often, they have no idea how much they are actually struggling because they've never seen a more efficient setup, or they think that learning to use the shell is unapproachable because it's too difficult and strange.
+
+> Using the shell is becoming a lost art. It's still the fastest and most efficient way to work with your operating system.
+<cite>- Me</cite>
 
 The first inspiration I had was when I overheard some other people complaining that ZSH doesn't share command history across multiple terminals. So I showed them the `SHARE_HISTORY` option, and some other related options, to enable the shared history functionality that they wanted.
 
 So the first idea was just to write a document that outlined my configuration file, line-by-line, while giving just a bit of context and some useful links on each topic. I would share that with junior engineers, or anyone who wanted a guide for configuring their shell.
 
-My configuration file is only about 75 lines long, but explaining what each line does requires a surprising amount of context first. And things that you may want to customize may require learning a different string-formatting scheme. The document stated getting longer, and I needed to break it up into multiple files, to make each file more approachable than one very long document.
+My configuration file is only about 75 lines long, but explaining what each line does requires a surprising amount of context first. And things that you may want to customize may require learning another mini-language. The document stated getting longer, and I needed to break it up into multiple files, to make each file more approachable than one very long document.
 
 As I started breaking the document into files based on topics, I decided to just use the GitHub repository view as the interface for reading this content. It renders Markdown and shows inline images, you can link between Markdown files in the same repository, and you don't need to find separate hosting.
 
@@ -31,6 +31,7 @@ Since I was able to customize everything myself, I wanted some specific features
 3. I wanted to use a "programming" mono-space font, one that has support for extra glyphs and symbols.
 4. I wanted to chase LightHouse scores for a bit as a way to learn more about web performance.
 
+<!--
 Another recent bout of inspiration came when another engineer I know mentioned they were having trouble prototyping something on their work-issued MacBook. They wanted to tutorial and demo something for a proposal, but they needed a specific version of python and certain dependencies. Besides the issue of running the right Python version, they also had an issue where the packages they installed with `pip` were not available when they tried to run their app.
 
 So I wanted to write something about prototyping and "personal projects" - managing various prototypes, examples, and tutorials. This requires talking about dependencies, dependency management systems and techniques, as well as isolation (dependency isolation and system isolation).
@@ -42,3 +43,5 @@ You can learn a lot by doing tutorial after tutorial, but to really learn someth
 And the most recent inspiration was another observation: watching other engineers with very slow development cycles. I'm talking about how much time and effort is required between when you make a change to your code, and when you observe the effects of that change. Debugging your web server, running tests, etc. You should optimize these tasks to be as quick and easy as possible because you do them so frequently throughout the day.
 
 > So the theme of this site is actually "developer productivity" but from my command-line-centric point-of-view.
+
+-->

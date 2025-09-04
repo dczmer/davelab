@@ -1,3 +1,4 @@
+NOTE: disable front-matter to hide this section for now.
 ---
 title: (TODO) Prototyping, Personal Projects, Self-Guided Learning
 layout: default

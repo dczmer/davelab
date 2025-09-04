@@ -46,31 +46,31 @@ collections:
   zsh_configuration:
     layout: default
     output: true
-    sorty_by: lesson
+    sort_by: lesson
     permalink: /:collection/:path
     course: 1
   using_the_shell:
     layout: default
     output: true
-    sorty_by: lesson
+    sort_by: lesson
     permalink: /:collection/:path
     course: 2
   basic_scripting:
     layout: default
     output: true
-    sorty_by: lesson
+    sort_by: lesson
     permalink: /:collection/:path
     course: 3
   tmux:
     layout: default
     output: true
-    sorty_by: lesson
+    sort_by: lesson
     permalink: /:collection/:path
     course: 4
   personal_projects:
     layout: default
-    output: true
-    sorty_by: lesson
+    output: false
+    sort_by: lesson
     permalink: /:collection/:path
     course: 5
   posts:

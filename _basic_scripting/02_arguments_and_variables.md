@@ -184,7 +184,7 @@ So that is the "portable" way to do it. It is a little strange at first, but not
 
 ## Reading from STDIN Like a UNIX Command
 
-Your scripts can also read from `STDIN` using the `read` command. You won't need this very often, and we haven't covered loops yet, so don't worry too much about this one right now.
+Your scripts can also read from `STDIN` using the `read` command. You might not need this very often for simple scripts, and we haven't covered loops yet, so don't worry too much about this one right now.
 
 ```zsh
 #!/usr/bin/zsh

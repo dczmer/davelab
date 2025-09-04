@@ -54,7 +54,7 @@ For this, you need to use a "test operator". Basically, a special command that c
 
 A test operator is written in the form of `[[ ]]` with your condition between the inner brackets.
 
-If you want to compare two numbers, to see if one is greater:
+If you want to compare two numbers, use `-gt` to see if one is greater:
 
 ```zsh
 if [[ $x -gt 0 ]]; then
@@ -85,7 +85,8 @@ echo $?
 ```
 
 {: .note }
-Remember, these boolean conditions are based on the return code of the command. A return code of "0" means there was no error. A non-zero return code means there was an error (or 'failure'). So "true" = 0, and "false" = !0.
+Remember, these boolean conditions are based on the return code of the command. A return code of "0" means there was no error. A non-zero return code means there was an error (or "failure"). So "true" = 0, and "false" = !0.<br /><br />
+It's a confusing point, but it rarely comes up because the boolean operators take care of everything. The only time you see an integer value for the status is when you manually inspect "$?".
 
 To see a list of all test operators, run `man zshall` and search for "CONDITIONAL EXPRESSIONS" to see the list.
 
