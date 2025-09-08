@@ -13,7 +13,7 @@ layout: default
 
 ### The "if" Command
 
-To do a simple "if/else" block on a boolean conditional statement, we use the `if` command. You may be able to tell from the syntax that it _is_ a command and not a built-in "language feature."
+To do a simple "if/else" conditional statement, we use the `if` command. You may be able to tell from the syntax that it _is_ a shell command (actually a sequence of commands).
 
 `if CONDITION; then COMMAND; fi`
 
@@ -29,7 +29,7 @@ if CONDITION; then
 fi
 ```
 
-The "boolean parameter" is actually another command to run, and the return code of that command is the boolean value that is evaluated. If the command ran without error, and returned a code of "0", then the statement is "true" and the `then` block will execute.
+The "CONDITION" is actually another command to run, and the return code of that command is the boolean value that is evaluated. If the command ran without error, and returned a code of "0", then the statement is "true" and the `then` block will execute.
 
 {: .note }
 So the purpose of an `if` statement is to conditionally execute a command based on whether another command succeeds or fails.
@@ -88,7 +88,7 @@ echo $?
 Remember, these boolean conditions are based on the return code of the command. A return code of "0" means there was no error. A non-zero return code means there was an error (or "failure"). So "true" = 0, and "false" = !0.<br /><br />
 It's a confusing point, but it rarely comes up because the boolean operators take care of everything. The only time you see an integer value for the status is when you manually inspect "$?".
 
-To see a list of all test operators, run `man zshall` and search for "CONDITIONAL EXPRESSIONS" to see the list.
+To see a list of all test operators, run `man bash` and search for "CONDITIONAL EXPRESSIONS" to see the list.
 
 Here are a few common ones:
 
@@ -214,14 +214,14 @@ my_func () {
   echo "echo writes a string to the output stream"
 }
 
-output=$(my_func)
+output="$(my_func)"
 echo "$output"
 # echo writes a string to the output stream
 ```
 
 ### Global and Local Variables
 
-Variables defined in your script files are global by default. To make a local-only variable inside of your function, use `local`:
+Variables defined in your script files are global (to the entire script file) by default. To make a local-only variable inside of your function, use `local`:
 
 ```zsh
 GLOBAL_VAR="GLOBAL"

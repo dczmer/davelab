@@ -45,7 +45,7 @@ echo "$array2[0]"
 # a
 
 # negative values count from the end
-echo "$array2[-1]:
+echo "$array2[-1]":
 # e
 
 echo "$associative['key1']"
@@ -59,14 +59,14 @@ echo "${array2[@]}"
 # a b c d e
 ```
 
-Use variable expansion operator `#`, along with the `[@]` subscript, to print the length of an array:
+Use the "length" variable expansion operator `#`, along with the `[@]` subscript, to print the length of an array:
 
 ```zsh
 echo "${#array2[@]}"
 # 5
 ```
 
-You can print the keys with expansion operator `!` and the `[@]` subscript:
+You can print the keys with the "index" expansion operator `!` and the `[@]` subscript:
 
 ```zsh
 echo "${!array2[@]}"
@@ -266,7 +266,7 @@ done
 The string `":lb:"` means:
 
 - Leading `:` - If a required parameter to an argument is not specified, invoke the `:` case.
-- `l` - Specifies a `-l` switch. Combine multiple switches into one string: `lmn` defines `-l`, `-n`, and `m` switches.
+- `l` - Specifies a `-l` switch. Combine multiple switches into one string: `lmn` defines `-l`, `-n`, and `-m` switches.
 - `b:` - Specifies the `-b` switch, with a required argument (indicated by the trailing `:`).
 
 Since we specified the leading `:`, `getopt` will resolve to `:` in the case we receive `-b` without the required parameter. Without the leading `:` it would just print a generic error message and exit.

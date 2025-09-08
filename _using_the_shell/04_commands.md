@@ -3,6 +3,10 @@ title: Useful Commands
 layout: default
 lesson: 4
 ---
+
+{: .note }
+Read through this once, then use it as a reference when you want to combine commands to do something later.
+
 - TC
 {:toc}
 

@@ -49,17 +49,22 @@ If possible, see if you can integrate it with your IDE or editor, so that it aut
 When you work from the command line, on a UNIX-like system, filename extensions don't really matter. You usually pass the name of a file to a command directly, instead of clicking on the file and the OS uses the extension to open the right program.
 
 ```zsh
-# no need for file extension, like '.zsh'
-zsh filename
+# no need for file extension, like '.sh'
+bash filename
 ```
 
 But there is actually a way to make any text file 'executable', by using a special comment on the very first line, that tells the OS what program to run when this file is "executed."
 
+```zsh
+#!/usr/bin/bash
+echo "Script will run with /usr/bin/bash."
+```
+
 You can use the command `which` to find the location of your shell's executable:
 
 ```zsh
-which zsh
-#  /usr/bin/zsh
+which bash
+#  /usr/bin/bash
 ```
 
 To make the file actually "executable," you will need to modify the file and tell the operating system that this is an executable file:
@@ -86,7 +91,7 @@ filename
 
 Add that `export` command to your `~/.zshrc` file to make it permanent. See [ZSH Configuration module](./zsh_configuration) for more info.
 
-You can also make other types of files executable, like `python` or `perl` scripts, for example. Just set the `-x` bit with `chmod` and set the path to the `python` or `perl` executables.
+You can also make other types of files executable, like `python` or `perl` scripts, for example. Just set the `-x` bit with `chmod` and set the shebang path to the `python` or `perl` executables.
 
 
 ## Formatting, White-Space

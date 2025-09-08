@@ -38,7 +38,7 @@ echo $my_var
 #  HELLO THIS IS MY VARIABLE
 
 # `concatenate` two strings just by putting them next to each other.
-echo "MESSAGE: " $my_var
+echo "MESSAGE: "$my_var
 #  MESSAGE: HELLO THIS IS MY VARIABLE
 ```
 
@@ -119,17 +119,23 @@ If you only use absolute file paths, then you would have to prescribe that every
 
 ```zsh
 # absolute path
-wc -l /hard-coded/path/to/project/lib/server.py
+/hard-coded/path/to/project/lib/server.py
 
 # relative path (from top-level directory of the project folder)
-wc -l ./lib/server.py
+./lib/server.py
 ```
 
 So we could write `my_script.sh` to use relative paths, like `./lib` or `./test`.
 
 ```zsh
+#!/usr/bin/bash
+# file: my_script.sh
+find ./lib -name '*.py' | wc -l
+```
+
+```zsh
 # relative paths work well, when we run from the directory containing the script file
-sh ./my_script.sh
+bash ./my_script.sh
 ```
 
 But if we ever try to call the script from a different working directory, then the relative files, like `./lib`, are treated as relative the directory we're running from.
@@ -139,7 +145,7 @@ But if we ever try to call the script from a different working directory, then t
 cd /tmp
 
 # this fails because now it considers `./lib` to mean `/tmp/lib` :(
-sh /path/to/project/my_script.sh
+bash /path/to/project/my_script.sh
 ```
 
 To find the working directory, we need to do a little processing of the shell script arguments. We'll walk through how it works, but you can probably just save this one to your notes or make a snippet to apply it when you need it.

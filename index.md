@@ -29,7 +29,7 @@ Each section will briefly cover the material, then explain how you can try it ou
 
 - [1. ZSH Configuration](./zsh_configuration) - How to configure your `zsh` shell into something that makes it comfortable, visually appealing, and easier to use.
 - [2. Using the Shell](./using_the_shell) - Using the shell effectively for everyday tasks.
-- [(TODO) 3. Basic Scripting](./basic_scripting) - Basic scripting for automating repetitive tasks.
+- [3. Basic Scripting](./basic_scripting) - Basic scripting for automating repetitive tasks.
 - [4. Using tmux](./tmux) - How to use `tmux` to manage multiple terminal sessions effectively.
 
 ---
