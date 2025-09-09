@@ -18,7 +18,7 @@ As I started breaking the document into files based on topics, I decided to just
 
 The next source of inspiration came when I shared a command for someone to run, a simple `find` with `-exec` command, instead of making a one-off Python script. But, since they didn't understand what the command did, they didn't want to run it. And even when I convinced them it was safe, they didn't have `coreutils` (required for the `find` command) on their MacBook system anyway.
 
-So now I want to make this a course on command line productivity instead of just a walk-through of my own ZSH configuration. That requires covering everything from configuring your system, piping, scripting, globbing and expansion. But the important, overarching lesson, is the value of streams and "lines of "text" that can be processed like batches of tabular data. This, combined with piping, is what makes it possible to transform the output of a command to do things like reporting, configuring, or even generating other complex commands to execute.
+So now I want to make this a course on command line productivity instead of just a walk-through of my own ZSH configuration. That requires covering everything from configuring your system, piping, scripting, globbing and expansion. But the important, overarching lesson, is the value of streams and "lines of text" that can be processed like batches of tabular data. This, combined with piping, is what makes it possible to transform the output of a command to do things like reporting, configuring, or even generating other complex commands to execute.
 
 A little later, I heard about GitHub Pages. With the push of a button, it would create a free hosted site and publish all of the Markdown files from the project as a Jekyll static site. Just... I didn't really like the default layout for what I wanted.
 
@@ -26,7 +26,7 @@ So I found out you can create a Jekyll project and build it the way you want, th
 
 Since I was able to customize everything myself, I wanted some specific features:
 
-1. Layout should support mobile and "1/2 screen" view (for working with browser and terminal side-by-side). When the page gets too narrow, the navigation menu should pop-up into a vertical bar on the header.
+1. Layout should support mobile and "1/2 screen" view (for working with browser and terminal side-by-side). When the page gets too narrow, the navigation menu should pop-up into a horizontal bar on the header.
 2. There is no need for JavaScript here, even where it might be a little convenient in some places. So this site is strictly no-script.
 3. I wanted to use a "programming" mono-space font, one that has support for extra glyphs and symbols.
 4. I wanted to chase LightHouse scores for a bit as a way to learn more about web performance.

@@ -28,9 +28,8 @@ brew install coreutils
 - [Arguments and Variables](./02_arguments_and_variables)
 - [Functions and Conditional Logic](./03_conditionals)
 - [Arrays and Loops](./04_arrays_and_loops)
-- [Strings](./05_strings)
-- [Arithmetic](./06_arithmetic)
-- [Lab: Basic Scripting](./07_lab1)
+- [Strings and Arithmetic](./05_strings)
+- [Lab: Basic Scripting](./06_lab1)
 
 ---
 
