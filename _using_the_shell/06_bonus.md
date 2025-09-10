@@ -3,9 +3,18 @@
 --lesson: 99
 --layout: default
 -----
-# fzf and ripgrep
 
-A BONUS lesson! You win!
+# ripgrep, silverserver, fd
+
+# bat
+
+# jq
+
+# pass
+
+# task
+
+# fzf and ripgrep
 
 You can pipe any output into `fzf` and it will allow you to do a fuzzy search across all the lines in the input stream.
 

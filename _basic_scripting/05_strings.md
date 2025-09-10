@@ -1,5 +1,5 @@
 ---
-title: (TODO) Strings and Arithmetic
+title: Strings and Arithmetic
 lesson: 5
 layout: default
 ---
@@ -112,7 +112,7 @@ echo "${PATH//bin/beep}"
 #  /beep:/usr/beep:/usr/share/beep:/home/dave/beep
 ```
 
-Delete a substring is very similar, just omit the "PATTERN" part:
+Delete a substring is very similar, just omit the "REPLACE" part:
 
 ```zsh
 echo "${PATH/\/bin}"
@@ -123,20 +123,89 @@ echo "${PATH//\/bin}"
 
 # Arithmetic
 
-## Integer Arithmetic Using "expr"
-
-{: .todo }
-Coming soon.
+You can do simple integer math with `bash` but, when you need floating-point math, you will need to use another program or write your script with another programming language, like `perl` or `python`, for example.
 
 ## Integer Arithmetic Using "$(( ... ))"
 
-{: .todo }
-Coming soon.
+The built-in arithmetic operations provided by `bash` require use of the `$(( ... ))` operator. Statements inside of these double-parentheses are treated as arithmetic statements, and do not follow the normal expansion and globbing rules.
+
+```zsh
+five="$((1 + 6 - 1))"
+echo "$five"
+#  5
+```
+
+Inside of the parentheses, a "`*`" character means "multiplication" and it is not treated as a glob operator, so it requires no extra escaping or quoting:
+
+```zsh
+two="2"
+five=5
+echo "$(($two * $five))"
+#  10
+```
+
+The following built-in operations are available:
+
+- (`-`) Subtraction
+- (`+`) Addition
+- (`*`) Multiplication
+- (`/`) Integer division
+- (`%`) Modulus
+- (`**`) Exponents
+
+You ca also use this operator in an `if` statement, where you don't need the "`$`":
+
+```zsh
+if ((1 + 2 > 1)); then echo 'true'; fi
+#  true
+```
+
+## Integer Arithmetic Using "expr"
+
+You can also do simple math (and logical evaluation) with the `expr` command:
+
+```zsh
+echo "$(expr 2 '*' 5)"
+#  10
+```
+
+{: .note }
+You have to quote (with single-quotes) or escape the "*" with this command.
+The "expr" command is just a normal command, which means that it's arguments are subject to expansion and globbing.
+
+You can do the following (and more) operations using `expr`:
+
+- (`-`) Subtraction
+- (`+`) Addition
+- (`*`) Multiplication
+- (`/`) Integer division
+- (`%`) Modulus
+- Comparison 'tests': `<`, `>=`, `!=`, ...
+- Logical operators: `&`, `|`, ...
+
+See `man expr` to see everything you can do.
 
 ## Using "bc"
 
-{: .todo }
-Coming soon.
+The `bc` command is one way you can do floating-point math (and a lot of other math things) in your shell commands.
+
+It's more like an interpreter for a scientific math language. Luckily, you don't have to learn a new language to use it. You can just write a simple math statement in a string and evaluate it with `bc -l` (`-l` uses the standard math library).
+
+```zsh
+echo "123 * 345" | bc -l
+#  42435
+
+echo "5 / 4" | bc -l
+#  1.25000000000000000000
+```
+
+If you want to control the precision of your output, you have to set the global `scale` variable.
+
+```zsh
+# custom precision
+echo "scale=3; 5 / 4" | bc -l
+#  1.250
+```
 
 ---
 
