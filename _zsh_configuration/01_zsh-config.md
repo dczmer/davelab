@@ -135,10 +135,6 @@ Try printing the contents of your current `PATH` variable:
 echo $PATH
 ```
 
-{: .note }
-`zsh` allows you to manage variables like `PATH` as actual array types. The included [zshrc-example](./zshrc-example.zsh) file uses this to set the path:
-`export path=($path ~/bin)`
-
 ## Aliases
 
 Use aliases to simplify entering long or repetitive tasks.
@@ -201,7 +197,7 @@ For example, you may need something like this:
 <ctrl+v><Home>
 # ^[[1~
 
-<ctrl+v<End>
+<ctrl+v><End>
 # ^[[4~
 ```
 
@@ -300,9 +296,9 @@ bindkey "^z" edit-command-line
 ```
 
 {: .note }
-I personally use `vi` mode, so I don't have a good suggestion for a default `emacs` binding. I suggested `ctrl+z` because it's an easy shortcut that doesn't conflict with any other default mappings for this mode.
+I personally use `vi` mode, so I don't have a good suggestion for a default `emacs` binding. I suggested "`ctrl+z`" because it's an easy shortcut that doesn't conflict with any other default mappings for this mode.
 
-I have this mapped to `ctrl+e` in `vi` insert mode:
+I have this mapped to `ctrl+e` in `vi` insert mode (`ctrl+e` is already mapped to `end-of-line` in `emacs` mode):
 
 ```zsh
 # bind ctrl+e to start the line editor.
@@ -345,10 +341,11 @@ You should manage your `zshrc` configuration as a `git` repository. This will al
 2. Copy your custom `zshrc` file, or the provided [zshrc-example.zsh](./zshrc-example.zsh), to that repository and call it `zshrc.zsh`.
 3. If you have additional source files/modules, put them in the same directory.
 4. Add all the files to the repository and make an initial commit.
-5. Delete the existing `.zshrc` file, if it exists (maybe make a backup).
+5. Delete the existing `~/.zshrc` file, if it exists (maybe make a backup).
 6. Now you can make a symbolic link to point `~/.zshrc` to your `zshrc.zsh` file.
 
 ```zsh
+# "link" my zshrc.zsh file to ~/.zshrc
 cd ~
 ln -s ~/src/my-zshrc/zshrc.zsh .zshrc
 ```

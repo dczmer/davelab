@@ -5,6 +5,8 @@ lesson: 0
 ---
 # Basic Scripting
 
+## Overview
+
 Whenever you find yourself running the same sequence of commands repeatedly, you should make a shell script. It will save time and keystrokes, run the same way every time, is easy to copy and share, and you can add parameters and logic.
 
 Anything you can do at the command line, you can put in a script. That means pretty much everything can be automated.
@@ -23,6 +25,8 @@ Many of the commands and programs used in this chapter are from the `coreutils` 
 ```zsh
 brew install coreutils
 ```
+
+## Contents
 
 - [First Steps](./01_first-steps)
 - [Arguments and Variables](./02_arguments_and_variables)

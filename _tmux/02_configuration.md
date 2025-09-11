@@ -22,7 +22,7 @@ Start by `sourcing` the [Example tmux.conf](./tmux.conf) into your current sessi
 {: .note }
 This config changes the `prefix` to `C-a`. Keep that in mind as you continue so you can translate any examples to the correct sequence.
 
-The first customization I always make is to re-bind the `prefix` key. By default, it's `C-b` (`Ctrl+b`). That's kind of awkward to type, and feels like it's probably bad for your wrist (on a US QWERTY keyboard).
+The first customization I always make is to re-bind the `prefix` key. By default, it's `C-b` (`Ctrl+b`).
 
 You may like to re-bind the `prefix` to something like `C-a` or even "\`" (backtick).
 
@@ -134,8 +134,6 @@ There are a few alternatives to `tmux` that are worth mentioning:
 - `gnu-screen` (`screen`) is an older terminal multiplexer. It has fewer features, and doesn't support splitting screens into multiple `panes`, but you can have multiple `windows` and you can detach and re-attach to sessions. It's frequently found on development servers, where you connect remotely via `ssh`. If you work from within `screen`, then you can resume your session if the network connection is cut-off, or allow other users to join your session and pair.
 - [`zellij`](https://github.com/zellij-org/zellij) is a newer, rust-based "workspace manager" that has many of the same features as `tmux`. I've never used it, but it seems to be quite popular.
 - [`ghostty`](https://ghostty.org/) is a brand new terminal emulator that also allows you to make splits and `windows`, but no support for `sessions` (yet).
-
-I prefer to use a terminal emulator that doesn't have splits or windows, like [kitty](https://sw.kovidgoyal.net/kitty/), and use that with `tmux` for layout management.
 
 ## References:
 

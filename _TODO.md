@@ -1,7 +1,7 @@
 TODO:
 
-- finish content already laid out:
-  * combine strings+arithmetic, move to 3
+- mention fish at the beginning, if they don't want to configure anything. but suggest they still read through.
+- some interactivity in Basic Scripting
 - section for newer command line tools and alternatives:
   * fzf, rg/ag, fd, bat
   * move jq section here
@@ -11,7 +11,7 @@ TODO:
   * provides a test bed and foundation to build the labs on
 - `cheet sheets`, labs, and resources/links at the end of every module
 - i feel like it needs some silly pictures of cats and some humor...
-- follow the entire course on a fresh vm with zsh
+- follow/"test" the entire course on a fresh vm with zsh
 
 
 Updates:
@@ -36,7 +36,7 @@ Project/site:
 
 ---
 
-I've decided the next (last?) major module will be about:
+Idea for future section or another project:
 
 > Prototyping, Personal Projects, and Self-Guided Learning
 

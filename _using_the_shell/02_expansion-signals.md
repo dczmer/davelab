@@ -63,7 +63,7 @@ Another very useful globbing/expansion pattern is `{}`:
 ```zsh
 # open three files at once, from a directory location i don't
 # want to type out every time:
-vim /very/long/path/to/my/project/{fileA,fileB,fileC}.py -O3
+vim /very/long/path/to/my/project/file{A,B,C}.py -O3
 ```
 
 The argument `/very/log/path/to/my/project/{fileA,fileB,fileC}.py` _expands_ to:

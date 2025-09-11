@@ -88,7 +88,7 @@ The other way to exit is to run the `detach` command. Try detaching from your se
 Now close and quit out of your terminal emulator window and open a fresh one, and try the following commands:
 
 1. `tmux ls` to list the active sessions.
-2. `tmux attach` to attach to the session we started earlier.
+2. `tmux attach-session` to attach to the session we started earlier.
 
 You can have multiple sessions for different tasks/projects and switch between them. You can also run `tmux` on a server or shared host, where you can have multiple people connected to the same `session` from different clients, and everyone can see the same things and interact at the same time. This is a good way to do pair programming from the command line with a remote team.
 
@@ -109,10 +109,10 @@ Now create a couple of split `panes` on one of the `windows` and we'll resize th
 
 1. Create a couple of splits with `C-b "` and `C-b %`.
 2. Move to the top-left pane with `C-b ←` and `C-b ↑`.
-3. Resize the current `pane` vertically with `C-b Alt-↓` and/or `C-b Alt-↑`.
-    1. TIP: After you hit `C-b Alt-↓` the first time, hold `alt` and press `↓` repeatedly.
+3. Resize the current `pane` vertically with `C-b Alt+↓` and/or `C-b Alt+↑`.
+    1. TIP: After you hit `C-b Alt+↓` the first time, hold `alt` and press `↓` repeatedly.
     2. You only have a second between key presses before it will exit command mode and you have to start again.
-4. Resize horizontally with `C-b Alt-→` and `C-b Alt-←`.
+4. Resize horizontally with `C-b Alt+→` and `C-b Alt+←`.
 
 ### Zoom
 

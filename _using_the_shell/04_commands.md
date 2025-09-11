@@ -134,6 +134,9 @@ When you want to read and search through the output stream, you can pipe it to `
 
 ```zsh
 cat README.md | less
+
+# since we're just reading a plain file, this makes more sense
+less README.md
 ```
 
 ## head/tail - I Want to See Just The First/Last Few Lines
@@ -170,7 +173,7 @@ Case-insensitive search through all files under the current directory for `TODO`
 - `-i` makes the search case-insensitive.
 - `-R` means recursively search everything under the target.
 
-You can also use grep to filter output from a stream:
+You can also use `grep` to filter output from a stream:
 
 ```zsh
 cat README.md | grep -E '^## '
@@ -299,6 +302,7 @@ You can use `cut` to print selected bytes, characters, or 'fields' from a line.
 
 ```zsh
 echo "1 2 3 4" | cut -d' ' -f3
+#  3
 ```
 
 This would print the third 'field' of the input records, where ' ' (space) is the field separator (delimiter). This would print `3`.
@@ -351,6 +355,7 @@ Another use for `xargs` is to quickly strip leading/trailing white-space from a 
 
 ```zsh
 echo '      hi     ' | xargs
+# hi
 ```
 
 ## curl - I Want to Make an HTTP Request
@@ -392,7 +397,7 @@ curl -b "sessionid=1234" https://localhost/authorized
 
 `awk` is a programming language, but we'll cover just the basics of how I most often use it.
 
-The "program" is supplied as a string argument `'{ ... }'`. The commands in this block will be executed on every line of the input stream.
+The "program" is supplied as a string argument with braces on each end `'{ ... }'`. The commands in this block will be executed on every line of the input stream.
 
 You can print the value from a specific column by using one of the numerical index variables:
 
@@ -427,7 +432,7 @@ echo "Apple 10 1.2\nOrange 13 1.9" | awk '/Apple/ { printf "%s=$%.2f\n", $1, $2 
 
 ### Basics
 
-You pretty-format `JSON` data:
+You can use `jq` to "pretty-format" `JSON` data:
 
 ```zsh
 echo '{"a": 1, "b": [2, 3]}' | jq

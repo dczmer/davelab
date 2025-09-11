@@ -13,9 +13,6 @@ layout: default
 
 Arrays aren't really a standard shell feature, but most modern shells have some implementation. Bash arrays are probably the most appropriate implementation to cover here, because `zsh` fully supports it and because you will probably want/need to write scripts for servers or development machines that have `bash`.
 
-{: .note }
-We're intentionally using "bash" array syntax here, not "zsh" arrays. They work differently but "zsh" supports both systems.
-
 ### Declaring an Array
 
 There are two ways to declare an array:
@@ -31,7 +28,7 @@ array2=(a b c d e)
 You can also create an associative array (or dictionary/map):
 
 ```zsh
-declare -A associative
+declare -A associative1
 
 associative2=(["key"]="value")
 ```
@@ -244,7 +241,7 @@ while [[ "$1" != "" ]]; do
 done
 ```
 
-If you need arguments, things get a little more complicated. You need to `shift` again to get the parameter for the selected argument. But if there are no arguments left, then `shift` will raise an error.
+If you need argument values for your parameters, things get a little more complicated. You need to `shift` again to get the value for the selected parameter. But if there are no arguments left, then `shift` will raise an error.
 
 At this point, it's probably better to just use `getopts`.
 
@@ -265,8 +262,8 @@ done
 
 The string `":lb:"` means:
 
-- Leading `:` - If a required parameter to an argument is not specified, invoke the `:` case.
-- `l` - Specifies a `-l` switch. Combine multiple switches into one string: `lmn` defines `-l`, `-n`, and `-m` switches.
+- Leading `:` - If a required parameter to an argument is not specified, invoke the `:` case, instead of printing an error.
+- `l` - Specifies a `-l` switch. Combine multiple switches into one string: `lmn` defines `-l`, `-m`, and `-n` switches.
 - `b:` - Specifies the `-b` switch, with a required argument (indicated by the trailing `:`).
 
 Since we specified the leading `:`, `getopt` will resolve to `:` in the case we receive `-b` without the required parameter. Without the leading `:` it would just print a generic error message and exit.

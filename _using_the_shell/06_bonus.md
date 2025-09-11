@@ -4,7 +4,11 @@
 --layout: default
 -----
 
-# ripgrep, silverserver, fd
+# ripgrep
+
+# silverserver
+
+# fd
 
 # bat
 
@@ -14,7 +18,7 @@
 
 # task
 
-# fzf and ripgrep
+# fzf
 
 You can pipe any output into `fzf` and it will allow you to do a fuzzy search across all the lines in the input stream.
 

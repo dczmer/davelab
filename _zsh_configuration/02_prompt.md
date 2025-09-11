@@ -124,7 +124,7 @@ Try running `man zshmisc` from the prompt and then searching (with `/`) for `EXP
 
 The traditional way of defining styles and colors in the terminal is to use [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-So if you wanted to print "HELLO" in <span style="color: #39ba5a">green</span>, bold text, with underline, you'd write something like:
+So if you wanted to print "HELLO" in <span style="color: #50fa7b">green</span>, **bold text**, <ins>with underline</ins>, you'd write something like:
 
 ```zsh
 echo "\033[32;1;4mHELLO\033[0m"

@@ -163,7 +163,7 @@ This is still `$0`, the name of the current script, but we're applying an expans
 - `$0` is still the (relative) path of the current script file.
 - `${VAR}` syntax allows you to do operations on the variable, like perform variable expansion or provide default values. `$0` and `${0}` are the same thing.
 - `:a` is a special modifier that says to treat `$0` as a relative path name, and replace it with it's absolute path.
-- And we always wrap the value in double-quotes, so it does not break on white-space characters. `shellcheck` will make sure you remember this.
+- And we always wrap the value in double-quotes, so it does not break on white-space characters. [Using `shellcheck`](./01_first-steps#shellcheck) will make sure you remember this.
 
 ### The "Portable" Way
 

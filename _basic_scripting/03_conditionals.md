@@ -54,6 +54,9 @@ For this, you need to use a "test operator". Basically, a special command that c
 
 A test operator is written in the form of `[[ ]]` with your condition between the inner brackets.
 
+{: .note }
+You may see other examples using single-brackets "[ ]". The double-brackets are an extension added by bash that add more functionality over the standard single-bracket syntax. Always use the double-brackets.
+
 If you want to compare two numbers, use `-gt` to see if one is greater:
 
 ```zsh
@@ -136,7 +139,7 @@ The resulting value from the `case` command will be checked against each pattern
 - `""` Matches an empty string.
 - `*` Matches anything. Put this at the very end to be the "default" clause.
 
-The `;;` at the end is important. It signals the end of the section that handles one match. It also signals the `case` statement to stop scanning for additional matches.
+The `;;` at the end is important. It signals the end of the section that handles one match. It also signals the `case` statement to stop scanning for additional matches (it does not "fall-through").
 
 If you need to write multiple commands in one match section, use `;` or `|`, etc. to separate commands:
 
@@ -166,7 +169,7 @@ case "$x" in
 esac
 ```
 
-If `$x` resolves to "hello", then it will print both messages.
+If `$x` resolves to "hello", then it will print both messages. If it resolves to any other value that starts with "s", it will only print the first message.
 
 ## Functions
 

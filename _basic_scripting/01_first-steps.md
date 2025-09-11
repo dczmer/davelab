@@ -164,14 +164,14 @@ echo $MY_VARIABLE
 
 Shell scripts are made of a sequence of shell commands. What happens when one command in the script fails? Do you expect the script to stop, or to keep on going?
 
-If a command in the middle of your script fails, the error will be printed to STDERR, but the script will just keep on running from the next command. But you can change this behavior using `-e`.
+If a command in the middle of your script fails, the error will be printed to `STDERR`, but the script will just keep on running from the next command. But you can change this behavior using `set -e`.
 
 When you need to debug your shell script, it's useful to be able to see exactly what commands are running, so you can trace and verify execution.
 
-- `-e` will cause the script to immediately `exit` with a failing return code whenever a command in the script has an error, instead of just printing the error and continuing on with the script.
-- `-x` will print each command before it runs. This will be the command _after_ any and all expansion operations are performed. So this is useful for debugging, not only as a trace log of what commands run, but because it shows you the results of commands you have constructed using expansion or globs.
+- `set -e` will cause the script to immediately `exit` with a failing return code whenever a command in the script has an error, instead of just printing the error and continuing on with the script.
+- `set -x` will print each command before it runs. This will be the command _after_ any and all expansion operations are performed. So this is useful for debugging, not only as a trace log of what commands run, but because it shows you the results of commands you have constructed using expansion or globs.
 
-For both of these options, you can disable them again with `+OPTION` (`+e` / `+x`). This means you can selectively turn them off and on at different portions of the script.
+For both of these options, you can disable them again with `set +OPTION` (`set +e` / `set +x`). This means you can selectively turn them off and on at different portions of the script.
 
 ```zsh
 # turn on `-x` to show debug trace

@@ -89,7 +89,7 @@ find . -name '*.txt' && echo "FOUND TEXT FILES"
 
 If any text file were found under the current directory, then print the text "FOUND TEXT FILES". If no matches were found, then the second command will not be executed.
 
-You can also use `||` to "or" two commands together: run the second command if the first command _fails_:
+You can also use `||` to "or" two commands together - run the second command if the first command _fails_:
 
 ```zsh
 find . -name '*.txt' || echo "NO TEXT FILES!"
@@ -100,7 +100,7 @@ Similar to the previous example, this would print "NO TEXT FILES!" if the `find`
 {: .note }
 These conditions are based on the exit code of the previous command. If a command succeeds, then it returns an exit code of 0, to mean no errors. If the command fails, then it returns a non-zero value to indicate the error.
 <br><br>
-This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical `&&` and `||` operators hide the details and you can just focus on the high-level logic.
+This means that TRUE=0 and FALSE=(not 0). This is important to keep in mind, but it won't affect you when you are simply combining two commands because the logical "`&&`" and "`||`" operators hide the details and you can just focus on the high-level logic.
 
 ## Reverse-Incremental Search
 
@@ -160,7 +160,7 @@ A sequence of 5 commands, which you can repeat over and over without changing th
 
 After you finish running the sequence, and you want to repeat it, just hit the "up" arrow (`↑`) 5 times to retrieve the command for step one.
 
-Once you run that command, it will now be at the bottom of your history list, which means that now step two is 5 commands back in your history. Press `↑` five more times and run it. Repeat until you've completed the sequence, hitting `↑` 5 times each time to run the next command.
+Once you run that command, it will now be at the bottom of your history list, which means that now step two is 5 commands back in your history. Press `↑` five more times and run it. Repeat until you've completed the sequence, hitting `↑` 5 times each time to run the next command. At this point, your original first command will be back at history position 5 and you can repeat the cycle.
 
 This is convenient, and I do it all the time, but it may not be ideal:
 
