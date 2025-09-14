@@ -36,6 +36,23 @@ Project/site:
 
 ---
 
+Idea for another section:
+
+> Configuring your editor or IDE
+
+I have seen multiple engineers using copilot to auto-complete when they don't even have their ide setup for help or auto-completion yet.
+
+- dependencies, libraries, paths (finding code and using the right executables)
+- lsps, tags, linters, auto-complete
+- auto-formatting
+- fuzzy searching, grepping, etc
+- important short-cuts and automation (jump to location, show help, run test under cursor)
+
+I would use vim (from the command line) to cover this, but make clear i don't expect you to switch to vim.
+but this does allow you to work with the low-level bits that make up your IDE and
+
+---
+
 Idea for future section or another project:
 
 > Prototyping, Personal Projects, and Self-Guided Learning
