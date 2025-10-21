@@ -17,6 +17,10 @@ The icon characters used in some of the example format-strings require you to in
 See <a href="https://www.nerdfonts.com/#home">Nerd Fonts</a> for details.
 </p>
 <p>
+If you are on Mac, you should be able to install these fonts via `homebrew`:
+</p>
+<p>brew install font-hack-nerd-font</p>
+<p>
 You can <a href="https://www.programmingfonts.org/#hack">view the different available fonts here</a>.
 </p>
 <p>
@@ -27,9 +31,6 @@ I like the monospace <a href="https://www.programmingfonts.org/#hack">Hack</a> f
 </p>
 <p>
 If you do not want to install a new font, you can either omit the lines with broken fonts, or you can replace them with ASCII characters or unicode glyphs supported by your current font.
-</p>
-<p>
-If you are on Mac, you should be able to install these fonts via `homebrew`.
 </p>
 </section>
 
